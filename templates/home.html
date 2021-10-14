@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Handsome</title>
+    <link rel="stylesheet" href='/static/style.css' />
+</head>
+
+<body>
+    <div id='toptext'>
+{#        <marquee behavior="alternate">#}
+        <marquee direction="up" scrolldelay="60" scrollamount="3">
+            <p>
+                DJ Handsome <a href="https://www.instagram.com/kr_______________">K</a>rish <br>
+                Elsewhere <a href="https://www.instagram.com/elsewherebrewing">B</a>rewing <br>
+                10/16/2021 <br>
+            </p>
+        </marquee>
+{#        </marquee>#}
+    </div>
+
+    <div id="video_text">
+        <video id='video' width="auto" height="auto" autoplay muted loop>
+            <source src="{{url_for('static', filename=video)}}" type="video/mp4">
+            Your machine is not able to load this content, but that's ok.
+    {#         TODO: add a lil surprise just for them- cookie#}
+        Come to my dj set.
+        </video>
+
+        <div id="sidetext">
+            {% for filt in filters %}
+                <p>{{ filt[0] }} by <a href="https://instagram.com/{{ filt[1] }}">{{ filt[1] }}</a> </p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id='bottomtext'>
+{#        TODO: get around auto play by presenting user with button that disappears when clicked?#}
+        <marquee>
+            <iframe id='player' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1071257377&color=%23090000&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/skrrtcord" title="SKRRTCORD" target="_blank" style="color: #cccccc; text-decoration: none;">SKRRTCORD</a> · <a href="https://soundcloud.com/skrrtcord/love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone" title="LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)" target="_blank" style="color: #cccccc; text-decoration: none;">LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)</a></div>
+        </marquee>
+        <button onclick="togglePlayerVis()">toggle player</button>
+    </div>
+
+    <script>
+        function togglePlayerVis() {
+          let iframe = document.getElementById("player");
+          if (iframe.style.display === 'none'){
+              iframe.style.display = 'block';
+          }
+          else{
+            iframe.style.display = 'none';
+          }
+        }
+    </script>
+
+</body>
+</html>

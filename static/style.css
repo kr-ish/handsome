@@ -1,0 +1,78 @@
+html {
+  margin:0;
+  height:100%;
+}
+body {
+    margin:0;
+    height:100%;
+    background: black;
+    color: white;
+}
+
+/*#video_text{*/
+/*    position: relative;*/
+/*}*/
+
+#video {
+    float: left;
+}
+
+.container { position:relative; }
+#container video {
+    position:absolute;
+    z-index:0;
+    float: left;
+}
+#toptext {
+    position:absolute;
+    float:left;
+    top:666px;
+    left:666px;
+    /*height: 666px;*/
+    /*min-height: 100%;*/
+    color: #FF73B8FF;
+    /*color: #eee;*/
+    /*text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;*/
+    /*text-shadow: 0 0 3px #FF73B8FF;*/
+    /*text-shadow: 2px 2px #ff0000;*/
+    /*text-shadow: 2px 2px 4px #ff73b8;*/
+    /*background-color:#000;*/
+    z-index:1;
+    font-size: 69px;
+    /*line-break: anywhere;*/
+    /*word-break: normal;*/
+    /*overflow: hidden;*/
+    /*white-space: nowrap;*/
+    /*text-overflow: ellipsis;*/
+    /*font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
+    /*font-weight: 100;*/
+}
+#toptext a:link {
+    color: #eee
+}
+#toptext a:visited {
+    color: #eee
+}
+#toptext a:hover {
+    color: #FF73B8FF
+}
+#player {
+    position:absolute;
+    top:40px;
+    left:90%;
+}
+#bottomtext button{
+    position: absolute;
+    top:170px;
+    left:90%;
+}
+/*#bottomtext {*/
+/*    float: left;*/
+/*    !*position: absolute;*!*/
+/*    !*left:666px;*!*/
+/*}*/
+#sidetext {
+    /*position: absolute;*/
+    float: left;
+    /*margin:0 10px 10px 0;*/
+}
