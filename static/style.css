@@ -71,12 +71,13 @@ body {
 }
 #player {
     position:absolute;
-    top:40px;
+    /*float: left;*/
+    top:5%;
     left:90%;
 }
 #bottomtext button{
     position: absolute;
-    top:170px;
+    top:20%;
     left:90%;
     z-index: 3;
 }
