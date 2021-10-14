@@ -6,6 +6,13 @@
     <title>Handsome</title>
     <link rel="stylesheet" href='/static/style.css' />
 
+    {#    Favicon#}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+
     <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
 </head>
 
@@ -43,13 +50,45 @@
         </div>
     </div>
 
+    <div id="sampler">
+{#        <p>Sampler</p>#}
+        <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
+        <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
+        <audio id="sound3" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
+        <audio id="sound4" src="{{url_for('static', filename='esha_elsewhere.mp3')}}" preload="auto"></audio>
+        <audio id="sound5" src="{{url_for('static', filename='mishti_elsewhere.mp3')}}" preload="auto"></audio>
+        <audio id="sound6" src="{{url_for('static', filename='jq_elsewhere.mp3')}}" preload="auto"></audio>
+        <audio id="sound7" src="{{url_for('static', filename='krishonthemusic-sat-150.mp3')}}" preload="auto"></audio>
+        <audio id="sound8" src="{{url_for('static', filename='tag-weedpill.mp3')}}" preload="auto"></audio>
+        <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
+        <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
+        <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
+        <button onclick="document.getElementById('sound4').play();"><span>4</span></button>
+        <button onclick="document.getElementById('sound5').play();"><span>5</span></button>
+        <button onclick="document.getElementById('sound6').play();"><span>6</span></button>
+        <button onclick="document.getElementById('sound7').play();"><span>7</span></button>
+        <button onclick="document.getElementById('sound8').play();"><span>8</span></button>
+    </div>
     <div id='bottomtext'>
         <marquee>
             <iframe id='player' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1071257377&color=%23090000&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/skrrtcord" title="SKRRTCORD" target="_blank" style="color: #cccccc; text-decoration: none;">SKRRTCORD</a> · <a href="https://soundcloud.com/skrrtcord/love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone" title="LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)" target="_blank" style="color: #cccccc; text-decoration: none;">LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)</a></div>
         </marquee>
-        <button onclick="togglePlayerVis()">toggle player</button>
+        <button onclick="togglePlayerVis()"><span>toggle player</span></button>
     </div>
     </div>
+
+    <script>
+        let colors = ['#008aff', '#86d472', '#0000ff', '#ff4d00', '#eaff00', '#77ff00', '#00ffb3', '#bb00ff', '#ff00d4'];
+        let buttons = document.getElementById('sampler').getElementsByTagName("button")
+        for(let b in buttons) {
+            if (buttons.hasOwnProperty(b)){
+                let color1 = colors[Math.floor(Math.random() * colors.length)];
+                let color2 = colors[Math.floor(Math.random() * colors.length)];
+                console.log(`${b} ${color1} ${color2}`)
+                buttons[b].style.backgroundImage = `linear-gradient(135deg, ${color1}, ${color2})`;
+            }
+        }
+    </script>
 
     <script>
         function togglePlayerVis() {
