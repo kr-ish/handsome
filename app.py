@@ -19,7 +19,7 @@ FILTERS_MAP = {
 
 
 @app.route('/')
-def home():  # put application's code here
+def home():
     video_path = random.choice(VIDEO_PATHS)
     video_name = os.path.basename(video_path)
     filters = []
