@@ -5,9 +5,18 @@
     <meta charset="UTF-8">
     <title>Handsome</title>
     <link rel="stylesheet" href='/static/style.css' />
+
+    <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
 </head>
 
 <body>
+    {#  Use a false login page that's just a button that shows all the elements on the page to fake soundcloud
+    autoplay. Autoplay is generally disabled unless the user interacts with the page.#}
+    <div id="false_login">
+        <button onclick="enter()">Who is that man?</button>
+    </div>
+
+    <div id="real_content">
     <div id='toptext'>
 {#        <marquee behavior="alternate">#}
         <marquee direction="up" scrolldelay="60" scrollamount="3">
@@ -42,6 +51,7 @@
         </marquee>
         <button onclick="togglePlayerVis()">toggle player</button>
     </div>
+    </div>
 
     <script>
         function togglePlayerVis() {
@@ -55,5 +65,26 @@
         }
     </script>
 
+    <script type="text/javascript">
+        (function(){
+            let content = document.getElementById("real_content");
+            content.style.display = 'none';
+      }());
+    </script>
+    <script type="text/javascript">
+        function enter(){
+            let content = document.getElementById("real_content");
+            content.style.display = 'block';
+            let login = document.getElementById("false_login");
+            login.style.display = 'none';
+
+            var widgetIframe = document.getElementById('player'),
+            widget = SC.Widget(widgetIframe);
+            widget.bind(SC.Widget.Events.READY, function() {
+                widget.play();
+            });
+
+      }
+    </script>
 </body>
 </html>
