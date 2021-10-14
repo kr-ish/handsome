@@ -18,6 +18,10 @@ FILTERS_MAP = {
 # TODO: add list of song urls
 
 
+# @app.route('/')
+# def login():
+#     return render_template('letmein.html')
+
 @app.route('/')
 def home():
     video_path = random.choice(VIDEO_PATHS)
