@@ -78,13 +78,15 @@
     </div>
 
     <script>
-        let colors = ['#008aff', '#86d472', '#0000ff', '#ffbecd'];
-        {#getElementsByTagName("button")#}
+        let colors = ['#008aff', '#86d472', '#0000ff', '#ff4d00', '#eaff00', '#77ff00', '#00ffb3', '#bb00ff', '#ff00d4'];
         let buttons = document.getElementById('sampler').getElementsByTagName("button")
-        for(let b = 0; b < buttons.length; b++) {
-            let color1 = colors[Math.floor(Math.random() * colors.length)];
-            let color2 = colors[Math.floor(Math.random() * colors.length)];
-            buttons[b].style.backgroundImage = `"linear-gradient(135deg, ${color1}, ${color2})"`;
+        for(let b in buttons) {
+            if (buttons.hasOwnProperty(b)){
+                let color1 = colors[Math.floor(Math.random() * colors.length)];
+                let color2 = colors[Math.floor(Math.random() * colors.length)];
+                console.log(`${b} ${color1} ${color2}`)
+                buttons[b].style.backgroundImage = `linear-gradient(135deg, ${color1}, ${color2})`;
+            }
         }
     </script>
 
