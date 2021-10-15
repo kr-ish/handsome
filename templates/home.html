@@ -51,8 +51,8 @@
         </div>
     </div>
     <div id="players">
-        <iframe id='player1' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1071257377&color=%23090000&auto_play=true&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
-        <iframe id='player2' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/915067819&color=%232c2c2e&auto_play=false&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+        <iframe id='player1' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track1[0] }}&color=%23090000&auto_play=true&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+        <iframe id='player2' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track2[0] }}&color=%232c2c2e&auto_play=false&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
     </div>
 
     <div id="sampler">
@@ -75,17 +75,23 @@
         <button onclick="document.getElementById('sound7').play();"><span>7</span></button>
         <button onclick="document.getElementById('sound8').play();"><span>8</span></button>
     </div>
-    <div id='bottomtext'>
-        <marquee>
-            <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/skrrtcord" title="SKRRTCORD" target="_blank" style="color: #cccccc; text-decoration: none;">SKRRTCORD</a> · <a href="https://soundcloud.com/skrrtcord/love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone" title="LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)" target="_blank" style="color: #cccccc; text-decoration: none;">LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)</a></div>
-        </marquee>
-        <marquee direction="right">
-            <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/sglily" title="@sglilyy" target="_blank" style="color: #cccccc; text-decoration: none;">@sglilyy</a> · <a href="https://soundcloud.com/sglily/let-me-go" title="Let Me Go (+ Kidtrash)" target="_blank" style="color: #cccccc; text-decoration: none;">Let Me Go (+ Kidtrash)</a></div>
-        </marquee>
-    </div>
     <div id="bigbutton">
         <button onclick="toggleBig()"><span>BIG if true</span></button>
     </div>
+
+    <div id='bottomtext'>
+        <marquee scrollamount="4">
+            <p>
+                <a href="https://soundcloud.com/{{ track1[1] }}" title="{{ track1[2] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track1[2] }}</a> · <a href="https://soundcloud.com/{{ track1[1] }}/{{ track1[3] }}" title="{{ track1[4] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track1[4] }}</a>
+            </p>
+        </marquee>
+        <marquee scrollamount="3">
+            <p>
+                <a href="https://soundcloud.com/{{ track2[1] }}" title="{{ track2[2] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track2[2] }}</a> · <a href="https://soundcloud.com/{{ track2[1] }}/{{ track2[3] }}" title="{{ track2[4] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track2[4] }}</a>
+            </p>
+        </marquee>
+    </div>
+
     </div>
 
     <script>
