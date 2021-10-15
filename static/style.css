@@ -82,7 +82,7 @@ body {
 /*#bottomtext {*/
 /*    z-index: 5;*/
 /*}*/
-#bottomtext button {
+#bigbutton button {
     position: absolute;
     top:20%;
     left:90%;
@@ -119,7 +119,7 @@ body {
     cursor: pointer;
 }
 
-#bottomtext button > span {
+#bigbutton button > span {
     display: block;
     padding: 10px 20px;
     font-size: 17px;
@@ -127,7 +127,7 @@ body {
     border-radius: 30px;
 }
 
-#bottomtext button:hover > span {
+#bigbutton button:hover > span {
     background: transparent;
 }
 
