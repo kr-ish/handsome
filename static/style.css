@@ -72,13 +72,13 @@ body {
 #toptext a:hover {
     color: #FF73B8FF
 }
-#players {
-    position:absolute;
-    /*float: left;*/
-    top: 20%;
-    left: 50%;
-    z-index: 4;
-}
+/*#players {*/
+/*    !*position:absolute;*!*/
+/*    !*float: left;*!*/
+/*    !*top: 20%;*!*/
+/*    !*left: 50%;*!*/
+/*    !*z-index: 4;*!*/
+/*}*/
 
 #bottomtext {
     /*position: absolute;*/
@@ -159,7 +159,7 @@ body {
     /*margin:0 10px 10px 0;*/
 }
 
-#sampler {
+#deck {
     /*float: bottom;*/
     position: absolute;
     top: 33%;
@@ -167,10 +167,10 @@ body {
     width: 20em;
     z-index: 5;
     margin: 2em;
-    cursor: url('real_point_cursor.png'), auto;
+    /*cursor: url('real_point_cursor.png'), auto;*/
 }
 
-#sampler .slider {
+#deck .slider {
     -webkit-appearance: none;
     width: 100%;
     height: 25px;
@@ -182,11 +182,11 @@ body {
     cursor: url('real_point_cursor.png'), auto;
 }
 
-#sampler .slider:hover {
+#deck .slider:hover {
   opacity: 1;
 }
 
-#sampler .slider::-webkit-slider-thumb {
+#deck .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
@@ -196,14 +196,14 @@ body {
     cursor: pointer;
 }
 
-#sampler .slider::-moz-range-thumb {
+#deck .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
     /*background: #04AA6D;*/
     background: url('/static/crossfader.jpg');
 }
 
-#sampler button {
+#deck button {
     background-image: linear-gradient(135deg, #008aff, #86d472);
     border-radius: 6px;
     box-sizing: border-box;
@@ -220,11 +220,11 @@ body {
     cursor: url('real_point_cursor.png'), auto;
 }
 
-#sampler button:hover {
+#deck button:hover {
     color: #fff;
 }
 
-#sampler button > span {
+#deck button > span {
     align-items: center;
     background: #0e0e10;
     border-radius: 6px;
@@ -235,7 +235,11 @@ body {
     width: 100%;
 }
 
-#sampler button:hover > span {
+#deck button:hover > span {
     /*background: #0e0e10;*/
     background: transparent;
+}
+
+#sampler {
+        cursor: url('real_point_cursor.png'), auto;
 }

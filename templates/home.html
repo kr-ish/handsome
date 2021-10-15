@@ -50,30 +50,32 @@
             {% endfor %}
         </div>
     </div>
-    <div id="players">
-        <iframe id='player1' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track1[0] }}&color=%23090000&auto_play=true&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
-        <iframe id='player2' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track2[0] }}&color=%232c2c2e&auto_play=false&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
-    </div>
+    <div id="deck">
+        <div id="players">
+            <iframe id='player1' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track1[0] }}&color=%23090000&auto_play=true&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+            <iframe id='player2' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track2[0] }}&color=%232c2c2e&auto_play=false&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+        </div>
 
-    <div id="sampler">
-        <input id="crossfader" type="range" min="0" max="100" value="50" defaultvalue="50" class="slider" oninput="crossFade(this.value)">
+        <div id = "sampler">
+            <input id="crossfader" type="range" min="0" max="100" value="50" defaultvalue="50" class="slider" oninput="crossFade(this.value)">
 
-        <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
-        <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
-        <audio id="sound3" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
-        <audio id="sound4" src="{{url_for('static', filename='esha_elsewhere.mp3')}}" preload="auto"></audio>
-        <audio id="sound5" src="{{url_for('static', filename='mishti_elsewhere.mp3')}}" preload="auto"></audio>
-        <audio id="sound6" src="{{url_for('static', filename='jq_elsewhere.mp3')}}" preload="auto"></audio>
-        <audio id="sound7" src="{{url_for('static', filename='krishonthemusic-sat-150.mp3')}}" preload="auto"></audio>
-        <audio id="sound8" src="{{url_for('static', filename='tag-weedpill.mp3')}}" preload="auto"></audio>
-        <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
-        <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
-        <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
-        <button onclick="document.getElementById('sound4').play();"><span>4</span></button>
-        <button onclick="document.getElementById('sound5').play();"><span>5</span></button>
-        <button onclick="document.getElementById('sound6').play();"><span>6</span></button>
-        <button onclick="document.getElementById('sound7').play();"><span>7</span></button>
-        <button onclick="document.getElementById('sound8').play();"><span>8</span></button>
+            <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
+            <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
+            <audio id="sound3" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
+            <audio id="sound4" src="{{url_for('static', filename='esha_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound5" src="{{url_for('static', filename='mishti_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound6" src="{{url_for('static', filename='jq_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound7" src="{{url_for('static', filename='krishonthemusic-sat-150.mp3')}}" preload="auto"></audio>
+            <audio id="sound8" src="{{url_for('static', filename='tag-weedpill.mp3')}}" preload="auto"></audio>
+            <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
+            <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
+            <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
+            <button onclick="document.getElementById('sound4').play();"><span>4</span></button>
+            <button onclick="document.getElementById('sound5').play();"><span>5</span></button>
+            <button onclick="document.getElementById('sound6').play();"><span>6</span></button>
+            <button onclick="document.getElementById('sound7').play();"><span>7</span></button>
+            <button onclick="document.getElementById('sound8').play();"><span>8</span></button>
+        </div>
     </div>
     <div id="bigbutton">
         <button onclick="toggleBig()"><span>BIG if true</span></button>
@@ -100,7 +102,7 @@
 
     <script>
         let colors = ['#008aff', '#86d472', '#0000ff', '#ff4d00', '#eaff00', '#77ff00', '#00ffb3', '#bb00ff', '#ff00d4'];
-        let buttons = document.getElementById('sampler').getElementsByTagName("button")
+        let buttons = document.getElementById('deck').getElementsByTagName("button")
         for(let b in buttons) {
             if (buttons.hasOwnProperty(b)){
                 let color1 = colors[Math.floor(Math.random() * colors.length)];
