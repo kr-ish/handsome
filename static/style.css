@@ -7,6 +7,7 @@ body {
     height:100%;
     background: black;
     color: white;
+    /*cursor: url('crash_cursor1.png'), auto;*/
 }
 
 #false_login {
@@ -24,6 +25,8 @@ body {
 
 #video {
     float: left;
+    width: auto;
+    height: auto;
 }
 
 .container { position:relative; }
@@ -69,19 +72,41 @@ body {
 #toptext a:hover {
     color: #FF73B8FF
 }
-#player {
+#players {
     position:absolute;
     /*float: left;*/
-    top:5%;
-    left:90%;
+    top: 20%;
+    left: 50%;
+    z-index: 4;
 }
 
-/*#bottomtext {*/
-/*    z-index: 5;*/
-/*}*/
-#bottomtext button {
+#bottomtext {
+    /*position: absolute;*/
+    /*top:90%;*/
+    float: bottom;
+    z-index: 6;
+    font-size: 10px;
+    color: #cccccc;
+    /*line-break: anywhere;*/
+    /*word-break: normal;*/
+    /*overflow: hidden;*/
+    /*white-space: nowrap;*/
+    /*text-overflow: ellipsis;*/
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;"
+}
+
+#respawn {
     position: absolute;
-    top:20%;
+    top: 10%;
+    left: 80%;
+    z-index: 7;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+}
+
+#bigbutton button {
+    position: absolute;
+    top:70%;
     left:90%;
 
     padding: 2px;
@@ -116,7 +141,7 @@ body {
     cursor: pointer;
 }
 
-#bottomtext button > span {
+#bigbutton button > span {
     display: block;
     padding: 10px 20px;
     font-size: 17px;
@@ -124,7 +149,7 @@ body {
     border-radius: 30px;
 }
 
-#bottomtext button:hover > span {
+#bigbutton button:hover > span {
     background: transparent;
 }
 
@@ -137,11 +162,45 @@ body {
 #sampler {
     /*float: bottom;*/
     position: absolute;
-    top: 30%;
+    top: 33%;
     left: 50%;
     width: 20em;
-    z-index: 4;
+    z-index: 5;
     margin: 2em;
+    cursor: url('real_point_cursor.png'), auto;
+}
+
+#sampler .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    /*background: #d3d3d3;*/
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: url('real_point_cursor.png'), auto;
+}
+
+#sampler .slider:hover {
+  opacity: 1;
+}
+
+#sampler .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    /*background: #04AA6D;*/
+    background: url('/static/crossfader.jpg');
+    cursor: pointer;
+}
+
+#sampler .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    /*background: #04AA6D;*/
+    background: url('/static/crossfader.jpg');
 }
 
 #sampler button {
@@ -158,6 +217,7 @@ body {
     text-decoration: none;
     width: 7em;
     z-index: 2;
+    cursor: url('real_point_cursor.png'), auto;
 }
 
 #sampler button:hover {

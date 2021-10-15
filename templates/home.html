@@ -36,7 +36,7 @@
     </div>
 
     <div id="video_text">
-        <video id='video' width="auto" height="auto" autoplay muted playsinline loop>
+        <video id='video' autoplay muted playsinline loop>
             <source src="{{url_for('static', filename=video)}}" type="video/mp4">
             Your machine is not able to load this content, but that's ok.
     {#         TODO: add a lil surprise just for them- cookie#}
@@ -44,14 +44,20 @@
         </video>
 
         <div id="sidetext">
+            <p>📷 <a href="https://instagram.com/sav__phillips">sav__phillips</a></p>
             {% for filt in filters %}
                 <p>{{ filt[0] }} by <a href="https://instagram.com/{{ filt[1] }}">{{ filt[1] }}</a> </p>
             {% endfor %}
         </div>
     </div>
+    <div id="players">
+        <iframe id='player1' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track1[0] }}&color=%23090000&auto_play=true&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+        <iframe id='player2' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track2[0] }}&color=%232c2c2e&auto_play=false&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+    </div>
 
     <div id="sampler">
-{#        <p>Sampler</p>#}
+        <input id="crossfader" type="range" min="0" max="100" value="50" defaultvalue="50" class="slider" oninput="crossFade(this.value)">
+
         <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
         <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
         <audio id="sound3" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
@@ -69,12 +75,27 @@
         <button onclick="document.getElementById('sound7').play();"><span>7</span></button>
         <button onclick="document.getElementById('sound8').play();"><span>8</span></button>
     </div>
-    <div id='bottomtext'>
-        <marquee>
-            <iframe id='player' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1071257377&color=%23090000&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/skrrtcord" title="SKRRTCORD" target="_blank" style="color: #cccccc; text-decoration: none;">SKRRTCORD</a> · <a href="https://soundcloud.com/skrrtcord/love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone" title="LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)" target="_blank" style="color: #cccccc; text-decoration: none;">LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)</a></div>
-        </marquee>
-        <button onclick="togglePlayerVis()"><span>toggle player</span></button>
+    <div id="bigbutton">
+        <button onclick="toggleBig()"><span>BIG if true</span></button>
     </div>
+
+    <div id="respawn">
+        Press <a href="{{ url_for('home') }}"><img alt="B" src="{{ url_for('static', filename='xbox_x_button.png') }}"></a> to respawn
+    </div>
+
+    <div id='bottomtext'>
+        <marquee scrollamount="4">
+            <p>
+                <a href="https://soundcloud.com/{{ track1[1] }}" title="{{ track1[2] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track1[2] }}</a> · <a href="https://soundcloud.com/{{ track1[1] }}/{{ track1[3] }}" title="{{ track1[4] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track1[4] }}</a>
+            </p>
+        </marquee>
+        <marquee scrollamount="3">
+            <p>
+                <a href="https://soundcloud.com/{{ track2[1] }}" title="{{ track2[2] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track2[2] }}</a> · <a href="https://soundcloud.com/{{ track2[1] }}/{{ track2[3] }}" title="{{ track2[4] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track2[4] }}</a>
+            </p>
+        </marquee>
+    </div>
+
     </div>
 
     <script>
@@ -91,13 +112,29 @@
     </script>
 
     <script>
-        function togglePlayerVis() {
-          let iframe = document.getElementById("player");
-          if (iframe.style.display === 'none'){
-              iframe.style.display = 'block';
+        function crossFade(value){
+            let player1Val = 100 - value;
+            let widgetIframe = document.getElementById('player1'),
+            widget = SC.Widget(widgetIframe);
+            widget.setVolume(player1Val);
+
+            let player2Val = value;
+            widgetIframe = document.getElementById('player2'),
+            widget = SC.Widget(widgetIframe);
+            widget.setVolume(player2Val);
+
+        }
+
+        function toggleBig() {
+          let vid = document.getElementById("video");
+          console.log(vid.style.height)
+          if (!vid.style.height || vid.style.height === "auto"){
+              vid.style.height = "100%";
+              vid.style.width = "100%";
           }
           else{
-            iframe.style.display = 'none';
+            vid.style.height = "auto";
+            vid.style.width = "auto";
           }
         }
     </script>
@@ -115,12 +152,11 @@
             let login = document.getElementById("false_login");
             login.style.display = 'none';
 
-            var widgetIframe = document.getElementById('player'),
-            widget = SC.Widget(widgetIframe);
-            widget.bind(SC.Widget.Events.READY, function() {
-                widget.play();
+            let widgetIframe = document.getElementById('player1'),
+            widget1 = SC.Widget(widgetIframe);
+            widget1.bind(SC.Widget.Events.READY, function() {
+                widget1.play();
             });
-
       }
     </script>
 </body>
