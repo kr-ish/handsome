@@ -79,9 +79,22 @@ body {
     z-index: 4;
 }
 
-/*#bottomtext {*/
-/*    z-index: 5;*/
-/*}*/
+#bottomtext {
+    /*position: absolute;*/
+    /*top:90%;*/
+    float: bottom;
+    z-index: 6;
+    font-size: 10px;
+    color: #cccccc;
+    /*line-break: anywhere;*/
+    /*word-break: normal;*/
+    /*overflow: hidden;*/
+    /*white-space: nowrap;*/
+    /*text-overflow: ellipsis;*/
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;"
+}
+
 #bigbutton button {
     position: absolute;
     top:20%;
