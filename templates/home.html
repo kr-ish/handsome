@@ -52,7 +52,8 @@
     </div>
 
     <div id="sampler">
-{#        <p>Sampler</p>#}
+        <input type="range" min="1" max="100" value="1" class="slider" id="crossfader">
+
         <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
         <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
         <audio id="sound3" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
