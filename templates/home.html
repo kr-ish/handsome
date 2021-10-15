@@ -50,6 +50,10 @@
             {% endfor %}
         </div>
     </div>
+    <div id="players">
+        <iframe id='player1' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1071257377&color=%23090000&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+        <iframe id='player2' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/915067819&color=%232c2c2e&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+    </div>
 
     <div id="sampler">
         <input type="range" min="1" max="100" value="1" class="slider" id="crossfader">
@@ -73,7 +77,10 @@
     </div>
     <div id='bottomtext'>
         <marquee>
-            <iframe id='player' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1071257377&color=%23090000&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/skrrtcord" title="SKRRTCORD" target="_blank" style="color: #cccccc; text-decoration: none;">SKRRTCORD</a> · <a href="https://soundcloud.com/skrrtcord/love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone" title="LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)" target="_blank" style="color: #cccccc; text-decoration: none;">LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)</a></div>
+            <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/skrrtcord" title="SKRRTCORD" target="_blank" style="color: #cccccc; text-decoration: none;">SKRRTCORD</a> · <a href="https://soundcloud.com/skrrtcord/love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone" title="LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)" target="_blank" style="color: #cccccc; text-decoration: none;">LOVE (FEAT. SPHERE MERCHANTS, KØ &amp; ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ &amp; ZHONE)</a></div>
+        </marquee>
+        <marquee direction="right">
+            <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/sglily" title="@sglilyy" target="_blank" style="color: #cccccc; text-decoration: none;">@sglilyy</a> · <a href="https://soundcloud.com/sglily/let-me-go" title="Let Me Go (+ Kidtrash)" target="_blank" style="color: #cccccc; text-decoration: none;">Let Me Go (+ Kidtrash)</a></div>
         </marquee>
         <button onclick="toggleBig()"><span>BIG if true</span></button>
     </div>
@@ -120,12 +127,15 @@
             let login = document.getElementById("false_login");
             login.style.display = 'none';
 
-            var widgetIframe = document.getElementById('player'),
-            widget = SC.Widget(widgetIframe);
-            widget.bind(SC.Widget.Events.READY, function() {
-                widget.play();
+            let widgetIframe = document.getElementById('player1'),
+            widget1 = SC.Widget(widgetIframe);
+            {#widget1.single_active = false;#}
+            widget1.bind(SC.Widget.Events.READY, function() {
+                widget1.play();
             });
-
+            {#widgetIframe = document.getElementById('player2'),#}
+            {#widget2 = SC.Widget(widgetIframe);#}
+            {#widget2.single_active = false;#}
       }
     </script>
 </body>

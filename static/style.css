@@ -71,11 +71,12 @@ body {
 #toptext a:hover {
     color: #FF73B8FF
 }
-#player {
+#players {
     position:absolute;
     /*float: left;*/
-    top:5%;
-    left:90%;
+    top: 20%;
+    left: 50%;
+    z-index: 4;
 }
 
 /*#bottomtext {*/
@@ -139,10 +140,10 @@ body {
 #sampler {
     /*float: bottom;*/
     position: absolute;
-    top: 30%;
+    top: 33%;
     left: 50%;
     width: 20em;
-    z-index: 4;
+    z-index: 5;
     margin: 2em;
 }
 
