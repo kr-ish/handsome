@@ -105,7 +105,6 @@
             if (buttons.hasOwnProperty(b)){
                 let color1 = colors[Math.floor(Math.random() * colors.length)];
                 let color2 = colors[Math.floor(Math.random() * colors.length)];
-                console.log(`${b} ${color1} ${color2}`)
                 buttons[b].style.backgroundImage = `linear-gradient(135deg, ${color1}, ${color2})`;
             }
         }
@@ -127,7 +126,6 @@
 
         function toggleBig() {
           let vid = document.getElementById("video");
-          console.log(vid.style.height)
           if (!vid.style.height || vid.style.height === "auto"){
               vid.style.height = "100%";
               vid.style.width = "100%";
