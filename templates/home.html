@@ -56,7 +56,7 @@
     </div>
 
     <div id="sampler">
-        <input type="range" min="1" max="100" value="1" class="slider" id="crossfader">
+        <input id="crossfader" type="range" min="0" max="100" value="50" defaultvalue="50" class="slider" oninput="crossFade(this.value)">
 
         <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
         <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
@@ -102,6 +102,19 @@
     </script>
 
     <script>
+        function crossFade(value){
+            let player1Val = 100 - value;
+            let widgetIframe = document.getElementById('player1'),
+            widget = SC.Widget(widgetIframe);
+            widget.setVolume(player1Val);
+
+            let player2Val = value;
+            widgetIframe = document.getElementById('player2'),
+            widget = SC.Widget(widgetIframe);
+            widget.setVolume(player2Val);
+
+        }
+
         function toggleBig() {
           let vid = document.getElementById("video");
           console.log(vid.style.height)
