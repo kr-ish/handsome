@@ -24,6 +24,8 @@ body {
 
 #video {
     float: left;
+    width: auto;
+    height: auto;
 }
 
 .container { position:relative; }
