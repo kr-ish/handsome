@@ -95,6 +95,14 @@ body {
     font-weight: 100;"
 }
 
+#respawn {
+    position: absolute;
+    top: 60%;
+    left: 80%;
+    z-index: 7;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+}
+
 #bigbutton button {
     position: absolute;
     top:70%;
