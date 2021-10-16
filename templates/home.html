@@ -36,6 +36,12 @@
     </div>
 
     <div id="video_text">
+        {% if safari%}
+        <div id="safari_warning">
+            <h2>Video might not load on Safari :((  Try Chrome or Firefox or another internet browser</h2>
+            <h3>For the best experience, open on a non Safari browser on your computer ! </h3>
+        </div>
+        {% endif %}
         <video id='video' autoplay muted playsinline loop>
             <source src="{{url_for('static', filename=video)}}" type="video/mp4">
             Your machine is not able to load this content, but that's ok.

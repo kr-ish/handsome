@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import os
 import glob
 import random
@@ -128,6 +128,11 @@ TRAX = [
 
 @app.route('/')
 def home():
+    safari = False
+    user_agent = request.headers.get('User-Agent')
+    if 'Chrome' not in user_agent and 'Safari' in user_agent:
+        safari = True
+
     video_path = random.choice(VIDEO_PATHS)
     video_name = os.path.basename(video_path)
     filters = []
@@ -146,7 +151,14 @@ def home():
     track1 = trax.pop(random.randrange(len(trax)))
     track2 = trax.pop(random.randrange(len(trax)))
 
-    return render_template('home.html', video=video_name, filters=filters, track1=track1, track2=track2)
+    return render_template(
+        'home.html',
+        video=video_name,
+        filters=filters,
+        track1=track1,
+        track2=track2,
+        safari=safari
+    )
 
 
 if __name__ == '__main__':
