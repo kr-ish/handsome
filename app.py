@@ -157,7 +157,7 @@ def home():
         filters=filters,
         track1=track1,
         track2=track2,
-        safari=True
+        safari=safari
     )
 
 
