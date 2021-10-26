@@ -14,6 +14,19 @@ FILTERS_MAP = {
     '90stethic': ('𝟡𝟘𝕤𝕥𝕖𝕥𝕙𝕚𝕔', 'demiandrou'),
     'colorfilm': ('カラーフィルム - Color Film', 'bma_japan'),
     'muybridge': ('Muybridge', 'argitendo'),
+    'blvckpvris': ('BLVCK PVRI$', 'demiandrou'),
+    'inlightning': ('Lightning', 'instagram'),
+    'chromaticpulse': ('Chromatic Pulse', 'instagram'),
+    'lightning': ('lightning', 'demiandrou'),
+    'vhsstlye': ('V H S Style', 'demiandrou'),
+    'camcorder': ('𝕔𝕒𝕞𝕔𝕠𝕣𝕕𝕖𝕣', 'demiandrou'),
+    'ledsthetic': ('𝕝𝕖𝕕𝕤𝕥𝕙𝕖𝕥𝕚𝕔', 'demiandrou'),
+    'discoglam': ('𝕕𝕚𝕤𝕔𝕠 𝕘𝕝𝕒𝕞♕', 'demiandrou'),
+    'cyberblue': ('cyberblue', 'demiandrou'),
+    'allyouneed': ('all you need', 'justinwlaurent'),
+    'mixedpersonalities': ('Mixed Personalities', 'justinwlaurent'),
+    'technicolor': ('Technicolor', 'liamo.studio'),
+    'flowerpower': ('Flower Power', 'chrispelk'),
 }
 
 # TODO: dynamically load from playlist using soundcloud api
