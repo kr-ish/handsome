@@ -44,7 +44,7 @@ body {
     width: 50%;
     height: 90%;
     /*min-height: 100%;*/
-    color: #eb6123;
+    /*color: #eb6123;*/
     /*color: #eee;*/
     /*text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;*/
     /*text-shadow: 0 0 3px #FF73B8FF;*/
@@ -58,20 +58,25 @@ body {
     /*overflow: hidden;*/
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
-    /*font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
+    font-family: creepster,cursive;
     /*font-weight: 100;*/
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: flickering;
+    animation-timing-function: step-start;
+    color: #b00f0f
 }
 #toptext marquee {
     height: 100%
 }
 #toptext a:link {
-    color: #eee
+    color: #b00f0f
 }
 #toptext a:visited {
-    color: #eee
+    color: #b00f0f
 }
 #toptext a:hover {
-    color: #347211
+    color: #eee
 }
 /*#players {*/
 /*    !*position:absolute;*!*/
@@ -93,8 +98,8 @@ body {
     /*overflow: hidden;*/
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
-    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;"
+    font-family: 'UnifrakturCook', cursive;
+    font-weight: 100;
 }
 
 #respawn {
@@ -102,7 +107,7 @@ body {
     top: 10%;
     left: 80%;
     z-index: 7;
-    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-family: nosifer,sans-serif;
 }
 
 #bigbutton button {
@@ -158,6 +163,7 @@ body {
     /*position: absolute;*/
     float: left;
     /*margin:0 10px 10px 0;*/
+    /*font-family: butcherman, cursive;*/
 }
 
 #deck {
@@ -243,4 +249,122 @@ body {
 
 #sampler {
         cursor: url('real_point_cursor.png'), auto;
+}
+
+@keyframes flickering {
+  0% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  5% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  10% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(-15deg);
+  }
+  15% {
+    color: #ccc;
+    text-shadow: none;
+    transform: skewX(-15deg);
+  }
+  20% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  25% {
+    color: #ccc;
+    text-shadow: 2px 2px #b00f0f;
+    transform: skewX(0);
+  }
+  30% {
+    color: #ccc;
+    text-shadow: 2px 2px #b00f0f;
+    transform: skewX(0);
+  }
+  35% {
+    color: #ccc;
+    text-shadow: 2px 2px #b00f0f;
+    transform: skewX(0);
+  }
+  37% {
+    color: #ccc;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  40% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  45% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  50% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  55% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  60% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  65% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  68% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  70% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  75% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(10deg);
+  }
+  80% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(10deg);
+  }
+  85% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(10deg);
+  }
+  90% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  95% {
+    color: #b00f0f;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  100% {
+    color: #b00f0f;
+    text-shadow: none;
+    transform: skewX(0);
+  }
 }
