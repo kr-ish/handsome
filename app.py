@@ -55,13 +55,13 @@ TRAX = [
         "brianx-018/pissy-pamper",  # track
         "Pissy pamper",  # track title
     ),
-    (
-        "1046985679",  # track id
-        "bigboihefner",  # artist
-        "Bigboi Hefner",  # artist title
-        "playboi-carti-rip-mike-dean-intro-prod-bigboi-hefner-ig-bigboi_hefner",  # track
-        "playboi carti - rip + mike dean intro prod. bigboi hefner",  # track title
-    ),
+    # (  # track was deleted
+    #     "1046985679",  # track id
+    #     "bigboihefner",  # artist
+    #     "Bigboi Hefner",  # artist title
+    #     "playboi-carti-rip-mike-dean-intro-prod-bigboi-hefner-ig-bigboi_hefner",  # track
+    #     "playboi carti - rip + mike dean intro prod. bigboi hefner",  # track title
+    # ),
     (
         "1122427504",  # track id
         "shigecki",  # artist
