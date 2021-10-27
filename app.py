@@ -23,6 +23,8 @@ FILTERS_MAP = {
     'technicolor': ('Technicolor', 'liamo.studio'),
     'flowerpower': ('Flower Power', 'chrispelk'),
     'watery': ('Watery', 'alwayscodingsomething'),
+    '<3u': ('<3 U', 'justinwlaurent'),
+    'wind': ('Wind', 'justinwlaurent'),
 }
 
 # TODO: dynamically load from playlist using soundcloud api
