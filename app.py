@@ -146,10 +146,13 @@ def home():
 
     video_path = random.choice(VIDEO_PATHS)
     video_name = os.path.basename(video_path)
+    video_tags = os.path.splitext(video_name)[0].split('_')
+    image_credit = video_tags[0]
+    filter_keys = video_tags[1:]
     filters = []
 
     # get filters used by video by parsing filter keys from video name
-    for filter_key in os.path.splitext(video_name)[0].split('_'):
+    for filter_key in filter_keys:
         filter = FILTERS_MAP.get(filter_key)
         if not filter:
             app.logger.warning(f'Filter key {filter_key} not found from video path {video_path}, skipping..')
@@ -165,6 +168,7 @@ def home():
     return render_template(
         'home.html',
         video=video_name,
+        image_credit=image_credit,
         filters=filters,
         track1=track1,
         track2=track2,

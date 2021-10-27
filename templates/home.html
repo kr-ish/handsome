@@ -50,7 +50,7 @@
         </video>
 
         <div id="sidetext">
-            <p>📷 <a href="https://instagram.com/sav__phillips">sav__phillips</a></p>
+            <p>📷 <a href="https://instagram.com/{{ image_credit }}">{{ image_credit }}</a></p>
             {% for filt in filters %}
                 <p>{{ filt[0] }} by <a href="https://instagram.com/{{ filt[1] }}">{{ filt[1] }}</a> </p>
             {% endfor %}
