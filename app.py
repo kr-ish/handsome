@@ -8,12 +8,7 @@ app = Flask(__name__)
 VIDEO_PATHS = glob.glob('./static/*.mp4')
 FILTERS_MAP = {
     'breakdown': ('Breakdown', 'justinwlaurent'),
-    'chromaticvortex': ('Chromatic Vortex', 'sergiooturano'),
-    'radialblur': ('Radial Blur', 'iamcraiglewis2'),
-    'takeaway': ('TAKEAWAY', 'liamo.studio'),
     '90stethic': ('𝟡𝟘𝕤𝕥𝕖𝕥𝕙𝕚𝕔', 'demiandrou'),
-    'colorfilm': ('カラーフィルム - Color Film', 'bma_japan'),
-    'muybridge': ('Muybridge', 'argitendo'),
     'blvckpvris': ('BLVCK PVRI$', 'demiandrou'),
     'inlightning': ('Lightning', 'instagram'),
     'chromaticpulse': ('Chromatic Pulse', 'instagram'),
@@ -27,6 +22,7 @@ FILTERS_MAP = {
     'mixedpersonalities': ('Mixed Personalities', 'justinwlaurent'),
     'technicolor': ('Technicolor', 'liamo.studio'),
     'flowerpower': ('Flower Power', 'chrispelk'),
+    'watery': ('Watery', 'alwayscodingsomething'),
 }
 
 # TODO: dynamically load from playlist using soundcloud api
