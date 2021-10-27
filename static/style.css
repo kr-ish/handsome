@@ -43,7 +43,7 @@ body {
     width: 50%;
     height: 90%;
     /*min-height: 100%;*/
-    color: #FF73B8FF;
+    color: #eb6123;
     /*color: #eee;*/
     /*text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;*/
     /*text-shadow: 0 0 3px #FF73B8FF;*/
@@ -70,7 +70,7 @@ body {
     color: #eee
 }
 #toptext a:hover {
-    color: #FF73B8FF
+    color: #347211
 }
 /*#players {*/
 /*    !*position:absolute;*!*/
