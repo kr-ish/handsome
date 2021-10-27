@@ -123,23 +123,23 @@ body {
         linear,
         left top,
         right top,
-        from(#fdde5c),
-        color-stop(#f8ab5e),
-        color-stop(#f56a62),
-        color-stop(#a176c8),
-        color-stop(#759beb),
-        color-stop(#65beb3),
-        to(#70db96)
+        from(#b00f0f),
+        color-stop(#f85e5e),
+        color-stop(#ff1300),
+        color-stop(#c87676),
+        color-stop(#eb7575),
+        color-stop(#be6565),
+        to(#c21111)
     );
     background: linear-gradient(
         to right,
-        #fdde5c,
-        #f8ab5e,
-        #f56a62,
-        #a176c8,
-        #759beb,
-        #65beb3,
-        #70db96
+        #b00f0f,
+        #f85e5e,
+        #ff1300,
+        #c87676,
+        #eb7575,
+        #be6565,
+        #c21111
     );
     border-radius: 30px;
     border: 0;
@@ -211,7 +211,7 @@ body {
 }
 
 #deck button {
-    background-image: linear-gradient(135deg, #008aff, #86d472);
+    background-image: linear-gradient(135deg, #b00f0f, #ff1300);
     border-radius: 6px;
     box-sizing: border-box;
     color: #ffffff;
