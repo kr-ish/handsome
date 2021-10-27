@@ -63,7 +63,7 @@
         </div>
 
         <div id = "sampler">
-            <input id="crossfader" type="range" min="0" max="100" value="50" defaultvalue="50" class="slider" oninput="crossFade(this.value)">
+            <input id="crossfader" type="range" min="-100" max="100" value="0" defaultvalue="0" class="slider" oninput="crossFade(this.value)">
 
             <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
             <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
@@ -120,13 +120,19 @@
 
     <script>
         function crossFade(value){
-            let player1Val = 100 - value;
-            let widgetIframe = document.getElementById('player1'),
-            widget = SC.Widget(widgetIframe);
+            {# player 1 vol should be 0 when the slider is all the way to the right (100),           #}
+            {# 100 when it is in the center (0), and stay at 100 at any point left of the center.    #}
+            let fadeVal = Math.max(0, value);
+            let player1Val = 100 - fadeVal;
+            let widgetIframe = document.getElementById('player1');
+            let widget = SC.Widget(widgetIframe);
             widget.setVolume(player1Val);
 
-            let player2Val = value;
-            widgetIframe = document.getElementById('player2'),
+            {# player 2 vol should be 0 when the slider is all the way to the left (-100),           #}
+            {# 100 when it is in the center (0), and stay at 100 at any point right of the center.   #}
+            fadeVal = Math.min(0, value);
+            let player2Val = 100 + fadeVal; // use + here since a negative value is being added
+            widgetIframe = document.getElementById('player2');
             widget = SC.Widget(widgetIframe);
             widget.setVolume(player2Val);
 
