@@ -33,81 +33,11 @@ FILTERS_MAP = {
 # TODO: replace with namedtuple
 TRAX = [
     (
-        "1071257377",  # track id
-        "skrrtcord",  # artist
-        "SKRRTCORD",  # artist title
-        "love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone",  # track
-        "LOVE (FEAT. SPHERE MERCHANTS, KØ & ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ & ZHONE)"  # track title
-    ),
-    (
-        "915067819",  # track id
-        "sglily",  # artist
-        "@sglilyy",  # artist title
-        "let-me-go",  # track
-        "Let Me Go (+ Kidtrash)",  # track title
-    ),
-    (
-        "1028860690",  # track id
-        "brianx-018",  # artist
-        "BrianX",  # artist title
-        "brianx-018/pissy-pamper",  # track
-        "Pissy pamper",  # track title
-    ),
-    # (  # track was deleted
-    #     "1046985679",  # track id
-    #     "bigboihefner",  # artist
-    #     "Bigboi Hefner",  # artist title
-    #     "playboi-carti-rip-mike-dean-intro-prod-bigboi-hefner-ig-bigboi_hefner",  # track
-    #     "playboi carti - rip + mike dean intro prod. bigboi hefner",  # track title
-    # ),
-    (
-        "1122427504",  # track id
-        "shigecki",  # artist
-        "shigecki",  # artist title
-        "stars-r-blind-wet-dream-remix",  # track
-        "staRs r bLind (wet dream remix)",  # track title
-    ),
-    (
-        "264537168",  # track id
-        "magsbeats",  # artist
-        "MAGS",  # artist title
-        "mybooedit",  # track
-        "my b00 (mag$ body roll edit)",  # track title
-    ),
-    (
-        "1086800347",  # track id
-        "emma_etc",  # artist
-        "emma etc",  # artist title
-        "security07112021-42-127x",  # track
-        "security07112021-4.2-1.27x",  # track title
-    ),
-    (
-        "942426532",  # track id
-        "elf_z",  # artist
-        "｡*.☆ELFZ☆.*｡",  # artist title
-        "e-v-r-y-t-h-i-n-g-i-w-n-t-e-d",  # track
-        ".・゜2 anyone who might care゜・．",  # track title
-    ),
-    (
-        "985408600",  # track id
-        "plnt99",  # artist
-        "Planet 1999",  # artist title
-        "touch-my-body-silence-debut-fin-live-at-pop-carol",  # track
-        "Touch My Body (Live at Pop Carol)",  # track title
-    ),
-    (
         "976949422",  # track id
         "skreetghost",  # artist
         "skreetghost",  # artist title
         "velvet-glue-rit",  # track
         "velvet glue (rit)",  # track title
-    ),
-    (
-        "823125895",  # track id
-        "i9u",  # artist
-        "<<##33",  # artist title
-        "monkee",  # track
-        "i9bonsai - funee monkee gif [reup]",  # track title
     ),
     (
         "851298181",  # track id
@@ -124,11 +54,46 @@ TRAX = [
         "CRUNK AIN'T DEAD",  # track title
     ),
     (
-        "857089711",  # track id
-        "kiddiegoggles",  # artist
-        "Kiddiegoggles",  # artist title
-        "party4u-kiddiegoggles-remix",  # track
-        "party4u[kiddiegoggles.remix].wav",  # track title
+        "1004480833",  # track id
+        "osno1",  # artist
+        "laura les",  # artist title
+        "haunted-1",  # track
+        "Haunted",  # track title
+    ),
+    (
+        "1140757354",  # track id
+        "ashnikko",  # artist
+        "Ashnikko ",  # artist title
+        "halloweenie-iv-innards",  # track
+        "Halloweenie IV: Innards",  # track title
+    ),
+    (
+        "21792166",  # track id
+        "skrillex",  # artist
+        "Skrillex ",  # artist title
+        "scary-monsters-and-nice",  # track
+        "SCARY MONSTERS AND NICE SPRITES",  # track title
+    ),
+    (
+        "823111990",  # track id
+        "danger-incorporated",  # artist
+        "Danger Incorporated",  # artist title
+        "frankenstein",  # track
+        "Frankenstein",  # track title
+    ),
+    (
+        "242616127",  # track id
+        "danger-incorporated",  # artist
+        "Danger Incorporated",  # artist title
+        "graveyard-ft-yung-ghoul",  # track
+        "Graveyard (feat. Yung Ghoul)",  # track title
+    ),
+    (
+        "516371775",  # track id
+        "yungearle",  # artist
+        "¥ung 3arle ",  # artist title
+        "goosebumps",  # track
+        "Goosebumps (Yung Earle Remix)",  # track title
     ),
 ]
 
