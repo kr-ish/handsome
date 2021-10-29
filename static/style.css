@@ -151,6 +151,7 @@ body {
 #bigbutton button > span {
     display: block;
     padding: 10px 20px;
+    font-family: 'UnifrakturCook', cursive;
     font-size: 17px;
     background: #0e0e10;
     border-radius: 30px;
