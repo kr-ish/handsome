@@ -13,7 +13,7 @@ FILTERS_MAP = {
     'inlightning': ('Lightning', 'instagram'),
     'chromaticpulse': ('Chromatic Pulse', 'instagram'),
     'lightning': ('lightning', 'demiandrou'),
-    'vhsstlye': ('V H S Style', 'demiandrou'),
+    'vhsstyle': ('V H S Style', 'demiandrou'),
     'camcorder': ('𝕔𝕒𝕞𝕔𝕠𝕣𝕕𝕖𝕣', 'demiandrou'),
     'ledsthetic': ('𝕝𝕖𝕕𝕤𝕥𝕙𝕖𝕥𝕚𝕔', 'demiandrou'),
     'discoglam': ('𝕕𝕚𝕤𝕔𝕠 𝕘𝕝𝕒𝕞♕', 'demiandrou'),
