@@ -149,13 +149,16 @@
 
         function toggleBig() {
           let vid = document.getElementById("video");
+          let respawn = document.getElementById("respawn");
           if (!vid.style.height || vid.style.height === "auto"){
               vid.style.height = "150%";
               vid.style.width = "150%";
+              respawn.style.display = 'none';
           }
           else{
             vid.style.height = "auto";
             vid.style.width = "auto";
+            respawn.style.display = 'block';
           }
         }
     </script>
