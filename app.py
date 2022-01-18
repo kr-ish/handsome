@@ -75,13 +75,13 @@ TRAX = [
         "i-think",  # track
         "I Think...",  # track title
     ),
-    (
-        "252563438",  # track id
-        "thechemicalbrothers",  # artist
-        "The Chemical Brothers",  # artist title
-        "swoon-boys-noize-summer-remix",  # track
-        "Swoon (Boys Noize Summer Remix)",  # track title
-    ),
+    # (  # soundcloud go+ only :(
+    #     "252563438",  # track id
+    #     "thechemicalbrothers",  # artist
+    #     "The Chemical Brothers",  # artist title
+    #     "swoon-boys-noize-summer-remix",  # track
+    #     "Swoon (Boys Noize Summer Remix)",  # track title
+    # ),
     (
         "1141747369",  # track id
         "chvrches",  # artist
