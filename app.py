@@ -33,68 +33,68 @@ FILTERS_MAP = {
 #  Can do track metadata pulling in SC api in JS but might be easier to do it all in python.
 # TODO: replace with namedtuple
 TRAX = [
-    # (
-    #     "976949422",  # track id
-    #     "skreetghost",  # artist
-    #     "skreetghost",  # artist title
-    #     "velvet-glue-rit",  # track
-    #     "velvet glue (rit)",  # track title
-    # ),
-    # (
-    #     "851298181",  # track id
-    #     "archoninfinity",  # artist
-    #     "A R C H O N I N F I N I T Y",  # artist title
-    #     "archoninfinity-abyss",  # track
-    #     "abyss",  # track title
-    # ),
-    # (
-    #     "725843302",  # track id
-    #     "duke-deuce-live",  # artist
-    #     "Duke Deuce",  # artist title
-    #     "crunk-aint-dead",  # track
-    #     "CRUNK AIN'T DEAD",  # track title
-    # ),
     (
-        "1004480833",  # track id
-        "osno1",  # artist
-        "laura les",  # artist title
-        "haunted-1",  # track
-        "Haunted",  # track title
+        "505057155",  # track id
+        "baredex-522947753",  # artist
+        "baredex",  # artist title
+        "as-long-as-we-got",  # track
+        "as long as we got",  # track title
     ),
     (
-        "1140757354",  # track id
-        "ashnikko",  # artist
-        "Ashnikko ",  # artist title
-        "halloweenie-iv-innards",  # track
-        "Halloweenie IV: Innards",  # track title
+        "859107265",  # track id
+        "mehdi-dookhoo",  # artist
+        "dj doog",  # artist title
+        "dilemna-nelly-x-kelly-r-dj-doog-remix",  # track
+        "DILEMNA NELLY x KELLY R DJ DOOG REMIX",  # track title
     ),
     (
-        "21792166",  # track id
-        "skrillex",  # artist
-        "Skrillex ",  # artist title
-        "scary-monsters-and-nice",  # track
-        "SCARY MONSTERS AND NICE SPRITES",  # track title
+        "1005059164",  # track id
+        "lilpolotee",  # artist
+        "POLO PERKS <3 <3 <3",  # artist title
+        "snowpatrol-prod-goner",  # track
+        "SnowPatrol Prod Goner",  # track title
     ),
     (
-        "823111990",  # track id
-        "danger-incorporated",  # artist
-        "Danger Incorporated",  # artist title
-        "frankenstein",  # track
-        "Frankenstein",  # track title
+        "95834819",  # track id
+        "daftcrew",  # artist
+        "Daft Crew",  # artist title
+        "modjo-lady-hear-me-tonight",  # track
+        "Modjo - Lady (Hear Me Tonight)",  # track title
     ),
     (
-        "242616127",  # track id
-        "danger-incorporated",  # artist
-        "Danger Incorporated",  # artist title
-        "graveyard-ft-yung-ghoul",  # track
-        "Graveyard (feat. Yung Ghoul)",  # track title
+        "1063872418",  # track id
+        "ritt-momney",  # artist
+        "Ritt Momney",  # artist title
+        "escalator-1",  # track
+        "Escalator",  # track title
     ),
     (
-        "516371775",  # track id
-        "yungearle",  # artist
-        "¥ung 3arle ",  # artist title
-        "goosebumps",  # track
-        "Goosebumps (Yung Earle Remix)",  # track title
+        "1047710704",  # track id
+        "bladee1000",  # artist
+        "BLADEE",  # artist title
+        "i-think",  # track
+        "I Think...",  # track title
+    ),
+    (
+        "252563438",  # track id
+        "thechemicalbrothers",  # artist
+        "The Chemical Brothers",  # artist title
+        "swoon-boys-noize-summer-remix",  # track
+        "Swoon (Boys Noize Summer Remix)",  # track title
+    ),
+    (
+        "1141747369",  # track id
+        "chvrches",  # artist
+        "CHVRCHES",  # artist title
+        "love-triple-j-like-a-version",  # track
+        "LOVE (triple j Like A Version)",  # track title
+    ),
+    (
+        "1071257377",  # track id
+        "skrrtcord",  # artist
+        "SKRRTCORD",  # artist title
+        "love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone",  # track
+        "LOVE (FEAT. SPHERE MERCHANTS, KØ & ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ & ZHONE)"  # track title
     ),
 ]
 
@@ -112,7 +112,7 @@ def home():
 
     video_path = random.choice(VIDEO_PATHS)
     video_name = os.path.basename(video_path)
-    video_tags = os.path.splitext(video_name)[0].split('_')
+    video_tags = os.path.splitext(video_name)[0].split('-')
     image_credit = video_tags[0]
     filter_keys = video_tags[1:]
     filters = []
