@@ -25,6 +25,7 @@ FILTERS_MAP = {
     'watery': ('Watery', 'alwayscodingsomething'),
     '<3u': ('<3 U', 'justinwlaurent'),
     'wind': ('Wind', 'justinwlaurent'),
+    '90slove': ('90sLove', 'liamo.studio'),
 }
 
 # TODO: dynamically load from playlist using soundcloud api
