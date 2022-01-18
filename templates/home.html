@@ -90,7 +90,7 @@
     <div id="bigbutton">
         <iframe src="https://gifer.com/embed/1AYl" width=480 height=560.383 frameBorder="0" allowFullScreen></iframe>
 {#        <div style="padding-top:116.746%;position:relative;"><iframe src="https://gifer.com/embed/1AYl" width="75%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0" allowFullScreen></iframe></div>#}
-        <button onclick="toggleBig()"><span>closer</span></button>
+        <button id="bigbuttonbutton" onclick="toggleBig()"><span>closer</span></button>
     </div>
 
     <div id="respawn">
@@ -150,15 +150,24 @@
         function toggleBig() {
           let vid = document.getElementById("video");
           let respawn = document.getElementById("respawn");
+          let toptext = document.getElementById("toptext");
+          let deck = document.getElementById("deck");
+          let bigbutton = document.getElementById("bigbuttonbutton");
           if (!vid.style.height || vid.style.height === "auto"){
               vid.style.height = "150%";
               vid.style.width = "150%";
               respawn.style.display = 'none';
+              toptext.style.left = "5%";
+              deck.style.left = "80%";
+              bigbutton.style.top = "10%";
           }
           else{
             vid.style.height = "auto";
             vid.style.width = "auto";
             respawn.style.display = 'block';
+            toptext.style.left = "28%";
+            deck.style.left = "60%";
+            bigbutton.style.top = "70%";
           }
         }
     </script>
