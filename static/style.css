@@ -58,25 +58,25 @@ body {
     /*overflow: hidden;*/
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
-    font-family: creepster,cursive;
+    font-family: Mea Culpa, cursive;
     /*font-weight: 100;*/
-    animation-duration: 1.5s;
+    animation-duration: 2.5s;
     animation-iteration-count: infinite;
     animation-name: flickering;
     animation-timing-function: step-start;
-    color: #b00f0f
+    color: #eee
 }
 #toptext marquee {
     height: 100%
 }
 #toptext a:link {
-    color: #b00f0f
+    color: #eee
 }
 #toptext a:visited {
-    color: #b00f0f
+    color: #eee
 }
 #toptext a:hover {
-    color: #eee
+    color: #d55db8
 }
 /*#players {*/
 /*    !*position:absolute;*!*/
@@ -107,14 +107,14 @@ body {
     top: 15%;
     left: 80%;
     z-index: 7;
-    font-family: nosifer,sans-serif;
+    font-family: Arial,sans-serif;
 }
 
 #bigbutton button {
     position: absolute;
     top:70%;
     left:90%;
-    font-family: 'UnifrakturCook', cursive;
+    font-family: 'Lobster', cursive;
 
     padding: 2px;
     outline: 0;
@@ -124,23 +124,23 @@ body {
         linear,
         left top,
         right top,
-        from(#b00f0f),
-        color-stop(#f85e5e),
-        color-stop(#ff1300),
-        color-stop(#c87676),
-        color-stop(#eb7575),
-        color-stop(#be6565),
-        to(#c21111)
+        from(#aa5cfd),
+        color-stop(#d25ef8),
+        color-stop(#f562e1),
+        color-stop(#d55db8),
+        color-stop(#c931dc),
+        color-stop(#e545d1),
+        to(#d260ee)
     );
     background: linear-gradient(
         to right,
-        #b00f0f,
-        #f85e5e,
-        #ff1300,
-        #c87676,
-        #eb7575,
-        #be6565,
-        #c21111
+        #aa5cfd,
+        #d25ef8,
+        #f562e1,
+        #d55db8,
+        #c931dc,
+        #e545d1,
+        #d260ee
     );
     border-radius: 30px;
     border: 0;
@@ -151,7 +151,7 @@ body {
 #bigbutton button > span {
     display: block;
     padding: 10px 20px;
-    font-family: 'UnifrakturCook', cursive;
+    font-family: 'Lobster', cursive;
     font-size: 17px;
     background: #0e0e10;
     border-radius: 30px;
@@ -213,7 +213,7 @@ body {
 }
 
 #deck button {
-    background-image: linear-gradient(135deg, #b00f0f, #ff1300);
+    background-image: linear-gradient(135deg, #008aff, #86d472);
     border-radius: 6px;
     box-sizing: border-box;
     color: #ffffff;
@@ -255,117 +255,117 @@ body {
 
 @keyframes flickering {
   0% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
   5% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
   10% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
-    transform: skewX(-15deg);
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
+    transform: skewX(-1deg);
   }
   15% {
     color: #ccc;
     text-shadow: none;
-    transform: skewX(-15deg);
+    transform: skewX(-1deg);
   }
   20% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
   25% {
     color: #ccc;
-    text-shadow: 2px 2px #b00f0f;
+    text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   30% {
     color: #ccc;
-    text-shadow: 2px 2px #b00f0f;
+    text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   35% {
     color: #ccc;
-    text-shadow: 2px 2px #b00f0f;
+    text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   37% {
     color: #ccc;
-    text-shadow: 1px 1px #eee;
+    text-shadow: 1px 1px #d55db8;
     transform: skewX(0);
   }
   40% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
     transform: skewX(0);
   }
   45% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
     transform: skewX(0);
   }
   50% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
   55% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
   60% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
   65% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
   68% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
     transform: skewX(0);
   }
   70% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
     transform: skewX(0);
   }
   75% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
-    transform: skewX(10deg);
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
+    transform: skewX(1deg);
   }
   80% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
-    transform: skewX(10deg);
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
+    transform: skewX(1deg);
   }
   85% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
-    transform: skewX(10deg);
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
+    transform: skewX(1deg);
   }
   90% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
   95% {
-    color: #b00f0f;
-    text-shadow: 1px 1px #eee;
+    color: #eee;
+    text-shadow: 1px 1px #d55db8;
     transform: skewX(0);
   }
   100% {
-    color: #b00f0f;
+    color: #eee;
     text-shadow: none;
     transform: skewX(0);
   }
