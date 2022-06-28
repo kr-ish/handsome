@@ -48,20 +48,6 @@ TRAX = [
         "Shrek Rave Anthem",  # track title
     ),
     (
-        "365445599",  # track id
-        "loki-6",  # artist
-        "Thaehan",  # artist title
-        "thaehan-once-upon-a-time-shrek-remix",  # track
-        "Shrek - Fairytale (Thaehan Remix)",  # track title
-    ),
-    (
-        "1265368063",  # track id
-        "owlcityofficial",  # artist
-        "OwlCityOfficial",  # artist title
-        "all-star-owl-city-remix",  # track
-        "All Star (Owl City Remix)",  # track title
-    ),
-    (
         "810120781",  # track id
         "countbaldor",  # artist
         "count baldor",  # artist title

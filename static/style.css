@@ -76,7 +76,7 @@ body {
     color: #eee
 }
 #toptext a:hover {
-    color: #d55db8
+    color: #B0C400
 }
 /*#players {*/
 /*    !*position:absolute;*!*/
@@ -124,12 +124,12 @@ body {
         linear,
         left top,
         right top,
-        from(#aa5cfd),
-        color-stop(#d25ef8),
-        color-stop(#f562e1),
-        color-stop(#d55db8),
-        color-stop(#c931dc),
-        color-stop(#e545d1),
+        from(#B0C400),
+        color-stop(#D5DE2E),
+        color-stop(#795A2D),
+        color-stop(#523213),
+        color-stop(#C3BC95),
+        color-stop(#D3CCA5),
         to(#d260ee)
     );
     background: linear-gradient(
@@ -266,7 +266,7 @@ body {
   }
   10% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(-1deg);
   }
   15% {
@@ -296,17 +296,17 @@ body {
   }
   37% {
     color: #ccc;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(0);
   }
   40% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(0);
   }
   45% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(0);
   }
   50% {
@@ -331,27 +331,27 @@ body {
   }
   68% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(0);
   }
   70% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(0);
   }
   75% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(1deg);
   }
   80% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(1deg);
   }
   85% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(1deg);
   }
   90% {
@@ -361,7 +361,7 @@ body {
   }
   95% {
     color: #eee;
-    text-shadow: 1px 1px #d55db8;
+    text-shadow: 1px 1px #B0C400;
     transform: skewX(0);
   }
   100% {
