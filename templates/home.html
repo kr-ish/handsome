@@ -89,15 +89,17 @@
             <button onclick="document.getElementById('sound8').play();"><span>8</span></button>
         </div>
     </div>
+    <div id="maingif" style="display:none">
+        <!--        <iframe src="https://gifer.com/embed/D0Jc" width=480 height=270.000 frameBorder="0"></iframe>-->
+        <div style="padding-top:56.250%;position:relative"><iframe src="https://gifer.com/embed/D0Jc" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0"></iframe></div>
+    </div>
     <div id="bigbutton">
-<!--        <iframe src="https://gifer.com/embed/D0Jc" width=480 height=270.000 frameBorder="0"></iframe>-->
-        <div style="padding-top:56.250%;position:relative;"><iframe src="https://gifer.com/embed/D0Jc" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0"></iframe></div>
-        <button id="bigbuttonbutton" onclick="toggleBig()"><span>closer</span></button>
+        <button id="bigbuttonbutton" onclick="toggleBig()"><span>🎉</span></button>
     </div>
 
     <div id="respawn">
         Press <a href="{{ url_for('home') }}"><img alt="B" src="{{ url_for('static', filename='xbox_x_button.png') }}"></a> to respawn
-        <div style="padding-top:100.000%;position:relative;"><iframe src="https://gifer.com/embed/3ONGb" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0"></iframe></div>
+        <div style="padding-top:100.000%;position:relative;"><iframe src="https://gifer.com/embed/3ONGb" width="100%" height="100%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply' frameBorder="0"></iframe></div>
     </div>
 
     <div id='bottomtext'>
@@ -155,23 +157,26 @@
           let toptext = document.getElementById("toptext");
           let deck = document.getElementById("deck");
           let bigbutton = document.getElementById("bigbuttonbutton");
-          if (!vid.style.height || vid.style.height === "auto"){
-              vid.style.height = "150%";
-              vid.style.width = "150%";
-              respawn.style.display = 'none';
-              toptext.style.left = "5%";
-              deck.style.left = "68%";
-              deck.style.top = "160%";
-              bigbutton.style.top = "197%";
+          let maingif = document.getElementById("maingif");
+          if (vid.style.display === "none"){
+              {#vid.style.height = "auto";#}
+              {#vid.style.width = "auto";#}
+              vid.style.display = 'block';
+              respawn.style.display = 'block';
+              maingif.style.display = 'none';
+              toptext.style.left = "28%";
+              deck.style.left = "60%";
+              deck.style.top = "33%";
+              bigbutton.style.top = "70%";
           }
           else{
-            vid.style.height = "auto";
-            vid.style.width = "auto";
-            respawn.style.display = 'block';
-            toptext.style.left = "28%";
-            deck.style.left = "60%";
-            deck.style.top = "33%";
-            bigbutton.style.top = "70%";
+            vid.style.display = 'none';
+            respawn.style.display = 'none';
+            maingif.style.display = 'block';
+            toptext.style.left = "5%";
+            deck.style.left = "68%";
+            deck.style.top = "160%";
+            bigbutton.style.top = "197%";
           }
         }
     </script>
