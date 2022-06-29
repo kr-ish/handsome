@@ -114,7 +114,7 @@ body {
     position: absolute;
     top:70%;
     left:90%;
-    font-family: Sigmar One, cursive;
+    font-family: Sigmar One, regular;
 
     padding: 2px;
     outline: 0;
@@ -134,13 +134,13 @@ body {
     );
     background: linear-gradient(
         to right,
-        #aa5cfd,
-        #d25ef8,
-        #f562e1,
-        #d55db8,
-        #c931dc,
-        #e545d1,
-        #d260ee
+        #fdde5c,
+        #f8ab5e,
+        #f56a62,
+        #a176c8,
+        #759beb,
+        #65beb3,
+        #70db96
     );
     border-radius: 30px;
     border: 0;
@@ -255,118 +255,118 @@ body {
 
 @keyframes flickering {
   0% {
-    color: #eee;
-    text-shadow: none;
+    color: #DDF600;
+    text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   5% {
-    color: #eee;
-    text-shadow: none;
+    color: #DDF600;
+    text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   10% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
-    transform: skewX(-1deg);
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(-5deg);
   }
   15% {
-    color: #ccc;
+    color: #795A2D;
     text-shadow: none;
-    transform: skewX(-1deg);
+    transform: skewX(-5deg);
   }
   20% {
-    color: #eee;
-    text-shadow: none;
+    color: #DDF600;
+    text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   25% {
-    color: #ccc;
-    text-shadow: 2px 2px #eee;
+    color: #795A2D;
+    text-shadow: 2px 2px #DDF600;
     transform: skewX(0);
   }
   30% {
-    color: #ccc;
-    text-shadow: 2px 2px #eee;
+    color: #795A2D;
+    text-shadow: 2px 2px #DDF600;
     transform: skewX(0);
   }
   35% {
-    color: #ccc;
-    text-shadow: 2px 2px #eee;
+    color: #795A2D;
+    text-shadow: 2px 2px #DDF600;
     transform: skewX(0);
   }
   37% {
-    color: #ccc;
-    text-shadow: 1px 1px #B0C400;
+    color: #795A2D;
+    text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   40% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   45% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   50% {
-    color: #eee;
+    color: #DDF600;
     text-shadow: none;
     transform: skewX(0);
   }
   55% {
-    color: #eee;
+    color: #DDF600;
     text-shadow: none;
     transform: skewX(0);
   }
   60% {
-    color: #eee;
+    color: #DDF600;
     text-shadow: none;
     transform: skewX(0);
   }
   65% {
-    color: #eee;
+    color: #DDF600;
     text-shadow: none;
     transform: skewX(0);
   }
   68% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   70% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   75% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
     transform: skewX(1deg);
   }
   80% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
     transform: skewX(1deg);
   }
   85% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
     transform: skewX(1deg);
   }
   90% {
-    color: #eee;
+    color: #DDF600;
     text-shadow: none;
     transform: skewX(0);
   }
   95% {
-    color: #eee;
-    text-shadow: 1px 1px #B0C400;
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   100% {
-    color: #eee;
+    color: #DDF600;
     text-shadow: none;
-    transform: skewX(0);
+    transform: skewX(5deg);
   }
 }
