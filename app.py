@@ -26,6 +26,11 @@ FILTERS_MAP = {
     '<3u': ('<3 U', 'justinwlaurent'),
     'wind': ('Wind', 'justinwlaurent'),
     '90slove': ('90sLove', 'liamo.studio'),
+    'bathingwithshrek': ('Bathing with Shrek', 'ryleevigor'),
+    'shrekislove': ('Shrek is love', 'ryleevigor'),
+    'shrek&fiona': ('shrek&fiona', 'pityzza'),
+    'spiral': ('SPIRAL 🌀🌀🌀', 'liamo.studio'),
+    'handycamera': ('Handy Camera', 'solar.w'),
 }
 
 # TODO: dynamically load from playlist using soundcloud api
