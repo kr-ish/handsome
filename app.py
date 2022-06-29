@@ -67,11 +67,11 @@ TRAX = [
         "Material Girl",  # track title
     ),
     (
-        "1282822552",  # track id
-        "callumlunneycurry",  # artist
-        "Callum Lunney-Curry",  # artist title
-        "livin-la-vida-loca-hardstyle",  # track
-        "Livin La Vida Loca HBZ (Hardstyle Remix)",  # track title
+        "1296244924",  # track id
+        "seshlehemuk",  # artist
+        "Seshlehem",  # artist title
+        "livin-la-vida-loca-hbz-1",  # track
+        "Livin La Vida Loca (HBZ Hardstyle Remix) - Seshlehem",  # track title
     ),
     (
         "1202860279",  # track id
