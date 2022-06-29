@@ -38,13 +38,13 @@ FILTERS_MAP = {
 #  Can do track metadata pulling in SC api in JS but might be easier to do it all in python.
 # TODO: replace with namedtuple
 TRAX = [
-    (
-        "294929726",  # track id
-        "graphicmuzik",  # artist
-        "GraphicMuzik",  # artist title
-        "shrek-remix",  # track
-        "Shrek Remix",  # track title
-    ),
+    # (
+    #     "294929726",  # track id
+    #     "graphicmuzik",  # artist
+    #     "GraphicMuzik",  # artist title
+    #     "shrek-remix",  # track
+    #     "Shrek Remix",  # track title
+    # ),
     (
         "504013449",  # track id
         "theguy-v3-because-why",  # artist
