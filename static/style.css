@@ -58,7 +58,7 @@ body {
     /*overflow: hidden;*/
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
-    font-family: Mea Culpa, cursive;
+    font-family: Berkshire Swash, cursive;
     /*font-weight: 100;*/
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
@@ -98,7 +98,7 @@ body {
     /*overflow: hidden;*/
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
-    font-family: 'UnifrakturCook', cursive;
+    font-family: Berkshire Swash, cursive;
     font-weight: 100;
 }
 
@@ -114,7 +114,7 @@ body {
     position: absolute;
     top:70%;
     left:90%;
-    font-family: 'Lobster', cursive;
+    font-family: Sigmar One, cursive;
 
     padding: 2px;
     outline: 0;
