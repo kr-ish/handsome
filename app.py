@@ -46,6 +46,13 @@ TRAX = [
     #     "Shrek Remix",  # track title
     # ),
     (
+        "1297804636",  # track id
+        "kr_sh",  # artist
+        "DJ Handsome Krish",  # artist title
+        "green-da-ba-dee-da",  # track
+        "Eiffel 65 - Blue (Flume Remix) (handsome greendub)",  # track title
+    ),
+    (
         "504013449",  # track id
         "theguy-v3-because-why",  # artist
         "TheGuy V.3 (OLD)",  # artist title
