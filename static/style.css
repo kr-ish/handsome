@@ -7,7 +7,7 @@ body {
     height:100%;
     background: black;
     color: white;
-    /*cursor: url('crash_cursor1.png'), auto;*/
+    cursor: url('donkey-cursor.cur'), auto;
 }
 
 #false_login {
@@ -35,15 +35,16 @@ body {
     z-index:0;
     float: left;
 }
+
 #toptext {
     position:absolute;
     float:left;
     top:10%;
-    left:35%;
+    left:28%;
     width: 50%;
     height: 90%;
     /*min-height: 100%;*/
-    color: #FF73B8FF;
+    /*color: #eb6123;*/
     /*color: #eee;*/
     /*text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;*/
     /*text-shadow: 0 0 3px #FF73B8FF;*/
@@ -57,8 +58,13 @@ body {
     /*overflow: hidden;*/
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
-    /*font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;*/
+    font-family: Berkshire Swash, cursive;
     /*font-weight: 100;*/
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-name: flickering;
+    animation-timing-function: step-start;
+    color: #eee
 }
 #toptext marquee {
     height: 100%
@@ -70,7 +76,7 @@ body {
     color: #eee
 }
 #toptext a:hover {
-    color: #FF73B8FF
+    color: #B0C400
 }
 /*#players {*/
 /*    !*position:absolute;*!*/
@@ -92,22 +98,23 @@ body {
     /*overflow: hidden;*/
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
-    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;"
+    font-family: Berkshire Swash, cursive;
+    font-weight: 100;
 }
 
 #respawn {
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 80%;
     z-index: 7;
-    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-family: Sorts Mill Goudy,italic;
 }
 
 #bigbutton button {
     position: absolute;
     top:70%;
     left:90%;
+    font-family: Sigmar One, regular;
 
     padding: 2px;
     outline: 0;
@@ -117,13 +124,13 @@ body {
         linear,
         left top,
         right top,
-        from(#fdde5c),
-        color-stop(#f8ab5e),
-        color-stop(#f56a62),
-        color-stop(#a176c8),
-        color-stop(#759beb),
-        color-stop(#65beb3),
-        to(#70db96)
+        from(#B0C400),
+        color-stop(#D5DE2E),
+        color-stop(#795A2D),
+        color-stop(#523213),
+        color-stop(#C3BC95),
+        color-stop(#D3CCA5),
+        to(#d260ee)
     );
     background: linear-gradient(
         to right,
@@ -144,6 +151,7 @@ body {
 #bigbutton button > span {
     display: block;
     padding: 10px 20px;
+    font-family: 'Lobster', cursive;
     font-size: 17px;
     background: #0e0e10;
     border-radius: 30px;
@@ -157,13 +165,14 @@ body {
     /*position: absolute;*/
     float: left;
     /*margin:0 10px 10px 0;*/
+    /*font-family: butcherman, cursive;*/
 }
 
 #deck {
     /*float: bottom;*/
     position: absolute;
     top: 33%;
-    left: 50%;
+    left: 60%;
     width: 20em;
     z-index: 5;
     margin: 2em;
@@ -242,4 +251,122 @@ body {
 
 #sampler {
         cursor: url('real_point_cursor.png'), auto;
+}
+
+@keyframes flickering {
+  0% {
+    color: #DDF600;
+    text-shadow: 2px 2px #eee;
+    transform: skewX(0);
+  }
+  5% {
+    color: #DDF600;
+    text-shadow: 2px 2px #eee;
+    transform: skewX(0);
+  }
+  10% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(-5deg);
+  }
+  15% {
+    color: #795A2D;
+    text-shadow: none;
+    transform: skewX(-5deg);
+  }
+  20% {
+    color: #DDF600;
+    text-shadow: 2px 2px #eee;
+    transform: skewX(0);
+  }
+  25% {
+    color: #795A2D;
+    text-shadow: 2px 2px #DDF600;
+    transform: skewX(0);
+  }
+  30% {
+    color: #795A2D;
+    text-shadow: 2px 2px #DDF600;
+    transform: skewX(0);
+  }
+  35% {
+    color: #795A2D;
+    text-shadow: 2px 2px #DDF600;
+    transform: skewX(0);
+  }
+  37% {
+    color: #795A2D;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(0);
+  }
+  40% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(0);
+  }
+  45% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(0);
+  }
+  50% {
+    color: #DDF600;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  55% {
+    color: #DDF600;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  60% {
+    color: #DDF600;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  65% {
+    color: #DDF600;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  68% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(0);
+  }
+  70% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(0);
+  }
+  75% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(1deg);
+  }
+  80% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(1deg);
+  }
+  85% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(1deg);
+  }
+  90% {
+    color: #DDF600;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  95% {
+    color: #DDF600;
+    text-shadow: 1px 1px #523213;
+    transform: skewX(0);
+  }
+  100% {
+    color: #DDF600;
+    text-shadow: none;
+    transform: skewX(5deg);
+  }
 }
