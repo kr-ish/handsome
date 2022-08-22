@@ -60,8 +60,13 @@
             Come to my dj set.
             </video>
         {% else %}
-            <!-- <img src="{{ url_for('static', filename=background) }}" width="100%" height="100%" style='position:absolute;top:0;left:0;'> -->
-            <img id='background' src="{{ url_for('static', filename=background) }}">
+            <!-- <img id='background' src="{{ url_for('static', filename=background) }}" width="33%" height="33%" style='position:absolute;top:0;left:0;'> -->
+            <!-- TODO - instead of this hack, just save the big image at the desired resolution, once tuned -->
+            {% if show_text %}
+                <img id='background' src="{{ url_for('static', filename=background) }}">
+            {% else %}
+                <img id='background' src="{{ url_for('static', filename=background) }}" width="33%" height="33%">
+            {% endif %}
         {% endif %}
         <!-- <div id="sidetext">
            <p>📷 <a href="https://instagram.com/{{ image_credit }}">{{ image_credit }}</a></p>
