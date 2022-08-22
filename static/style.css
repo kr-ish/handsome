@@ -108,6 +108,9 @@ body {
     left: 80%;
     z-index: 7;
     font-family: Sorts Mill Goudy,italic;
+    font-size: 30px;
+    text-shadow: 1px 1px #000000;
+
 }
 
 #bigbutton button {
@@ -275,7 +278,7 @@ body {
     transform: skewX(-5deg);
   }
   20% {
-    color: #ff8800;
+    color: #57d265;
     text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
