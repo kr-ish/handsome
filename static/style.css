@@ -23,10 +23,22 @@ body {
 /*    position: relative;*/
 /*}*/
 
-#background {
+#bg_video {
     float: left;
     width: auto;
     height: auto;
+}
+
+#bg_img {
+  float: left;
+  width: auto;
+  height: auto;
+}
+
+#bg_img_big {
+  float: left;
+  width: 100vw;
+  height: auto;
 }
 
 .container { position:relative; }
