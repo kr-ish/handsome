@@ -48,7 +48,7 @@
     <div id="video_text">
 
         {% if bg_is_video %}
-            <!-- {% if safari %}
+            <!-- {% if is_safari %}
             <div id="safari_warning">
                 <h6>Video might not load on Safari :(</h6 >
             </div>
@@ -65,7 +65,11 @@
             {% if show_text %}
                 <img id='background' src="{{ url_for('static', filename=background) }}">
             {% else %}
-                <img id='background' src="{{ url_for('static', filename=background) }}" width="33%" height="33%">
+                {% if is_pc %}
+                    <img id='background' src="{{ url_for('static', filename=background) }}" width="100vh" height="100vh">
+                {% else %}
+                    <img id='background' src="{{ url_for('static', filename=background) }}" width="100vh" height="100vh">
+                {% endif %}
             {% endif %}
         {% endif %}
         <!-- <div id="sidetext">

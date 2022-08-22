@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import os
 import glob
 import random
+from user_agents import parse
 
 app = Flask(__name__)
 
@@ -89,10 +90,13 @@ TRAX = [
 
 @app.route('/')
 def home():
-    safari = False
-    user_agent = request.headers.get('User-Agent')
-    if 'Chrome' not in user_agent and 'Safari' in user_agent:
-        safari = True
+    is_safari = False
+    ua_string = request.headers.get('User-Agent')
+    if 'Chrome' not in ua_string and 'Safari' in ua_string:
+        is_safari = True
+
+    user_agent = parse(ua_string)
+    is_computer = user_agent.is_pc
 
     bg_path = random.choice(BG_PATHS)
     bg_name = os.path.basename(bg_path)
@@ -129,7 +133,8 @@ def home():
         show_text=show_text,
         track1=track1,
         track2=track2,
-        safari=safari
+        is_safari=is_safari,
+        is_copmuter=is_computer,
     )
 
 
