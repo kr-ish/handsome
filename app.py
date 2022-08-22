@@ -117,12 +117,16 @@ def home():
     track1 = trax.pop(random.randrange(len(trax)))
     track2 = trax.pop(random.randrange(len(trax)))
 
+    # set flag to show main text
+    show_text = bg_name == 'bg-kr_______________-lottafruta.jpeg'
+
     return render_template(
         'home.html',
         background=bg_name,
         bg_is_video=bg_is_video,
         image_credit=image_credit,
         filters=filters,
+        show_text=show_text,
         track1=track1,
         track2=track2,
         safari=safari

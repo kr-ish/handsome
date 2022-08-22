@@ -29,18 +29,21 @@
     </div>
 
     <div id="real_content">
-    <div id='toptext'>
-        <marquee direction="up" behavior="alternate" scrolldelay="60" scrollamount="3">
-            <p>
-                DJ <a href="https://www.instagram.com/kr_______________">I</a> will miss Atlanta<br>
-                DJ <a href="https://www.instagram.com/kiddiegoggles">Kiddiegoggles</a><br>
-                DJ <a href="https://www.instagram.com/a_mad_ghoul">Stellar Stangk</a><br>
-                DJ Gas Leak b2b DJ Hot Bod<br>
-                Live @ Punk House<br>
-                August 27, 2022<br>
-            </p>
-        </marquee>
-    </div>
+
+    {% if show_text %}
+        <div id='toptext'>
+            <marquee direction="up" behavior="alternate" scrolldelay="60" scrollamount="3">
+                <p>
+                    DJ <a href="https://www.instagram.com/kr_______________">I</a> will miss Atlanta<br>
+                    DJ <a href="https://www.instagram.com/kiddiegoggles">Kiddiegoggles</a><br>
+                    DJ <a href="https://www.instagram.com/a_mad_ghoul">Stellar Stangk</a><br>
+                    DJ Gas Leak b2b DJ Hot Bod<br>
+                    Live @ Punk House<br>
+                    August 27, 2022<br>
+                </p>
+            </marquee>
+        </div>
+    {% endif %}
 
     <div id="video_text">
 
