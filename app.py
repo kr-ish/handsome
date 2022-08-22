@@ -5,7 +5,7 @@ import random
 
 app = Flask(__name__)
 
-VIDEO_PATHS = glob.glob('./static/*.mp4')
+BG_PATHS = glob.glob('./static/bg-*')
 FILTERS_MAP = {
     'breakdown': ('Breakdown', 'justinwlaurent'),
     '90stethic': ('𝟡𝟘𝕤𝕥𝕖𝕥𝕙𝕚𝕔', 'demiandrou'),
@@ -94,18 +94,20 @@ def home():
     if 'Chrome' not in user_agent and 'Safari' in user_agent:
         safari = True
 
-    video_path = random.choice(VIDEO_PATHS)
-    video_name = os.path.basename(video_path)
-    video_tags = os.path.splitext(video_name)[0].split('-')
-    image_credit = video_tags[0]
-    filter_keys = video_tags[1:]
+    bg_path = random.choice(BG_PATHS)
+    bg_name = os.path.basename(bg_path)
+    bg_tags, bg_ext = os.path.splitext(bg_name.lstrip('bg-'))
+    bg_is_video = bg_ext == '.mp4'
+    bg_tags = bg_tags.split('-')
+    image_credit = bg_tags[0]
+    filter_keys = bg_tags[1:]
     filters = []
 
     # get filters used by video by parsing filter keys from video name
     for filter_key in filter_keys:
         filter = FILTERS_MAP.get(filter_key)
         if not filter:
-            app.logger.warning(f'Filter key {filter_key} not found from video path {video_path}, skipping..')
+            app.logger.warning(f'Filter key {filter_key} not found from background media path {bg_path}, skipping..')
             continue
         filters.append(filter)
 
@@ -117,7 +119,8 @@ def home():
 
     return render_template(
         'home.html',
-        video=video_name,
+        background=bg_name,
+        bg_is_video=bg_is_video,
         image_credit=image_credit,
         filters=filters,
         track1=track1,

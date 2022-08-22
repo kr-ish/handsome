@@ -25,41 +25,44 @@
     {#  Use a false login page that's just a button that shows all the elements on the page to fake soundcloud
     autoplay. Autoplay is generally disabled unless the user interacts with the page.#}
     <div id="false_login">
-        <button onclick="enter()">Once upon a time, in a far away swamp</button>
+        <button onclick="enter()">🎚️</button>
     </div>
 
     <div id="real_content">
     <div id='toptext'>
         <marquee direction="up" behavior="alternate" scrolldelay="60" scrollamount="3">
             <p>
-                The Swamp vs. Duloc<br>
-                DJ Handsome <a href="https://www.instagram.com/kr_______________">Kr</a>ish<br>
-                Live in Purgatory @<br>
-                The <a href="https://www.instagram.com/masquerade_atl">Masq</a>uerade<br>
-                July 1, 2022<br>
+                DJ I will m<a href="https://www.instagram.com/kr_______________">i</a>ss Atlanta<br>
+                Live @ Punk House<br>
+                August 27, 2022<br>
             </p>
         </marquee>
     </div>
 
     <div id="video_text">
-        {% if safari%}
-        <div id="safari_warning">
-            <h2>Video might not load on Safari :((  Try Chrome or Firefox or another internet browser</h2>
-            <h3>For the best experience, open on a non Safari browser on your computer ! </h3>
-        </div>
-        {% endif %}
-        <video id='video' autoplay muted playsinline loop>
-            <source src="{{url_for('static', filename=video)}}" type="video/mp4">
-            Your machine is not able to load this content, but that's ok.
-    {#         TODO: add a lil surprise just for them- cookie#}
-        Come to my dj set.
-        </video>
 
+        {% if bg_is_video %}
+            {% if safari %}
+            <div id="safari_warning">
+                <h2>Video might not load on Safari :((  Try Chrome or Firefox or another internet browser</h2>
+                <h3>For the best experience, open on a non Safari browser on your computer ! </h3>
+            </div>
+            {% endif %}
+            <video id='background' autoplay muted playsinline loop>
+                <source src="{{url_for('static', filename=background)}}" type="video/mp4">
+                Your machine is not able to load this content, but that's ok.
+                {#         TODO: add a lil surprise just for them- cookie#}
+            Come to my dj set.
+            </video>
+        {% else %}
+            <!-- <img src="{{ url_for('static', filename=background) }}" width="100%" height="100%" style='position:absolute;top:0;left:0;'> -->
+            <img id='background' src="{{ url_for('static', filename=background) }}">
+        {% endif %}
         <div id="sidetext">
-<!--            <p>📷 <a href="https://instagram.com/{{ image_credit }}">{{ image_credit }}</a></p>-->
-            {% for filt in filters %}
+           <p>📷 <a href="https://instagram.com/{{ image_credit }}">{{ image_credit }}</a></p>
+            <!-- {% for filt in filters %}
                 <p>{{ filt[0] }} by <a href="https://instagram.com/{{ filt[1] }}">{{ filt[1] }}</a> </p>
-            {% endfor %}
+            {% endfor %} -->
         </div>
     </div>
     <div id="deck">
