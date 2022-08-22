@@ -66,9 +66,9 @@
                 <img id='background' src="{{ url_for('static', filename=background) }}">
             {% else %}
                 {% if is_pc %}
-                    <img id='background' src="{{ url_for('static', filename=background) }}" width="100vh" height="100vh">
+                    <img id='background' src="{{ url_for('static', filename=background) }}" width="33%" height="33%">
                 {% else %}
-                    <img id='background' src="{{ url_for('static', filename=background) }}" width="100vh" height="100vh">
+                    <img id='background' src="{{ url_for('static', filename=background) }}" width="828px" height="auto">
                 {% endif %}
             {% endif %}
         {% endif %}
