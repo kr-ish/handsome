@@ -122,7 +122,7 @@ def home():
     track2 = trax.pop(random.randrange(len(trax)))
 
     # set flag to show main text
-    show_text = bg_name == 'bg-kr_______________-lottafruta.jpeg'
+    show_text = bg_name in ['bg-kr_______________-lottafruta.jpeg', 'bg-kr_______________-leasebk.png']
 
     return render_template(
         'home.html',
@@ -134,7 +134,7 @@ def home():
         track1=track1,
         track2=track2,
         is_safari=is_safari,
-        is_copmuter=is_computer,
+        is_computer=is_computer,
     )
 
 
