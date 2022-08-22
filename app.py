@@ -38,61 +38,47 @@ FILTERS_MAP = {
 #  Can do track metadata pulling in SC api in JS but might be easier to do it all in python.
 # TODO: replace with namedtuple
 TRAX = [
-    # (
-    #     "294929726",  # track id
-    #     "graphicmuzik",  # artist
-    #     "GraphicMuzik",  # artist title
-    #     "shrek-remix",  # track
-    #     "Shrek Remix",  # track title
-    # ),
     (
-        "1297804636",  # track id
-        "kr_sh",  # artist
-        "DJ Handsome Krish",  # artist title
-        "green-da-ba-dee-da",  # track
-        "Eiffel 65 - Blue (Flume Remix) (handsome greendub)",  # track title
+        "518465847",  # track id
+        "kawaiiton",  # artist
+        "𝕂𝔸𝕎𝔸𝕀𝕀𝕋𝕆ℕ",  # artist title
+        "anuel-x-chico-sonido-la-noche-oscura-x-christine",  # track
+        "ANUEL - La noche oscura x christine",  # track title
     ),
     (
-        "504013449",  # track id
-        "theguy-v3-because-why",  # artist
-        "TheGuy V.3 (OLD)",  # artist title
-        "shrek-rave-anthem",  # track
-        "Shrek Rave Anthem",  # track title
+        "794804059",  # track id
+        "krypt",  # artist
+        "krypt",  # artist title
+        "bladee-lovestory-feat-ecco2k-krypt-rmx",  # track
+        "Bladee — Lovestory (krypt remix)",  # track title
     ),
     (
-        "810120781",  # track id
-        "countbaldor",  # artist
-        "count baldor",  # artist title
-        "this-is-one-dj-you-dont-want-to-fuck-with",  # track
-        "This Is One DJ You Don't Want To Fuck With",  # track title
+        "1274960959",  # track id
+        "djanimebby",  # artist
+        "Dj Animebby",  # artist title
+        "dj-animebby-ki55-m3",  # track
+        "Dj Animebby - Ki55 M3",  # track title
     ),
     (
-        "701179420",  # track id
-        "saucysantana",  # artist
-        "SAUCY SANTANA",  # artist title
-        "material-girl",  # track
-        "Material Girl",  # track title
+        "1215934435",  # track id
+        "lynyofficial",  # artist
+        "LYNY",  # artist title
+        "danny-l-harle-on-a-mountain-lyny-remix",  # track
+        "Danny L Harle - On a Mountain (LYNY Remix)",  # track title
     ),
     (
-        "1296244924",  # track id
-        "seshlehemuk",  # artist
-        "Seshlehem",  # artist title
-        "livin-la-vida-loca-hbz-1",  # track
-        "Livin La Vida Loca (HBZ Hardstyle Remix) - Seshlehem",  # track title
+        "1301438497",  # track id
+        "flume",  # artist
+        "FLUME",  # artist title
+        "hollow-feat-emma-louise-2",  # track
+        "Hollow (Logic1000 Remix)",  # track title
     ),
     (
-        "1202860279",  # track id
-        "hikeii",  # artist
-        "@hikeii",  # artist title
-        "amygdala",  # track
-        "ecco2k & bladee - amygdala (@hikeii flip)",  # track title
-    ),
-    (
-        "1198775374",  # track id
-        "djtravella",  # artist
-        "DJ Travella",  # artist title
-        "london-uwoteee",  # track
-        "London Uwoteee",  # track title
+        "1261559698",  # track id
+        "flume",  # artist
+        "FLUME",  # artist title
+        "dhlc",  # track
+        "DHLC",  # track title
     ),
 ]
 
