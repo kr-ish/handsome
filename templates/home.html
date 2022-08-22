@@ -25,7 +25,7 @@
     {#  Use a false login page that's just a button that shows all the elements on the page to fake soundcloud
     autoplay. Autoplay is generally disabled unless the user interacts with the page.#}
     <div id="false_login">
-        <button onclick="enter()">🎚️</button>
+        <button onclick="enter()">🎚️ What if it all works out in the end? 🎚️</button>
     </div>
 
     <div id="real_content">
@@ -115,11 +115,13 @@
         <button id="bigbuttonbutton" onclick="toggleBig()"><span>🎉</span></button>
     </div> -->
 
-    <div id="respawn">
-        Press <a href="{{ url_for('home') }}"><img alt="B" src="{{ url_for('static', filename='xbox_x_button.png') }}"></a> to respawn
-        <!-- <div style="padding-top:100.000%;position:relative;"><iframe src="https://gifer.com/embed/3ONGb" width="100%" height="100%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply' frameBorder="0"></iframe></div> -->
-        <!-- <div style="padding-top:100.000%;position:relative;"><img src="{{ url_for('static', filename='shrek-baby.gif') }}" width="100%" height="80%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply'></div> -->
-    </div>
+    {% if show_text %}
+        <div id="respawn">
+            Press <a href="{{ url_for('home') }}"><img alt="B" src="{{ url_for('static', filename='xbox_x_button.png') }}"></a> to respawn
+            <!-- <div style="padding-top:100.000%;position:relative;"><iframe src="https://gifer.com/embed/3ONGb" width="100%" height="100%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply' frameBorder="0"></iframe></div> -->
+            <!-- <div style="padding-top:100.000%;position:relative;"><img src="{{ url_for('static', filename='shrek-baby.gif') }}" width="100%" height="80%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply'></div> -->
+        </div>
+    {% endif %}
 
     <div id='bottomtext'>
         <marquee scrollamount="4">
