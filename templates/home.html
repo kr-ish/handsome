@@ -66,9 +66,9 @@
                 <img id='bg_img' src="{{ url_for('static', filename=background) }}">
             {% else %}
                 {% if is_pc %}
-                    <img id='bg_img_big' src="{{ url_for('static', filename=background) }}">
+                    <img id='bg_img_big_pc' src="{{ url_for('static', filename=background) }}">
                 {% else %}
-                    <img id='bg_img_big' src="{{ url_for('static', filename=background) }}">
+                    <img id='bg_img_big_mobile' src="{{ url_for('static', filename=background) }}">
                 {% endif %}
             {% endif %}
         {% endif %}

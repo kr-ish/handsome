@@ -35,7 +35,13 @@ body {
   height: auto;
 }
 
-#bg_img_big {
+#bg_img_big_mobile {
+  float: left;
+  width: auto;
+  height: 100vh;
+}
+
+#bg_img_big_pc {
   float: left;
   width: 100vw;
   height: auto;
