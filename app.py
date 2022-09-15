@@ -137,6 +137,10 @@ def home():
         is_computer=is_computer,
     )
 
+@app.route('/shirt')
+def shirt():
+    return render_template('shirt.html')
+
 
 if __name__ == '__main__':
     app.run()
