@@ -139,7 +139,13 @@ def home():
 
 @app.route('/shirt')
 def shirt():
-    return render_template('shirt.html')
+    ua_string = request.headers.get('User-Agent')
+    user_agent = parse(ua_string)
+    is_computer = user_agent.is_pc
+    return render_template(
+        'shirt.html',
+        is_computer=is_computer,
+        )
 
 
 if __name__ == '__main__':

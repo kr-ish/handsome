@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>🎚️👕✨</title>
     <link rel="stylesheet" href='/static/shirt.css' />
+    <!-- Move text below image on mobile devices -->
+    {% if not is_computer %}
+        <style>
+            .layout {
+                flex-direction: column;
+            }
+        </style>
+    {% endif %}
 </head>
 <body>
     <section class="layout">
