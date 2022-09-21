@@ -2,6 +2,26 @@ html {
   margin:0;
   height:100%;
 }
+
+#navbar a:link {
+  text-decoration: none;
+  color: #ff8800
+}
+
+#navbar a:visited {
+  text-decoration: none;
+  color: #70db96
+}
+
+#navbar a:hover {
+  text-decoration: underline;
+  color: #ffee00
+}
+
+#navbar a:active {
+  text-decoration: underline;
+}
+
 body {
     margin:0;
     height:100%;
