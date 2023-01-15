@@ -6,7 +6,6 @@ from user_agents import parse
 
 app = Flask(__name__)
 
-BG_PATHS = glob.glob('./static/bg-*')
 FILTERS_MAP = {
     'breakdown': ('Breakdown', 'justinwlaurent'),
     '90stethic': ('𝟡𝟘𝕤𝕥𝕖𝕥𝕙𝕚𝕔', 'demiandrou'),
@@ -37,6 +36,8 @@ FILTERS_MAP = {
 # TODO: dynamically load from playlist using soundcloud api
 #  Can do this by using python API and pulling random tracks from playlist and then pulling track data.
 #  Can do track metadata pulling in SC api in JS but might be easier to do it all in python.
+#  Even better- load these from csvs/jsons - use SC API in a script to populate it- so API
+#  doesn't need to be hit all the time, can be run whenever playlist is updated.
 # TODO: replace with namedtuple
 TRAX = [
     (
@@ -83,13 +84,10 @@ TRAX = [
     ),
 ]
 
-
-# @app.route('/')
-# def login():
-#     return render_template('letmein.html')
-
-@app.route('/')
-def home():
+def parse_device_info(request):
+    """
+    Parses and returns info on the device sending the request.
+    """
     is_safari = False
     ua_string = request.headers.get('User-Agent')
     if 'Chrome' not in ua_string and 'Safari' in ua_string:
@@ -98,7 +96,16 @@ def home():
     user_agent = parse(ua_string)
     is_computer = user_agent.is_pc
 
-    bg_path = random.choice(BG_PATHS)
+    return is_safari, is_computer
+
+
+def load_background_and_filters(page):
+    """
+    Returns page background images/videos and associated filter and credit info.
+    """
+    bg_paths = glob.glob(f'./static/{page}/bg-*')
+    bg_path = random.choice(bg_paths)
+    bg_path_in_static = bg_path.split('static/')[1]
     bg_name = os.path.basename(bg_path)
     bg_tags, bg_ext = os.path.splitext(bg_name.lstrip('bg-'))
     bg_is_video = bg_ext == '.mp4'
@@ -115,18 +122,34 @@ def home():
             continue
         filters.append(filter)
 
+    return bg_path_in_static, bg_name, bg_is_video, image_credit, filters
+
+def load_trax():
+    """
+    Loads trax onto the deck 🎚️
+    """
     # randomly pick two unique tracks to load to deck
     trax = TRAX.copy()  # make a copy so that this is reinstantiated to the full list during debugging
     # when the app is reloaded
     track1 = trax.pop(random.randrange(len(trax)))
     track2 = trax.pop(random.randrange(len(trax)))
 
+    return track1, track2
+
+
+@app.route('/')
+@app.route('/atl')
+def atl():
+    page = 'atl'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax()
     # set flag to show main text
     show_text = bg_name in ['bg-kr_______________-lottafruta.jpeg', 'bg-kr_______________-leasebk.png']
 
     return render_template(
-        'home.html',
-        background=bg_name,
+        'atl.html',
+        background=bg_path_in_static,
         bg_is_video=bg_is_video,
         image_credit=image_credit,
         filters=filters,
@@ -137,11 +160,10 @@ def home():
         is_computer=is_computer,
     )
 
+
 @app.route('/shirt')
 def shirt():
-    ua_string = request.headers.get('User-Agent')
-    user_agent = parse(ua_string)
-    is_computer = user_agent.is_pc
+    _, is_computer = parse_device_info(request)
     return render_template(
         'shirt.html',
         is_computer=is_computer,
