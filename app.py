@@ -1,3 +1,4 @@
+import csv
 from flask import Flask, render_template, request
 import os
 import glob
@@ -33,56 +34,6 @@ FILTERS_MAP = {
     'handycamera': ('Handy Camera', 'solar.w'),
 }
 
-# TODO: dynamically load from playlist using soundcloud api
-#  Can do this by using python API and pulling random tracks from playlist and then pulling track data.
-#  Can do track metadata pulling in SC api in JS but might be easier to do it all in python.
-#  Even better- load these from csvs/jsons - use SC API in a script to populate it- so API
-#  doesn't need to be hit all the time, can be run whenever playlist is updated.
-# TODO: replace with namedtuple
-TRAX = [
-    (
-        "518465847",  # track id
-        "kawaiiton",  # artist
-        "𝕂𝔸𝕎𝔸𝕀𝕀𝕋𝕆ℕ",  # artist title
-        "anuel-x-chico-sonido-la-noche-oscura-x-christine",  # track
-        "ANUEL - La noche oscura x christine",  # track title
-    ),
-    (
-        "794804059",  # track id
-        "krypt",  # artist
-        "krypt",  # artist title
-        "bladee-lovestory-feat-ecco2k-krypt-rmx",  # track
-        "Bladee — Lovestory (krypt remix)",  # track title
-    ),
-    (
-        "1274960959",  # track id
-        "djanimebby",  # artist
-        "Dj Animebby",  # artist title
-        "dj-animebby-ki55-m3",  # track
-        "Dj Animebby - Ki55 M3",  # track title
-    ),
-    (
-        "1215934435",  # track id
-        "lynyofficial",  # artist
-        "LYNY",  # artist title
-        "danny-l-harle-on-a-mountain-lyny-remix",  # track
-        "Danny L Harle - On a Mountain (LYNY Remix)",  # track title
-    ),
-    # (
-    #     "1301438497",  # track id
-    #     "flume",  # artist
-    #     "FLUME",  # artist title
-    #     "hollow-feat-emma-louise-2",  # track
-    #     "Hollow (Logic1000 Remix)",  # track title
-    # ),
-    (
-        "1261559698",  # track id
-        "flume",  # artist
-        "FLUME",  # artist title
-        "dhlc",  # track
-        "DHLC",  # track title
-    ),
-]
 
 def parse_device_info(request):
     """
@@ -124,13 +75,26 @@ def load_background_and_filters(page):
 
     return bg_path_in_static, bg_name, bg_is_video, image_credit, filters
 
-def load_trax():
+
+def load_trax(page):
     """
     Loads trax onto the deck 🎚️
     """
+    # TODO: write script to auto populate trax csvs using SC api
+    #       + ad hoc- doesn't need to be hit all the time, can be run whenever playlist is updated
+    #       + get track metadata SC api in JS but might be easier to do it all in python but would
+    #         rather populate all at once.
+    trax_path = f'./static/{page}/trax.csv'
+    trax = []
+    with open(trax_path, newline='') as f:
+        # TODO: would be more readble in the html if DictReader is used here to parse header
+        csvreader = csv.reader(f, delimiter=',')
+        next(csvreader)  # skip hesder
+        for row in csvreader:
+            # print(row)  # debug
+            trax.append(row)
+
     # randomly pick two unique tracks to load to deck
-    trax = TRAX.copy()  # make a copy so that this is reinstantiated to the full list during debugging
-    # when the app is reloaded
     track1 = trax.pop(random.randrange(len(trax)))
     track2 = trax.pop(random.randrange(len(trax)))
 
@@ -143,7 +107,7 @@ def atl():
     page = 'atl'
     is_safari, is_computer = parse_device_info(request)
     bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
-    track1, track2 = load_trax()
+    track1, track2 = load_trax(page)
     # set flag to show main text
     show_text = bg_name in ['bg-kr_______________-lottafruta.jpeg', 'bg-kr_______________-leasebk.png']
 
