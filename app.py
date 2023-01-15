@@ -130,7 +130,7 @@ def atl():
     show_text = bg_name in ['bg-kr_______________-lottafruta.jpeg', 'bg-kr_______________-leasebk.png']
 
     return render_template(
-        'atl.html',
+        f'{page}.html',
         background=bg_path_in_static,
         bg_is_video=bg_is_video,
         image_credit=image_credit,
