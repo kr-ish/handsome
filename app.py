@@ -101,6 +101,60 @@ def load_trax(page):
     return track1, track2
 
 
+@app.route('/elsewhere')
+def elsewhere():
+    page = 'elsewhere'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax(page)
+
+    return render_template(
+        f'{page}.html',
+        video=bg_path_in_static,
+        # image_credit=image_credit,
+        filters=filters,
+        track1=track1,
+        track2=track2,
+        safari=is_safari
+    )
+
+
+@app.route('/spook')
+def spook():
+    page = 'spook'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax(page)
+
+    return render_template(
+        f'{page}.html',
+        video=bg_path_in_static,
+        image_credit=image_credit,
+        filters=filters,
+        track1=track1,
+        track2=track2,
+        safari=is_safari
+    )
+
+
+@app.route('/peaceandlove')
+def peaceandlove():
+    page = 'peaceandlove'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax(page)
+
+    return render_template(
+        f'{page}.html',
+        video=bg_path_in_static,
+        image_credit=image_credit,
+        filters=filters,
+        track1=track1,
+        track2=track2,
+        safari=is_safari
+    )
+
+
 @app.route('/shrek')
 def shrek():
     page = 'shrek'

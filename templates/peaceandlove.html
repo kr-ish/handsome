@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Peace and Love</title>
+    <link rel="stylesheet" href='/static/peaceandlove/style.css' />
+
+    {#    Favicon#}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Mea+Culpa&display=swap" rel="stylesheet">
+
+    <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+    <script src="https://use.edgefonts.net/unifrakturcook:n7:all.js"></script>
+{% endblock %}
+
+{% block body %}
+    {#  Use a false login page that's just a button that shows all the elements on the page to fake soundcloud
+    autoplay. Autoplay is generally disabled unless the user interacts with the page.#}
+    <div id="false_login">
+        <button onclick="enter()">Yes</button>
+    </div>
+
+    <div id="real_content">
+    <div id='toptext'>
+        <marquee direction="up" behavior="alternate" scrolldelay="60" scrollamount="3">
+            <p>
+                DJ Handsome <a href="https://www.instagram.com/kr_______________">Kr</a>ish <br>
+                Live @
+                Else<a href="https://www.instagram.com/elsewherebrewing">where</a> Brewing <br>
+                01/29/2022 <br>
+            </p>
+        </marquee>
+    </div>
+
+    <div id="video_text">
+        {% if safari%}
+        <div id="safari_warning">
+            <h2>Video might not load on Safari :((  Try Chrome or Firefox or another internet browser</h2>
+            <h3>For the best experience, open on a non Safari browser on your computer ! </h3>
+        </div>
+        {% endif %}
+        <video id='video' autoplay muted playsinline loop>
+            <source src="{{url_for('static', filename=video)}}" type="video/mp4">
+            Your machine is not able to load this content, but that's ok.
+    {#         TODO: add a lil surprise just for them- cookie#}
+        Come to my dj set.
+        </video>
+
+        <div id="sidetext">
+            <p>📷 <a href="https://instagram.com/{{ image_credit }}">{{ image_credit }}</a></p>
+            {% for filt in filters %}
+                <p>{{ filt[0] }} by <a href="https://instagram.com/{{ filt[1] }}">{{ filt[1] }}</a> </p>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="deck">
+        <div id="players">
+            <iframe id='player1' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track1[0] }}&color=%23090000&auto_play=true&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+            <iframe id='player2' width="auto" height="auto" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track2[0] }}&color=%232c2c2e&auto_play=false&single_active=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+        </div>
+
+        <div id = "sampler">
+            <input id="crossfader" type="range" min="-100" max="100" value="0" defaultvalue="0" class="slider" oninput="crossFade(this.value)">
+
+            <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
+            <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
+            <audio id="sound3" src="{{url_for('static', filename='krishonthemusic-sat-150-norm.mp3')}}" preload="auto"></audio>
+            <audio id="sound4" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
+            <audio id="sound5" src="{{url_for('static', filename='mishti_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound6" src="{{url_for('static', filename='esha_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound7" src="{{url_for('static', filename='jq_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound8" src="{{url_for('static', filename='otgw_greg_dist.mp3')}}" preload="auto"></audio>
+            <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
+            <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
+            <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
+            <button onclick="document.getElementById('sound4').play();"><span>4</span></button>
+            <button onclick="document.getElementById('sound5').play();"><span>5</span></button>
+            <button onclick="document.getElementById('sound6').play();"><span>6</span></button>
+            <button onclick="document.getElementById('sound7').play();"><span>7</span></button>
+            <button onclick="document.getElementById('sound8').play();"><span>8</span></button>
+        </div>
+    </div>
+    <div id="bigbutton">
+        <iframe src="https://gifer.com/embed/1AYl" width=480 height=560.383 frameBorder="0" allowFullScreen></iframe>
+{#        <div style="padding-top:116.746%;position:relative;"><iframe src="https://gifer.com/embed/1AYl" width="75%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0" allowFullScreen></iframe></div>#}
+        <button id="bigbuttonbutton" onclick="toggleBig()"><span>closer</span></button>
+    </div>
+
+    <div id="respawn">
+        Press <a href="{{ url_for('peaceandlove') }}"><img alt="B" src="{{ url_for('static', filename='xbox_x_button.png') }}"></a> to respawn
+{#                <iframe src="https://giphy.com/embed/20OAhNvVQM98c" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>#}
+        <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/20OAhNvVQM98c" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p>
+    </div>
+
+    <div id='bottomtext'>
+        <marquee scrollamount="4">
+            <p>
+                <a href="https://soundcloud.com/{{ track1[1] }}" title="{{ track1[2] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track1[2] }}</a> · <a href="https://soundcloud.com/{{ track1[1] }}/{{ track1[3] }}" title="{{ track1[4] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track1[4] }}</a>
+            </p>
+        </marquee>
+        <marquee scrollamount="3">
+            <p>
+                <a href="https://soundcloud.com/{{ track2[1] }}" title="{{ track2[2] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track2[2] }}</a> · <a href="https://soundcloud.com/{{ track2[1] }}/{{ track2[3] }}" title="{{ track2[4] }}" target="_blank" style="color: #cccccc; text-decoration: none;">{{ track2[4] }}</a>
+            </p>
+        </marquee>
+    </div>
+
+    </div>
+
+    <script>
+        let colors = ['#aa5cfd', '#d25ef8', '#f562e1', '#d55db8', '#c931dc', '#e545d1', '#d260ee', '#008aff', '#86d472', '#0000ff', '#ff4d00', '#eaff00', '#77ff00', '#00ffb3', '#bb00ff', '#ff00d4'];
+        {#let colors = ['#aa5cfd', '#d25ef8', '#f562e1', '#d55db8', '#c931dc', '#e545d1', '#d260ee'];#}
+        let buttons = document.getElementById('deck').getElementsByTagName("button")
+        for(let b in buttons) {
+            if (buttons.hasOwnProperty(b)){
+                let color1 = colors[Math.floor(Math.random() * colors.length)];
+                let color2 = colors[Math.floor(Math.random() * colors.length)];
+                buttons[b].style.backgroundImage = `linear-gradient(135deg, ${color1}, ${color2})`;
+            }
+        }
+    </script>
+
+    <script>
+        function crossFade(value){
+            {# player 1 vol should be 0 when the slider is all the way to the right (100),           #}
+            {# 100 when it is in the center (0), and stay at 100 at any point left of the center.    #}
+            let fadeVal = Math.max(0, value);
+            let player1Val = 100 - fadeVal;
+            let widgetIframe = document.getElementById('player1');
+            let widget = SC.Widget(widgetIframe);
+            widget.setVolume(player1Val);
+
+            {# player 2 vol should be 0 when the slider is all the way to the left (-100),           #}
+            {# 100 when it is in the center (0), and stay at 100 at any point right of the center.   #}
+            fadeVal = Math.min(0, value);
+            let player2Val = 100 + fadeVal; // use + here since a negative value is being added
+            widgetIframe = document.getElementById('player2');
+            widget = SC.Widget(widgetIframe);
+            widget.setVolume(player2Val);
+
+        }
+
+        function toggleBig() {
+          let vid = document.getElementById("video");
+          let respawn = document.getElementById("respawn");
+          let toptext = document.getElementById("toptext");
+          let deck = document.getElementById("deck");
+          let bigbutton = document.getElementById("bigbuttonbutton");
+          if (!vid.style.height || vid.style.height === "auto"){
+              vid.style.height = "150%";
+              vid.style.width = "150%";
+              respawn.style.display = 'none';
+              toptext.style.left = "5%";
+              deck.style.left = "68%";
+              deck.style.top = "160%";
+              bigbutton.style.top = "197%";
+          }
+          else{
+            vid.style.height = "auto";
+            vid.style.width = "auto";
+            respawn.style.display = 'block';
+            toptext.style.left = "28%";
+            deck.style.left = "60%";
+            deck.style.top = "33%";
+            bigbutton.style.top = "70%";
+          }
+        }
+    </script>
+
+    <script type="text/javascript">
+        (function(){
+            let content = document.getElementById("real_content");
+            content.style.display = 'none';
+      }());
+    </script>
+    <script type="text/javascript">
+        function enter(){
+            let content = document.getElementById("real_content");
+            content.style.display = 'block';
+            let login = document.getElementById("false_login");
+            login.style.display = 'none';
+
+            let widgetIframe = document.getElementById('player1'),
+            widget1 = SC.Widget(widgetIframe);
+            widget1.bind(SC.Widget.Events.READY, function() {
+                widget1.play();
+            });
+      }
+    </script>
+{% endblock %}
