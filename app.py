@@ -111,7 +111,7 @@ def elsewhere():
     return render_template(
         f'{page}.html',
         video=bg_path_in_static,
-        # image_credit=image_credit,
+        image_credit=image_credit,
         filters=filters,
         track1=track1,
         track2=track2,
