@@ -1,3 +1,4 @@
+import csv
 from flask import Flask, render_template, request
 import os
 import glob
@@ -6,7 +7,6 @@ from user_agents import parse
 
 app = Flask(__name__)
 
-BG_PATHS = glob.glob('./static/bg-*')
 FILTERS_MAP = {
     'breakdown': ('Breakdown', 'justinwlaurent'),
     '90stethic': ('𝟡𝟘𝕤𝕥𝕖𝕥𝕙𝕚𝕔', 'demiandrou'),
@@ -34,62 +34,11 @@ FILTERS_MAP = {
     'handycamera': ('Handy Camera', 'solar.w'),
 }
 
-# TODO: dynamically load from playlist using soundcloud api
-#  Can do this by using python API and pulling random tracks from playlist and then pulling track data.
-#  Can do track metadata pulling in SC api in JS but might be easier to do it all in python.
-# TODO: replace with namedtuple
-TRAX = [
-    (
-        "518465847",  # track id
-        "kawaiiton",  # artist
-        "𝕂𝔸𝕎𝔸𝕀𝕀𝕋𝕆ℕ",  # artist title
-        "anuel-x-chico-sonido-la-noche-oscura-x-christine",  # track
-        "ANUEL - La noche oscura x christine",  # track title
-    ),
-    (
-        "794804059",  # track id
-        "krypt",  # artist
-        "krypt",  # artist title
-        "bladee-lovestory-feat-ecco2k-krypt-rmx",  # track
-        "Bladee — Lovestory (krypt remix)",  # track title
-    ),
-    (
-        "1274960959",  # track id
-        "djanimebby",  # artist
-        "Dj Animebby",  # artist title
-        "dj-animebby-ki55-m3",  # track
-        "Dj Animebby - Ki55 M3",  # track title
-    ),
-    (
-        "1215934435",  # track id
-        "lynyofficial",  # artist
-        "LYNY",  # artist title
-        "danny-l-harle-on-a-mountain-lyny-remix",  # track
-        "Danny L Harle - On a Mountain (LYNY Remix)",  # track title
-    ),
-    # (
-    #     "1301438497",  # track id
-    #     "flume",  # artist
-    #     "FLUME",  # artist title
-    #     "hollow-feat-emma-louise-2",  # track
-    #     "Hollow (Logic1000 Remix)",  # track title
-    # ),
-    (
-        "1261559698",  # track id
-        "flume",  # artist
-        "FLUME",  # artist title
-        "dhlc",  # track
-        "DHLC",  # track title
-    ),
-]
 
-
-# @app.route('/')
-# def login():
-#     return render_template('letmein.html')
-
-@app.route('/')
-def home():
+def parse_device_info(request):
+    """
+    Parses and returns info on the device sending the request.
+    """
     is_safari = False
     ua_string = request.headers.get('User-Agent')
     if 'Chrome' not in ua_string and 'Safari' in ua_string:
@@ -98,7 +47,16 @@ def home():
     user_agent = parse(ua_string)
     is_computer = user_agent.is_pc
 
-    bg_path = random.choice(BG_PATHS)
+    return is_safari, is_computer
+
+
+def load_background_and_filters(page):
+    """
+    Returns page background images/videos and associated filter and credit info.
+    """
+    bg_paths = glob.glob(f'./static/{page}/bg-*')
+    bg_path = random.choice(bg_paths)
+    bg_path_in_static = bg_path.split('static/')[1]
     bg_name = os.path.basename(bg_path)
     bg_tags, bg_ext = os.path.splitext(bg_name.lstrip('bg-'))
     bg_is_video = bg_ext == '.mp4'
@@ -115,18 +73,119 @@ def home():
             continue
         filters.append(filter)
 
+    return bg_path_in_static, bg_name, bg_is_video, image_credit, filters
+
+
+def load_trax(page):
+    """
+    Loads trax onto the deck 🎚️
+    """
+    # TODO: write script to auto populate trax csvs using SC api
+    #       + ad hoc- doesn't need to be hit all the time, can be run whenever playlist is updated
+    #       + get track metadata SC api in JS but might be easier to do it all in python but would
+    #         rather populate all at once.
+    trax_path = f'./static/{page}/trax.csv'
+    trax = []
+    with open(trax_path, newline='') as f:
+        # TODO: would be more readble in the html if DictReader is used here to parse header
+        csvreader = csv.reader(f, delimiter=',')
+        next(csvreader)  # skip hesder
+        for row in csvreader:
+            # print(row)  # debug
+            trax.append(row)
+
     # randomly pick two unique tracks to load to deck
-    trax = TRAX.copy()  # make a copy so that this is reinstantiated to the full list during debugging
-    # when the app is reloaded
     track1 = trax.pop(random.randrange(len(trax)))
     track2 = trax.pop(random.randrange(len(trax)))
 
+    return track1, track2
+
+
+@app.route('/elsewhere')
+def elsewhere():
+    page = 'elsewhere'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax(page)
+
+    return render_template(
+        f'{page}.html',
+        video=bg_path_in_static,
+        image_credit=image_credit,
+        filters=filters,
+        track1=track1,
+        track2=track2,
+        safari=is_safari
+    )
+
+
+@app.route('/spook')
+def spook():
+    page = 'spook'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax(page)
+
+    return render_template(
+        f'{page}.html',
+        video=bg_path_in_static,
+        image_credit=image_credit,
+        filters=filters,
+        track1=track1,
+        track2=track2,
+        safari=is_safari
+    )
+
+
+@app.route('/peaceandlove')
+def peaceandlove():
+    page = 'peaceandlove'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax(page)
+
+    return render_template(
+        f'{page}.html',
+        video=bg_path_in_static,
+        image_credit=image_credit,
+        filters=filters,
+        track1=track1,
+        track2=track2,
+        safari=is_safari
+    )
+
+
+@app.route('/shrek')
+def shrek():
+    page = 'shrek'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax(page)
+
+    return render_template(
+        f'{page}.html',
+        video=bg_path_in_static,
+        image_credit=image_credit,
+        filters=filters,
+        track1=track1,
+        track2=track2,
+        safari=is_safari
+    )
+
+
+@app.route('/')
+@app.route('/atl')
+def atl():
+    page = 'atl'
+    is_safari, is_computer = parse_device_info(request)
+    bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    track1, track2 = load_trax(page)
     # set flag to show main text
     show_text = bg_name in ['bg-kr_______________-lottafruta.jpeg', 'bg-kr_______________-leasebk.png']
 
     return render_template(
-        'home.html',
-        background=bg_name,
+        f'{page}.html',
+        background=bg_path_in_static,
         bg_is_video=bg_is_video,
         image_credit=image_credit,
         filters=filters,
@@ -137,11 +196,10 @@ def home():
         is_computer=is_computer,
     )
 
+
 @app.route('/shirt')
 def shirt():
-    ua_string = request.headers.get('User-Agent')
-    user_agent = parse(ua_string)
-    is_computer = user_agent.is_pc
+    _, is_computer = parse_device_info(request)
     return render_template(
         'shirt.html',
         is_computer=is_computer,
