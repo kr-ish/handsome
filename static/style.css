@@ -42,7 +42,7 @@ nav a:hover::after {
 
 #navbar img {
   /* float: none; */
-  vertical-align: bottom;
+  vertical-align: middle;
   width: 20px;
   height: 20px;
 }
