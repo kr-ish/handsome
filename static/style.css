@@ -40,6 +40,13 @@ nav a:hover::after {
   content: "👈";
 }
 
+nav img {
+  /* float: none; */
+  vertical-align: bottom;
+  width: 20px;
+  height: 20px;
+}
+
 body {
     margin:0;
     height:100%;
