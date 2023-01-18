@@ -2,10 +2,11 @@ from flask import Flask, render_template, request
 import os
 import glob
 import random
+from user_agents import parse
 
 app = Flask(__name__)
 
-VIDEO_PATHS = glob.glob('./static/*.mp4')
+BG_PATHS = glob.glob('./static/bg-*')
 FILTERS_MAP = {
     'breakdown': ('Breakdown', 'justinwlaurent'),
     '90stethic': ('𝟡𝟘𝕤𝕥𝕖𝕥𝕙𝕚𝕔', 'demiandrou'),
@@ -38,61 +39,47 @@ FILTERS_MAP = {
 #  Can do track metadata pulling in SC api in JS but might be easier to do it all in python.
 # TODO: replace with namedtuple
 TRAX = [
+    (
+        "518465847",  # track id
+        "kawaiiton",  # artist
+        "𝕂𝔸𝕎𝔸𝕀𝕀𝕋𝕆ℕ",  # artist title
+        "anuel-x-chico-sonido-la-noche-oscura-x-christine",  # track
+        "ANUEL - La noche oscura x christine",  # track title
+    ),
+    (
+        "794804059",  # track id
+        "krypt",  # artist
+        "krypt",  # artist title
+        "bladee-lovestory-feat-ecco2k-krypt-rmx",  # track
+        "Bladee — Lovestory (krypt remix)",  # track title
+    ),
+    (
+        "1274960959",  # track id
+        "djanimebby",  # artist
+        "Dj Animebby",  # artist title
+        "dj-animebby-ki55-m3",  # track
+        "Dj Animebby - Ki55 M3",  # track title
+    ),
+    (
+        "1215934435",  # track id
+        "lynyofficial",  # artist
+        "LYNY",  # artist title
+        "danny-l-harle-on-a-mountain-lyny-remix",  # track
+        "Danny L Harle - On a Mountain (LYNY Remix)",  # track title
+    ),
     # (
-    #     "294929726",  # track id
-    #     "graphicmuzik",  # artist
-    #     "GraphicMuzik",  # artist title
-    #     "shrek-remix",  # track
-    #     "Shrek Remix",  # track title
+    #     "1301438497",  # track id
+    #     "flume",  # artist
+    #     "FLUME",  # artist title
+    #     "hollow-feat-emma-louise-2",  # track
+    #     "Hollow (Logic1000 Remix)",  # track title
     # ),
     (
-        "1297804636",  # track id
-        "kr_sh",  # artist
-        "DJ Handsome Krish",  # artist title
-        "green-da-ba-dee-da",  # track
-        "Eiffel 65 - Blue (Flume Remix) (handsome greendub)",  # track title
-    ),
-    (
-        "504013449",  # track id
-        "theguy-v3-because-why",  # artist
-        "TheGuy V.3 (OLD)",  # artist title
-        "shrek-rave-anthem",  # track
-        "Shrek Rave Anthem",  # track title
-    ),
-    (
-        "810120781",  # track id
-        "countbaldor",  # artist
-        "count baldor",  # artist title
-        "this-is-one-dj-you-dont-want-to-fuck-with",  # track
-        "This Is One DJ You Don't Want To Fuck With",  # track title
-    ),
-    (
-        "701179420",  # track id
-        "saucysantana",  # artist
-        "SAUCY SANTANA",  # artist title
-        "material-girl",  # track
-        "Material Girl",  # track title
-    ),
-    (
-        "1296244924",  # track id
-        "seshlehemuk",  # artist
-        "Seshlehem",  # artist title
-        "livin-la-vida-loca-hbz-1",  # track
-        "Livin La Vida Loca (HBZ Hardstyle Remix) - Seshlehem",  # track title
-    ),
-    (
-        "1202860279",  # track id
-        "hikeii",  # artist
-        "@hikeii",  # artist title
-        "amygdala",  # track
-        "ecco2k & bladee - amygdala (@hikeii flip)",  # track title
-    ),
-    (
-        "1198775374",  # track id
-        "djtravella",  # artist
-        "DJ Travella",  # artist title
-        "london-uwoteee",  # track
-        "London Uwoteee",  # track title
+        "1261559698",  # track id
+        "flume",  # artist
+        "FLUME",  # artist title
+        "dhlc",  # track
+        "DHLC",  # track title
     ),
 ]
 
@@ -103,23 +90,28 @@ TRAX = [
 
 @app.route('/')
 def home():
-    safari = False
-    user_agent = request.headers.get('User-Agent')
-    if 'Chrome' not in user_agent and 'Safari' in user_agent:
-        safari = True
+    is_safari = False
+    ua_string = request.headers.get('User-Agent')
+    if 'Chrome' not in ua_string and 'Safari' in ua_string:
+        is_safari = True
 
-    video_path = random.choice(VIDEO_PATHS)
-    video_name = os.path.basename(video_path)
-    video_tags = os.path.splitext(video_name)[0].split('-')
-    image_credit = video_tags[0]
-    filter_keys = video_tags[1:]
+    user_agent = parse(ua_string)
+    is_computer = user_agent.is_pc
+
+    bg_path = random.choice(BG_PATHS)
+    bg_name = os.path.basename(bg_path)
+    bg_tags, bg_ext = os.path.splitext(bg_name.lstrip('bg-'))
+    bg_is_video = bg_ext == '.mp4'
+    bg_tags = bg_tags.split('-')
+    image_credit = bg_tags[0]
+    filter_keys = bg_tags[1:]
     filters = []
 
     # get filters used by video by parsing filter keys from video name
     for filter_key in filter_keys:
         filter = FILTERS_MAP.get(filter_key)
         if not filter:
-            app.logger.warning(f'Filter key {filter_key} not found from video path {video_path}, skipping..')
+            app.logger.warning(f'Filter key {filter_key} not found from background media path {bg_path}, skipping..')
             continue
         filters.append(filter)
 
@@ -129,15 +121,31 @@ def home():
     track1 = trax.pop(random.randrange(len(trax)))
     track2 = trax.pop(random.randrange(len(trax)))
 
+    # set flag to show main text
+    show_text = bg_name in ['bg-kr_______________-lottafruta.jpeg', 'bg-kr_______________-leasebk.png']
+
     return render_template(
         'home.html',
-        video=video_name,
+        background=bg_name,
+        bg_is_video=bg_is_video,
         image_credit=image_credit,
         filters=filters,
+        show_text=show_text,
         track1=track1,
         track2=track2,
-        safari=safari
+        is_safari=is_safari,
+        is_computer=is_computer,
     )
+
+@app.route('/shirt')
+def shirt():
+    ua_string = request.headers.get('User-Agent')
+    user_agent = parse(ua_string)
+    is_computer = user_agent.is_pc
+    return render_template(
+        'shirt.html',
+        is_computer=is_computer,
+        )
 
 
 if __name__ == '__main__':

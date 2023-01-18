@@ -1,0 +1,32 @@
+body {
+  background: black;
+  color: white;
+}
+
+.layout {
+  width: 100%;
+
+  display: flex;
+  gap: 16px;
+}
+
+.text { flex-grow: 1; }
+
+a:link {
+  text-decoration: none;
+  color: #ff8800
+}
+
+a:visited {
+  text-decoration: none;
+  color: #70db96
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ffee00
+}
+
+a:active {
+  text-decoration: underline;
+}

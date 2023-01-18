@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Handsome Shrek</title>
+    <title>😭🍑🫂🚗💚</title>
     <link rel="stylesheet" href='/static/style.css' />
 
     {#    Favicon#}
@@ -21,45 +21,69 @@
     <script src="https://use.edgefonts.net/unifrakturcook:n7:all.js"></script>
 </head>
 
+<nav>
+    <div id="navbar">
+        👉<a href="shirt">👕</a>👈
+    </div>
+</nav>
+
 <body>
     {#  Use a false login page that's just a button that shows all the elements on the page to fake soundcloud
     autoplay. Autoplay is generally disabled unless the user interacts with the page.#}
     <div id="false_login">
-        <button onclick="enter()">Once upon a time, in a far away swamp</button>
+        <button onclick="enter()">🎚️ What if it all works out in the end? 🎚️</button>
     </div>
 
     <div id="real_content">
-    <div id='toptext'>
-        <marquee direction="up" behavior="alternate" scrolldelay="60" scrollamount="3">
-            <p>
-                The Swamp vs. Duloc<br>
-                DJ Handsome <a href="https://www.instagram.com/kr_______________">Kr</a>ish<br>
-                Live in Purgatory @<br>
-                The <a href="https://www.instagram.com/masquerade_atl">Masq</a>uerade<br>
-                July 1, 2022<br>
-            </p>
-        </marquee>
-    </div>
+
+    {% if show_text %}
+        <div id='toptext'>
+            <marquee direction="up" behavior="alternate" scrolldelay="60" scrollamount="3">
+                <p>
+                    DJ <a href="https://www.instagram.com/kr_______________">I</a> will miss Atlanta<br>
+                    DJ <a href="https://www.instagram.com/kiddiegoggles">Kiddiegoggles</a><br>
+                    DJ <a href="https://www.instagram.com/a_mad_ghoul">Stellar Stangk</a><br>
+                    DJ Gas Leak b2b DJ Hot Bod<br>
+                    Live @ Punk House<br>
+                    August 27, 2022<br>
+                </p>
+            </marquee>
+        </div>
+    {% endif %}
 
     <div id="video_text">
-        <!-- {% if safari%}
-        <div id="safari_warning">
-            <h6>Video might not load on Safari :(</h6>
-        </div>
-        {% endif %} -->
-        <video id='video' autoplay muted playsinline loop>
-            <source src="{{url_for('static', filename=video)}}" type="video/mp4">
-            Your machine is not able to load this content, but that's ok.
-    {#         TODO: add a lil surprise just for them- cookie#}
-        Come to my dj set.
-        </video>
 
-        <div id="sidetext">
-<!--            <p>📷 <a href="https://instagram.com/{{ image_credit }}">{{ image_credit }}</a></p>-->
+        {% if bg_is_video %}
+            <!-- {% if is_safari %}
+            <div id="safari_warning">
+                <h6>Video might not load on Safari :(</h6 >
+            </div>
+            {% endif %} -->
+            <video id='background' autoplay muted playsinline loop>
+                <source src="{{url_for('static', filename=background)}}" type="video/mp4">
+                Your machine is not able to load this content, but that's ok.
+                {#         TODO: add a lil surprise just for them- cookie#}
+            Come to my dj set.
+            </video>
+        {% else %}
+            <!-- <img id='background' src="{{ url_for('static', filename=background) }}" width="33%" height="33%" style='position:absolute;top:0;left:0;'> -->
+            <!-- TODO - instead of this hack, just save the big image at the desired resolution, once tuned -->
+            {% if show_text %}
+                <img id='bg_img' src="{{ url_for('static', filename=background) }}">
+            {% else %}
+                {% if is_computer %}
+                    <img id='bg_img_big_pc' src="{{ url_for('static', filename=background) }}">
+                {% else %}
+                    <img id='bg_img_big_mobile' src="{{ url_for('static', filename=background) }}">
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        <!-- <div id="sidetext">
+           <p>📷 <a href="https://instagram.com/{{ image_credit }}">{{ image_credit }}</a></p>
             {% for filt in filters %}
                 <p>{{ filt[0] }} by <a href="https://instagram.com/{{ filt[1] }}">{{ filt[1] }}</a> </p>
             {% endfor %}
-        </div>
+        </div> -->
     </div>
     <div id="deck">
         <div id="players">
@@ -73,11 +97,11 @@
             <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
             <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
             <audio id="sound3" src="{{url_for('static', filename='krishonthemusic-sat-150-norm.mp3')}}" preload="auto"></audio>
-            <audio id="sound4" src="{{url_for('static', filename='lfg-donkey.mp3')}}" preload="auto"></audio>
-            <audio id="sound5" src="{{url_for('static', filename='what-are-you-doing-in-my-swamp.mp3')}}" preload="auto"></audio>
-            <audio id="sound6" src="{{url_for('static', filename='Im a real boy.mp3')}}" preload="auto"></audio>
-            <audio id="sound7" src="{{url_for('static', filename='gumdropbuttons.mp3')}}" preload="auto"></audio>
-            <audio id="sound8" src="{{url_for('static', filename='itsallogrenow1.mp3')}}" preload="auto"></audio>
+            <audio id="sound4" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
+            <audio id="sound5" src="{{url_for('static', filename='sentry-krishonthemusic.wav')}}" preload="auto"></audio>
+            <audio id="sound6" src="{{url_for('static', filename='punch-with-oof.wav')}}" preload="auto"></audio>
+            <audio id="sound7" src="{{url_for('static', filename='esha-handsome.wav')}}" preload="auto"></audio>
+            <audio id="sound8" src="{{url_for('static', filename='mishti-handsome.wav')}}" preload="auto"></audio>
             <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
             <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
             <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
@@ -88,20 +112,22 @@
             <button onclick="document.getElementById('sound8').play();"><span>8</span></button>
         </div>
     </div>
-    <div id="maingif" style="display:none">
-        <!--        <iframe src="https://gifer.com/embed/D0Jc" width=480 height=270.000 frameBorder="0"></iframe>-->
+
+    <!-- <div id="maingif" style="display:none">
 {#        <div style="padding-top:56.250%;position:relative"><iframe src="https://gifer.com/embed/D0Jc" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0"></iframe></div>#}
         <div style="padding-top:56.250%;position:relative"><img src="{{ url_for('static', filename='swamp-rave.gif') }}" width="100%" height="100%" style='position:absolute;top:0;left:0;'></div>
-    </div>
-    <div id="bigbutton">
+    </div> -->
+    <!-- <div id="bigbutton">
         <button id="bigbuttonbutton" onclick="toggleBig()"><span>🎉</span></button>
-    </div>
+    </div> -->
 
-    <div id="respawn">
-        My potions are too strong for you, traveller <a href="{{ url_for('home') }}"><img alt="B" src="{{ url_for('static', filename='potion.png') }}" width="15%" height="15%"></a>
-{#        <div style="padding-top:100.000%;position:relative;"><iframe src="https://gifer.com/embed/3ONGb" width="100%" height="100%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply' frameBorder="0"></iframe></div>#}
-        <div style="padding-top:100.000%;position:relative;"><img src="{{ url_for('static', filename='shrek-baby.gif') }}" width="100%" height="80%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply'></div>
-    </div>
+    {% if show_text %}
+        <div id="respawn">
+            Press <a href="{{ url_for('home') }}"><img alt="B" src="{{ url_for('static', filename='xbox_x_button.png') }}"></a> to respawn
+            <!-- <div style="padding-top:100.000%;position:relative;"><iframe src="https://gifer.com/embed/3ONGb" width="100%" height="100%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply' frameBorder="0"></iframe></div> -->
+            <!-- <div style="padding-top:100.000%;position:relative;"><img src="{{ url_for('static', filename='shrek-baby.gif') }}" width="100%" height="80%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply'></div> -->
+        </div>
+    {% endif %}
 
     <div id='bottomtext'>
         <marquee scrollamount="4">

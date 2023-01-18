@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🎚️👕✨</title>
+    <link rel="stylesheet" href='/static/shirt.css' />
+    <!-- Move text below image on mobile devices -->
+    {% if not is_computer %}
+        <style>
+            .layout {
+                flex-direction: column;
+            }
+        </style>
+    {% endif %}
+</head>
+
+<nav>
+    👉<a href="/">🎚️🎛️🎚️</a>👈
+</nav>
+
+<body>
+    <section class="layout">
+        <div class="main">
+            <img id='bg_img' src="{{ url_for('static', filename='tshirt-mock.jpg') }}">
+        </div>
+        <div class="text">
+            Inspired by the classic <a href="{{ url_for('static', filename='isawparthishwarviswanathanjackmcintoshthomsonandchadremingtonmillerperformat1082mcmillanstnwatlantaga30318onfebruary22nd2019.jpg') }}">H4MT shirt</a><br>
+            <br>
+            $13-$15 depending on how many orders we get, final price will be the final cost but if you would like to pay $5-$10 more, any profits will be donated to the <a href="https://abortionfunds.org/">NNAF</a>. I will match the final donation amount!<br>
+            <br>
+            Shirts will be ready for pickup in ATL in October, and can also be shipped to you at cost-<br>
+            DM <a href="https://www.instagram.com/kr_______________">@kr_______________</a> shirt size and quantity asap, or text me (:<br>
+            <br>
+            There will only be a handful of extras so if you want one please lmk!<br>
+        </div>
+    </section>
+</body>
+</html>

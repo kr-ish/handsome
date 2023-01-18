@@ -2,12 +2,32 @@ html {
   margin:0;
   height:100%;
 }
+
+#navbar a:link {
+  text-decoration: none;
+  color: #ff8800
+}
+
+#navbar a:visited {
+  text-decoration: none;
+  color: #70db96
+}
+
+#navbar a:hover {
+  text-decoration: underline;
+  color: #ffee00
+}
+
+#navbar a:active {
+  text-decoration: underline;
+}
+
 body {
     margin:0;
     height:100%;
     background: black;
     color: white;
-    cursor: url('donkey-cursor.cur'), auto;
+    /* cursor: url('donkey-cursor.cur'), auto; */
 }
 
 #false_login {
@@ -23,10 +43,28 @@ body {
 /*    position: relative;*/
 /*}*/
 
-#video {
+#bg_video {
     float: left;
     width: auto;
     height: auto;
+}
+
+#bg_img {
+  float: left;
+  width: auto;
+  height: auto;
+}
+
+#bg_img_big_mobile {
+  float: left;
+  width: auto;
+  height: 100vh;
+}
+
+#bg_img_big_pc {
+  float: left;
+  width: 100vw;
+  height: auto;
 }
 
 .container { position:relative; }
@@ -52,13 +90,13 @@ body {
     /*text-shadow: 2px 2px 4px #ff73b8;*/
     /*background-color:#000;*/
     z-index:1;
-    font-size: 69px;
+    font-size: 2.6rem;
     /*line-break: anywhere;*/
     /*word-break: normal;*/
     /*overflow: hidden;*/
     /*white-space: nowrap;*/
     /*text-overflow: ellipsis;*/
-    font-family: Berkshire Swash, cursive;
+    font-family: Geneva, Tahoma, Verdana, sans-serif;;
     /*font-weight: 100;*/
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
@@ -70,13 +108,13 @@ body {
     height: 100%
 }
 #toptext a:link {
-    color: #eee
+    color: #fffefa
 }
 #toptext a:visited {
-    color: #eee
+    color: #fffefa
 }
 #toptext a:hover {
-    color: #B0C400
+    color: #ff8800
 }
 /*#players {*/
 /*    !*position:absolute;*!*/
@@ -104,10 +142,13 @@ body {
 
 #respawn {
     position: absolute;
-    top: 15%;
+    top: 8%;
     left: 80%;
     z-index: 7;
     font-family: Sorts Mill Goudy,italic;
+    font-size: 30px;
+    text-shadow: 1px 1px #000000;
+
 }
 
 #bigbutton button {
@@ -124,13 +165,13 @@ body {
         linear,
         left top,
         right top,
-        from(#B0C400),
-        color-stop(#D5DE2E),
-        color-stop(#795A2D),
-        color-stop(#523213),
-        color-stop(#C3BC95),
-        color-stop(#D3CCA5),
-        to(#d260ee)
+        from(#fdde5c),
+        color-stop(#f8ab5e),
+        color-stop(#f56a62),
+        color-stop(#a176c8),
+        color-stop(#759beb),
+        color-stop(#65beb3),
+        to(#70db96)
     );
     background: linear-gradient(
         to right,
@@ -171,7 +212,7 @@ body {
 #deck {
     /*float: bottom;*/
     position: absolute;
-    top: 33%;
+    top: 60%;
     left: 60%;
     width: 20em;
     z-index: 5;
@@ -255,117 +296,117 @@ body {
 
 @keyframes flickering {
   0% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   5% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   10% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(-5deg);
   }
   15% {
-    color: #795A2D;
+    color: #ffee00;
     text-shadow: none;
     transform: skewX(-5deg);
   }
   20% {
-    color: #DDF600;
+    color: #57d265;
     text-shadow: 2px 2px #eee;
     transform: skewX(0);
   }
   25% {
-    color: #795A2D;
-    text-shadow: 2px 2px #DDF600;
+    color: #ffee00;
+    text-shadow: 2px 2px #ff8800;
     transform: skewX(0);
   }
   30% {
-    color: #795A2D;
-    text-shadow: 2px 2px #DDF600;
+    color: #ffee00;
+    text-shadow: 2px 2px #ff8800;
     transform: skewX(0);
   }
   35% {
-    color: #795A2D;
-    text-shadow: 2px 2px #DDF600;
+    color: #ffee00;
+    text-shadow: 2px 2px #ff8800;
     transform: skewX(0);
   }
   37% {
-    color: #795A2D;
+    color: #ffee00;
     text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   40% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   45% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   50% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: none;
     transform: skewX(0);
   }
   55% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: none;
     transform: skewX(0);
   }
   60% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: none;
     transform: skewX(0);
   }
   65% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: none;
     transform: skewX(0);
   }
   68% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   70% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   75% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(1deg);
   }
   80% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(1deg);
   }
   85% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(1deg);
   }
   90% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: none;
     transform: skewX(0);
   }
   95% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: 1px 1px #523213;
     transform: skewX(0);
   }
   100% {
-    color: #DDF600;
+    color: #ff8800;
     text-shadow: none;
     transform: skewX(5deg);
   }
