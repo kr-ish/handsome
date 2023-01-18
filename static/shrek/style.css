@@ -7,7 +7,7 @@ html {
       height:100%;
       background: black;
       color: white;
-      cursor: url('donkey-cursor.cur'), auto;
+      cursor: url('/static/donkey-cursor.cur'), auto;
   }
   
   #false_login {
@@ -169,7 +169,7 @@ html {
       width: 20em;
       z-index: 5;
       margin: 2em;
-      /*cursor: url('real_point_cursor.png'), auto;*/
+      /*cursor: url('/static/real_point_cursor.png'), auto;*/
   }
   
   #deck .slider {
@@ -181,7 +181,7 @@ html {
       opacity: 0.7;
       -webkit-transition: .2s;
       transition: opacity .2s;
-      cursor: url('real_point_cursor.png'), auto;
+      cursor: url('/static/real_point_cursor.png'), auto;
   }
   
   #deck .slider:hover {
@@ -219,7 +219,7 @@ html {
       text-decoration: none;
       width: 7em;
       z-index: 2;
-      cursor: url('real_point_cursor.png'), auto;
+      cursor: url('/static/real_point_cursor.png'), auto;
   }
   
   #deck button:hover {
@@ -243,7 +243,7 @@ html {
   }
   
   #sampler {
-          cursor: url('real_point_cursor.png'), auto;
+          cursor: url('/static/real_point_cursor.png'), auto;
   }
   
   @keyframes flickering {

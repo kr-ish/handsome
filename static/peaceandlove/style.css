@@ -144,7 +144,7 @@
       width: 20em;
       z-index: 5;
       margin: 2em;
-      /*cursor: url('real_point_cursor.png'), auto;*/
+      /*cursor: url('/static/real_point_cursor.png'), auto;*/
   }
   
   #deck .slider {
@@ -156,7 +156,7 @@
       opacity: 0.7;
       -webkit-transition: .2s;
       transition: opacity .2s;
-      cursor: url('real_point_cursor.png'), auto;
+      cursor: url('/static/real_point_cursor.png'), auto;
   }
   
   #deck .slider:hover {
@@ -194,7 +194,7 @@
       text-decoration: none;
       width: 7em;
       z-index: 2;
-      cursor: url('real_point_cursor.png'), auto;
+      cursor: url('/static/real_point_cursor.png'), auto;
   }
   
   #deck button:hover {
@@ -218,7 +218,7 @@
   }
   
   #sampler {
-          cursor: url('real_point_cursor.png'), auto;
+          cursor: url('/static/real_point_cursor.png'), auto;
   }
   
   @keyframes flickering {
