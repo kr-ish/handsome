@@ -29,13 +29,6 @@ html {
       height: auto;
   }
   
-  .container { position:relative; }
-  #container video {
-      position:absolute;
-      z-index:0;
-      float: left;
-  }
-  
   #toptext {
       position:absolute;
       float:left;

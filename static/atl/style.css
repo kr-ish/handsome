@@ -1,7 +1,3 @@
-/*#video_text{*/
-/*    position: relative;*/
-/*}*/
-
 #bg_video {
     float: left;
     width: auto;
@@ -24,13 +20,6 @@
   float: left;
   width: 100vw;
   height: auto;
-}
-
-.container { position:relative; }
-#container video {
-    position:absolute;
-    z-index:0;
-    float: left;
 }
 
 #toptext {
