@@ -70,10 +70,10 @@ body {
     height: 100%
 }
 #toptext a:link {
-    color: #eee
+    color: #b00f0f
 }
 #toptext a:visited {
-    color: #eee
+    color: #b00f0f
 }
 #toptext a:hover {
     color: #d55db8
@@ -213,7 +213,7 @@ body {
 }
 
 #deck button {
-    background-image: linear-gradient(135deg, #008aff, #86d472);
+    background-image: linear-gradient(135deg, #b00f0f, #ff1300);
     border-radius: 6px;
     box-sizing: border-box;
     color: #ffffff;
