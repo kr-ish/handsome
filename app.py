@@ -26,6 +26,11 @@ FILTERS_MAP = {
     '<3u': ('<3 U', 'justinwlaurent'),
     'wind': ('Wind', 'justinwlaurent'),
     '90slove': ('90sLove', 'liamo.studio'),
+    'bathingwithshrek': ('Bathing with Shrek', 'ryleevigor'),
+    'shrekislove': ('Shrek is love', 'ryleevigor'),
+    'shrek&fiona': ('shrek&fiona', 'pityzza'),
+    'spiral': ('SPIRAL 🌀🌀🌀', 'liamo.studio'),
+    'handycamera': ('Handy Camera', 'solar.w'),
 }
 
 # TODO: dynamically load from playlist using soundcloud api
@@ -33,69 +38,62 @@ FILTERS_MAP = {
 #  Can do track metadata pulling in SC api in JS but might be easier to do it all in python.
 # TODO: replace with namedtuple
 TRAX = [
-    (
-        "505057155",  # track id
-        "baredex-522947753",  # artist
-        "baredex",  # artist title
-        "as-long-as-we-got",  # track
-        "as long as we got",  # track title
-    ),
-    (
-        "859107265",  # track id
-        "mehdi-dookhoo",  # artist
-        "dj doog",  # artist title
-        "dilemna-nelly-x-kelly-r-dj-doog-remix",  # track
-        "DILEMNA NELLY x KELLY R DJ DOOG REMIX",  # track title
-    ),
-    (
-        "1005059164",  # track id
-        "lilpolotee",  # artist
-        "POLO PERKS <3 <3 <3",  # artist title
-        "snowpatrol-prod-goner",  # track
-        "SnowPatrol Prod Goner",  # track title
-    ),
-    (
-        "95834819",  # track id
-        "daftcrew",  # artist
-        "Daft Crew",  # artist title
-        "modjo-lady-hear-me-tonight",  # track
-        "Modjo - Lady (Hear Me Tonight)",  # track title
-    ),
-    (
-        "1063872418",  # track id
-        "ritt-momney",  # artist
-        "Ritt Momney",  # artist title
-        "escalator-1",  # track
-        "Escalator",  # track title
-    ),
-    (
-        "1047710704",  # track id
-        "bladee1000",  # artist
-        "BLADEE",  # artist title
-        "i-think",  # track
-        "I Think...",  # track title
-    ),
-    # (  # soundcloud go+ only :(
-    #     "252563438",  # track id
-    #     "thechemicalbrothers",  # artist
-    #     "The Chemical Brothers",  # artist title
-    #     "swoon-boys-noize-summer-remix",  # track
-    #     "Swoon (Boys Noize Summer Remix)",  # track title
-    # ),
-    (
-        "1141747369",  # track id
-        "chvrches",  # artist
-        "CHVRCHES",  # artist title
-        "love-triple-j-like-a-version",  # track
-        "LOVE (triple j Like A Version)",  # track title
-    ),
     # (
-    #     "1071257377",  # track id
-    #     "skrrtcord",  # artist
-    #     "SKRRTCORD",  # artist title
-    #     "love-feat-sphere-merchants-ko-zhone-prod-autoblush-omarevz-ko-zhone",  # track
-    #     "LOVE (FEAT. SPHERE MERCHANTS, KØ & ZHONE) // (PROD. AUTOBLUSH, OMAREVZ, KØ & ZHONE)"  # track title
+    #     "294929726",  # track id
+    #     "graphicmuzik",  # artist
+    #     "GraphicMuzik",  # artist title
+    #     "shrek-remix",  # track
+    #     "Shrek Remix",  # track title
     # ),
+    (
+        "1297804636",  # track id
+        "kr_sh",  # artist
+        "DJ Handsome Krish",  # artist title
+        "green-da-ba-dee-da",  # track
+        "Eiffel 65 - Blue (Flume Remix) (handsome greendub)",  # track title
+    ),
+    (
+        "504013449",  # track id
+        "theguy-v3-because-why",  # artist
+        "TheGuy V.3 (OLD)",  # artist title
+        "shrek-rave-anthem",  # track
+        "Shrek Rave Anthem",  # track title
+    ),
+    (
+        "810120781",  # track id
+        "countbaldor",  # artist
+        "count baldor",  # artist title
+        "this-is-one-dj-you-dont-want-to-fuck-with",  # track
+        "This Is One DJ You Don't Want To Fuck With",  # track title
+    ),
+    (
+        "701179420",  # track id
+        "saucysantana",  # artist
+        "SAUCY SANTANA",  # artist title
+        "material-girl",  # track
+        "Material Girl",  # track title
+    ),
+    (
+        "1296244924",  # track id
+        "seshlehemuk",  # artist
+        "Seshlehem",  # artist title
+        "livin-la-vida-loca-hbz-1",  # track
+        "Livin La Vida Loca (HBZ Hardstyle Remix) - Seshlehem",  # track title
+    ),
+    (
+        "1202860279",  # track id
+        "hikeii",  # artist
+        "@hikeii",  # artist title
+        "amygdala",  # track
+        "ecco2k & bladee - amygdala (@hikeii flip)",  # track title
+    ),
+    (
+        "1198775374",  # track id
+        "djtravella",  # artist
+        "DJ Travella",  # artist title
+        "london-uwoteee",  # track
+        "London Uwoteee",  # track title
+    ),
 ]
 
 
