@@ -173,7 +173,6 @@ def shrek():
     )
 
 
-@app.route('/')
 @app.route('/atl')
 def atl():
     page = 'atl'
@@ -194,6 +193,27 @@ def atl():
         track2=track2,
         is_safari=is_safari,
         is_computer=is_computer,
+    )
+
+
+@app.route('/')
+@app.route('/shrek2')
+def shrek2():
+    page = 'shrek2'
+    # is_safari, is_computer = parse_device_info(request)
+    # bg_path_in_static, bg_name, bg_is_video, image_credit, filters = load_background_and_filters(page)
+    # track1, track2 = load_trax(page)
+
+    return render_template(
+        f'{page}.html',
+        # background=bg_path_in_static,
+        # bg_is_video=bg_is_video,
+        # image_credit=image_credit,
+        # filters=filters,
+        # track1=track1,
+        # track2=track2,
+        # is_safari=is_safari,
+        # is_computer=is_computer,
     )
 
 
