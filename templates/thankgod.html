@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>🙌🏾</title>
+    <link rel="stylesheet" href='/static/thankgod/style.css' />
+    {#    Font#}
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Sigmar+One&family=Sorts+Mill+Goudy:ital@1&display=swap" rel="stylesheet">
+    <script src="https://use.edgefonts.net/unifrakturcook:n7:all.js"></script> -->
+{% endblock %}
+
+{% block body %}
+<div id="bodytext">
+    <img id='bg_img' src="{{ url_for('static', filename=background) }}">
+</div>
+{% endblock %}
