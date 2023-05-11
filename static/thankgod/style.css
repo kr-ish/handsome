@@ -1,5 +1,5 @@
 #navbar {
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-iteration-count: 1;
     animation-name: revealdownward;
     animation-timing-function: ease-in-out;
