@@ -13,26 +13,33 @@
 
 <script>
     let click_counter = 0;
-    let font_size_increment_px = 5;
+    let font_size_increment_px = 10;
     function pls() {
       document.title = "🧎🏾‍♂️";
       var outputElement = document.getElementById("pls");
       var existingText = outputElement.innerText;
 
-      // Append please
+      // Append "please"
       outputElement.innerText = existingText + " please ";
 
-      // Over 10 clicks, increase font size with certain probability
-      if (click_counter >= 10) {
+      // Increase font size with certain probability
+      if (click_counter >= 16) {
         var randomNum = Math.random();
         if (randomNum < 0.5) {
-          // Increase font size
           var currentFontSize = parseInt(window.getComputedStyle(outputElement).fontSize);
           outputElement.style.fontSize = (currentFontSize + font_size_increment_px) + "px";
         }
       }
 
+      // Change colors in hsl space
+      if (click_counter >= 32) {
+        var randomColor = randomHsl();
+        outputElement.style.color = randomHsl();
+      }
       click_counter ++;
+    }
+    function randomHsl() {
+      return 'hsla(' + (Math.random() * 360) + ', 100%, 70%, 1)';
     }
 </script>
 
