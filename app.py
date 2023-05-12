@@ -258,7 +258,7 @@ def shirt():
     return render_template(
         'shirt.html',
         is_computer=is_computer,
-        )
+    )
 
 
 if __name__ == '__main__':
