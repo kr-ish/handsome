@@ -226,7 +226,7 @@ def hamster():
     )
 
 
-@app.route('/prom?')
+@app.route('/prom')
 def promposal():
     page = 'promposal'
     return render_template(f'{page}.html',)
