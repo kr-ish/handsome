@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <title>🐹🕺🏾💃🏻?</title> -->
-    <title>?</title>
+    <title>🐹🕺🏾💃🏻?</title>
     <link rel="stylesheet" href='/static/promposal/style.css' />
 </head>
 
-hi <br><br>
-
-thank u for clicking around <br><br>
-
-good things r on the way <br><br>
-
-watch this space <br><br>
-<!-- <body>
+<body>
     sam bay, will you <span id="pls"></span>go to hamster prom with me?
 <br>
 <button id="btn-yes" href="promposal">YES</button>
-<button id="btn-no" onclick="pls()">no</button> -->
+<button id="btn-no" onclick="pls()">no</button>
 
 <script>
+    let click_counter = 0;
+    let font_size_increment_px = 5;
     function pls() {
       document.title = "🧎🏾‍♂️";
       var outputElement = document.getElementById("pls");
       var existingText = outputElement.innerText;
-      // Append "please" with space
+
+      // Append please
       outputElement.innerText = existingText + " please ";
+
+      // Over 10 clicks, increase font size with certain probability
+      if (click_counter >= 10) {
+        var randomNum = Math.random();
+        if (randomNum < 0.5) {
+          // Increase font size
+          var currentFontSize = parseInt(window.getComputedStyle(outputElement).fontSize);
+          outputElement.style.fontSize = (currentFontSize + font_size_increment_px) + "px";
+        }
+      }
+
+      click_counter ++;
     }
 </script>
 
