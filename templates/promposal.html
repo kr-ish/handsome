@@ -9,72 +9,18 @@
 <span id="all">
     sam bay, will you <span id="pls"></span>go to hamster prom with me?
     <br>
-    <button id="btn-yes" onclick="letsgo()">YES</button>
-    <button id="btn-no" onclick="pls()">no</button>
+    <button id="btn-yes" accesskey="y" onclick="letsgo()">YES</button>
+    <button id="btn-no" accesskey="p" onclick="pls()">no</button>
 </span>
+
+<div id="hamster-container">
+  <img src="{{ url_for('static', filename='hamster/hamster2.gif') }}" class="hamster" alt="krish hamster">
+  <img src="{{ url_for('static', filename='hamster/hamster2.gif') }}" class="hamster" alt="sam hamster">
+</div>
 
 <div class="confetti"></div>
 
-<script>
-    var allElement = document.getElementById("all");
-    var plsElement = document.getElementById("pls");
-    var confettiContainer = document.querySelector(".confetti");
-    function letsgo(){
-      document.title = "🎉";
-
-      // Trigger explosion animation
-      allElement.classList.add("explosion");
-      // TODO: disable buttons
-
-      // Trigger confetti effect
-      var confettiCount = 100;
-      var fragment = document.createDocumentFragment();
-      for (var i = 0; i < confettiCount; i++) {
-        var confettiPiece = document.createElement("div");
-        confettiPiece.classList.add("confetti-inner");
-        confettiPiece.style.left = Math.random() * 100 + "%";
-        confettiPiece.style.animationDelay = Math.random() * 4 + "s";
-        confettiPiece.style.backgroundColor = randomHsl();
-        fragment.appendChild(confettiPiece);
-      }
-      confettiContainer.appendChild(fragment);
-
-    //   // Reset explosion animation and remove confetti after animation ends
-    //   setTimeout(function() {
-    //     allElement.classList.remove("explosion");
-    //     confettiContainer.innerHTML = "";
-    //   }, 2000);
-    }
-
-    let click_counter = 0;
-    let font_size_increment_px = 10;
-    function pls() {
-      document.title = "🧎🏾‍♂️";
-
-      var existingText = plsElement.innerText;
-      // Append "please"
-      plsElement.innerText = existingText + " please ";
-
-      // Increase font size with certain probability
-      if (click_counter >= 16) {
-        var randomNum = Math.random();
-        if (randomNum < 0.5) {
-          var currentFontSize = parseInt(window.getComputedStyle(plsElement).fontSize);
-          plsElement.style.fontSize = (currentFontSize + font_size_increment_px) + "px";
-        }
-      }
-
-      // Change colors in hsl space
-      if (click_counter >= 32) {
-        var randomColor = randomHsl();
-        plsElement.style.color = randomHsl();
-      }
-      click_counter ++;
-    }
-    function randomHsl() {
-      return 'hsla(' + (Math.random() * 360) + ', 100%, 70%, 1)';
-    }
-</script>
+<script src="{{ url_for('static', filename='promposal/script.js') }}"></script>
 
 </body>
 </html>
