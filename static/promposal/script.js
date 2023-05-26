@@ -2,6 +2,7 @@ var allElement = document.getElementById("all");
 var plsElement = document.getElementById("pls");
 var confettiContainer = document.querySelector(".confetti");
 var hamsterContainer = document.getElementById('hamster-container');
+var hamsterAudio = document.getElementById('hamster-audio');
 
 function letsgo(){
   document.title = "🎉";
@@ -10,8 +11,9 @@ function letsgo(){
   allElement.classList.add("explosion");
   // TODO: disable buttons
 
-  // show hamsters
+  // Show hamsters and play music
   hamsterContainer.style.display = 'flex';
+  hamsterAudio.play();
 
   // Trigger confetti effect
   var confettiCount = 666;
@@ -81,4 +83,8 @@ function pls() {
 }
 function randomHsl() {
   return 'hsla(' + (Math.random() * 360) + ', 100%, 70%, 1)';
+}
+
+function openPlaylist() {
+  window.open('https://soundcloud.com/kr_sh/sets/osiry5qrna8b')
 }

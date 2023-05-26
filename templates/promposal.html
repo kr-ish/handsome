@@ -13,12 +13,17 @@
     <button id="btn-no" accesskey="p" onclick="pls()">no</button>
 </span>
 
-<div id="hamster-container">
-  <img src="{{ url_for('static', filename='hamster/hamster2.gif') }}" class="hamster" alt="krish hamster">
-  <img src="{{ url_for('static', filename='hamster/hamster2.gif') }}" class="hamster" alt="sam hamster">
+<div id="hamster-container" onclick="openPlaylist()">
+  <!-- <a href="https://soundcloud.com/kr_sh/sets/osiry5qrna8b"> -->
+    <!-- TODO: make playlist unlisted -->
+    <img src="{{ url_for('static', filename='hamster/hamster2.gif') }}" class="hamster" alt="krish hamster">
+    <img src="{{ url_for('static', filename='hamster/hamster2.gif') }}" class="hamster" alt="sam hamster">
+  <!-- </a> -->
 </div>
 
 <div class="confetti"></div>
+
+<audio id="hamster-audio" src="{{ url_for('static', filename='promposal/music.mp3') }}"></audio>
 
 <script src="{{ url_for('static', filename='promposal/script.js') }}"></script>
 
