@@ -73,20 +73,20 @@ body {
   }
 }
 
-/* #hamster-container {
+/* #hampster-container {
   position: relative;
   width: 100%;
   height: 100vh;
 } */
 
-#hamster-container {
+#hampster-container {
   display: none;
   justify-content: space-between;
   width: 100%;
   height: 100vh;
 }
 
-.hamster {
+.hampster {
   /* position: absolute; */
   /* top: 0; */
   /* left: 0; */

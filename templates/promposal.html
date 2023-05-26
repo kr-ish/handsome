@@ -7,23 +7,23 @@
 
 <body>
 <span id="all">
-    sam bay, will you <span id="pls"></span>go to hamster prom with me?
+    sam bay, will you <span id="pls"></span>go to hampster prom with me?
     <br>
     <button id="btn-yes" accesskey="y" onclick="letsgo()">YES</button>
     <button id="btn-no" accesskey="p" onclick="pls()">no</button>
 </span>
 
-<div id="hamster-container" onclick="openPlaylist()">
+<div id="hampster-container" onclick="openPlaylist()">
   <!-- <a href="https://soundcloud.com/kr_sh/sets/osiry5qrna8b"> -->
     <!-- TODO: make playlist unlisted -->
-    <img src="{{ url_for('static', filename='hamster/hamster2.gif') }}" class="hamster" alt="krish hamster">
-    <img src="{{ url_for('static', filename='hamster/hamster2.gif') }}" class="hamster" alt="sam hamster">
+    <img src="{{ url_for('static', filename='hampster/hampster2.gif') }}" class="hampster" alt="krish hamster">
+    <img src="{{ url_for('static', filename='hampster/hampster2.gif') }}" class="hampster" alt="sam hamster">
   <!-- </a> -->
 </div>
 
 <div class="confetti"></div>
 
-<audio id="hamster-audio" src="{{ url_for('static', filename='promposal/music.mp3') }}"></audio>
+<audio id="hampster-audio" src="{{ url_for('static', filename='promposal/music.mp3') }}"></audio>
 
 <script src="{{ url_for('static', filename='promposal/script.js') }}"></script>
 

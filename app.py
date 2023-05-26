@@ -217,10 +217,10 @@ def thankgod():
 
 
 @app.route('/')
-@app.route('/hamster')
 @app.route('/hampster')
-def hamster():
-    page = 'hamster'
+@app.route('/hampster')
+def hampster():
+    page = 'hampster'
     return render_template(
         f'{page}.html',
     )

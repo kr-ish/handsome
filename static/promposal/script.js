@@ -1,8 +1,8 @@
 var allElement = document.getElementById("all");
 var plsElement = document.getElementById("pls");
 var confettiContainer = document.querySelector(".confetti");
-var hamsterContainer = document.getElementById('hamster-container');
-var hamsterAudio = document.getElementById('hamster-audio');
+var hampsterContainer = document.getElementById('hampster-container');
+var hampsterAudio = document.getElementById('hampster-audio');
 
 function letsgo(){
   document.title = "🎉";
@@ -11,9 +11,9 @@ function letsgo(){
   allElement.classList.add("explosion");
   // TODO: disable buttons
 
-  // Show hamsters and play music
-  hamsterContainer.style.display = 'flex';
-  hamsterAudio.play();
+  // Show hampsters and play music
+  hampsterContainer.style.display = 'flex';
+  hampsterAudio.play();
 
   // Trigger confetti effect
   var confettiCount = 666;
