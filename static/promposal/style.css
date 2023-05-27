@@ -13,17 +13,19 @@ body {
 } */
 
 #btn-no {
-  /* padding: 10px 20px; */
+  padding: 10px 20px;
   /* background-color: #333; */
   /* color: #fff; */
-  cursor: pointer;
+  /* cursor: pointer; */
+  font-size: x-large;
 }
 
 #btn-yes {
-  /* padding: 10px 20px; */
+  padding: 10px 20px;
   /* background-color: #333; */
   /* color: #fff; */
   cursor: pointer;
+  font-size: x-large;
 }
 
 .explosion {
