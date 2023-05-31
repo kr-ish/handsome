@@ -66,7 +66,7 @@ function pls() {
   plsElement.innerText = existingText + " please ";
 
   // Increase font size with certain probability
-  if (click_counter >= 16) {
+  if (click_counter >= 6) {
     var randomNum = Math.random();
     if (randomNum < 0.5) {
       var currentFontSize = parseInt(window.getComputedStyle(plsElement).fontSize);
@@ -75,7 +75,7 @@ function pls() {
   }
 
   // Change colors in hsl space
-  if (click_counter >= 32) {
+  if (click_counter >= 12) {
     var randomColor = randomHsl();
     plsElement.style.color = randomHsl();
   }
