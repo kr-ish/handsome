@@ -217,7 +217,7 @@ def thankgod():
 
 
 @app.route('/')
-@app.route('/hampster')
+@app.route('/hamster')
 @app.route('/hampster')
 def hampster():
     page = 'hampster'
