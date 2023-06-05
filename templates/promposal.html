@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🐹🕺🏾💃🏻</title>
+    <link rel="stylesheet" href='/static/promposal/style.css' />
+</head>
+
+<body>
+<span id="all">
+    sam bay, will you <span id="pls"></span>go to hampster prom with me?
+    <br>
+    <button id="btn-yes" accesskey="y" onclick="letsgo()">YES</button>
+    <button id="btn-no" accesskey="p" onclick="pls()">no</button>
+</span>
+
+<div id="hampster-container" onclick="openPlaylist()">
+  <!-- <a href="https://soundcloud.com/kr_sh/sets/osiry5qrna8b"> -->
+    <!-- TODO: make playlist unlisted -->
+    <img src="{{ url_for('static', filename='hampster/hampster2.gif') }}" class="hampster" alt="krish hamster">
+    <img src="{{ url_for('static', filename='hampster/hampster2.gif') }}" class="hampster" alt="sam hamster">
+  <!-- </a> -->
+</div>
+
+<div class="confetti"></div>
+
+<audio id="hampster-audio" src="{{ url_for('static', filename='promposal/music.mp3') }}"></audio>
+
+<script src="{{ url_for('static', filename='promposal/script.js') }}"></script>
+
+</body>
+</html>

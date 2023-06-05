@@ -196,7 +196,6 @@ def atl():
     )
 
 
-@app.route('/')
 @app.route('/thankgod')
 def thankgod():
     page = 'thankgod'
@@ -215,6 +214,22 @@ def thankgod():
         # is_safari=is_safari,
         # is_computer=is_computer,
     )
+
+
+@app.route('/')
+@app.route('/hamster')
+@app.route('/hampster')
+def hampster():
+    page = 'hampster'
+    return render_template(
+        f'{page}.html',
+    )
+
+
+@app.route('/prom')
+def promposal():
+    page = 'promposal'
+    return render_template(f'{page}.html',)
 
 
 @app.route('/shrek2')
@@ -243,7 +258,7 @@ def shirt():
     return render_template(
         'shirt.html',
         is_computer=is_computer,
-        )
+    )
 
 
 if __name__ == '__main__':
