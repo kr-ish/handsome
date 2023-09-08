@@ -2,7 +2,7 @@
 
 {% block head %}
     <title>🐹🕺🏾</title>
-    <link rel="stylesheet" href='/static/thankgod/style.css' />
+    <link rel="stylesheet" href='/static/hampster/style.css' />
     {#    Font#}
     <!-- <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Mea+Culpa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Sigmar+One&family=Sorts+Mill+Goudy:ital@1&display=swap" rel="stylesheet">
@@ -24,5 +24,25 @@
     <a href="homecoming?">
         <img alt="didi didldildidldidl houdihoudi dey dou" src="{{ url_for('static', filename='hampster/hampster2.gif') }}">
     </a>
+</div>
+<div id="deck">
+    <div id = "sampler">
+        <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
+        <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
+        <audio id="sound3" src="{{url_for('static', filename='dlh-fucking-sick.wav')}}" preload="auto"></audio>
+        <audio id="sound4" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
+        <audio id="sound5" src="{{url_for('static', filename='krishonthewhootytriplesat.wav')}}" preload="auto"></audio>
+        <audio id="sound6" src="{{url_for('static', filename='punch-with-oof.wav')}}" preload="auto"></audio>
+        <!-- <audio id="sound7" src="{{url_for('static', filename='esha-handsome.wav')}}" preload="auto"></audio> -->
+        <!-- <audio id="sound8" src="{{url_for('static', filename='mishti-handsome.wav')}}" preload="auto"></audio> -->
+        <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
+        <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
+        <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
+        <button onclick="document.getElementById('sound4').play();"><span>4</span></button>
+        <button onclick="document.getElementById('sound5').play();"><span>5</span></button>
+        <button onclick="document.getElementById('sound6').play();"><span>6</span></button>
+        <!-- <button onclick="document.getElementById('sound7').play();"><span>7</span></button> -->
+        <!-- <button onclick="document.getElementById('sound8').play();"><span>8</span></button> -->
+    </div>
 </div>
 {% endblock %}
