@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🧍🏻‍♀️🧎🏾‍♂️</title>
+    <link rel="stylesheet" href='/static/please/style.css' />
+</head>
+
+<body>
+<span id="all">
+    sam bay, will you <span id="pls"></span> sit on me?
+    <br>
+    <button id="btn-yes" accesskey="y" onclick="letsgo()">YES</button>
+    <button id="btn-no" accesskey="p" onclick="pls()">no</button>
+</span>
+
+<div id="hampster-container" onclick="openPlaylist()">
+    thank god
+    <img src="{{ url_for('static', filename='please/god.gif') }}" class="hampster">
+</div>
+
+<div class="confetti"></div>
+
+<audio id="hampster-audio" src="{{ url_for('static', filename='please/music.mp3') }}"></audio>
+
+<script src="{{ url_for('static', filename='please/script.js') }}"></script>
+
+</body>
+</html>

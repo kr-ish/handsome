@@ -233,6 +233,12 @@ def promposal():
     return render_template(f'{page}.html',)
 
 
+@app.route('/please')
+def please():
+    page = 'please'
+    return render_template(f'{page}.html',)
+
+
 @app.route('/shrek2')
 def shrek2():
     page = 'shrek2'
