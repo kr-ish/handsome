@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>🫣</title>
+    <link rel="stylesheet" href='/static/thankgod/style.css' />
+{% endblock %}
+
+{% block body %}
+        <a href="please">
+            <img src="{{ url_for('static', filename="home.jpg") }}">
+        </a>
+
+        <!-- {% if is_computer %} -->
+            <!-- <img id='bg_img_big_pc' src="{{ url_for('static', filename=background) }}"> -->
+        <!-- {% else %} -->
+            <!-- <img id='bg_img_big_mobile' src="{{ url_for('static', filename=background) }}"> -->
+        <!-- {% endif %} -->
+
+{% endblock %}
