@@ -216,6 +216,7 @@ def thankgod():
     )
 
 
+@app.route('/')
 @app.route('/hamster')
 @app.route('/hampster')
 def hampster():
@@ -226,12 +227,18 @@ def hampster():
 
 
 @app.route('/prom')
+@app.route('/homecoming')
 def promposal():
     page = 'promposal'
     return render_template(f'{page}.html',)
 
 
-@app.route('/')
+@app.route('/please')
+def please():
+    page = 'please'
+    return render_template(f'{page}.html',)
+
+
 @app.route('/shrek2')
 def shrek2():
     page = 'shrek2'
