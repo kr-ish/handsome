@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>🫣</title>
+    <link rel="stylesheet" href='/static/thankgod/style.css' />
+{% endblock %}
+
+{% block body %}
+        <marquee>stay tuned</marquee>
+        <a href="https://www.youtube.com/watch?v=6BFbtAfCFk0">
+            <img src="{{ url_for('static', filename="handsome1.jpg") }}" alt="pic by the amazing @smilingeyesmedia_">
+        </a>
+        pic by the amazing @smilingeyesmedia_
+
+        <!-- {% if is_computer %} -->
+            <!-- <img id='bg_img_big_pc' src="{{ url_for('static', filename=background) }}"> -->
+        <!-- {% else %} -->
+            <!-- <img id='bg_img_big_mobile' src="{{ url_for('static', filename=background) }}"> -->
+        <!-- {% endif %} -->
+
+{% endblock %}

@@ -266,13 +266,21 @@ def shirt():
         is_computer=is_computer,
     )
 
-@app.route('/')
 @app.route('/home')
 def home():
     page = 'home'
     return render_template(
         f'{page}.html',
     )
+
+@app.route('/')
+@app.route('/staytuned')
+def staytuned():
+    page = 'staytuned'
+    return render_template(
+        f'{page}.html',
+    )
+
 
 if __name__ == '__main__':
     app.run()
