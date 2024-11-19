@@ -273,6 +273,13 @@ def home():
         f'{page}.html',
     )
 
+@app.route('/join')
+def join():
+    page = 'join'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
