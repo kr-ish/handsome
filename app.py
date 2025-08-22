@@ -294,6 +294,13 @@ def oracle():
         f'{page}.html',
     )
 
+@app.route('/generator')
+def generator():
+    page = 'generator'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
