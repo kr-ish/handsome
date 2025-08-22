@@ -1,0 +1,91 @@
+#navbar {
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-name: revealdownward;
+    animation-timing-function: ease-in-out;
+  }
+
+@keyframes revealdownward {
+    0% {
+      transform: translateY(-100%);
+    }
+    10% {
+      transform: translateY(-100%);
+    }
+    20% {
+      transform: translateY(-100%);
+    }
+    30% {
+      transform: translateY(-100%);
+    }
+    40% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(-100%);
+    }
+    60% {
+      transform: translateY(-100%);
+    }
+    70% {
+      transform: translateY(-100%);
+    }
+    80% {
+      transform: translateY(0);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+.bodytext {
+  font-family: "Ballet", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Container for the marquee */
+.glow-marquee {
+  overflow: hidden;
+  width: 100%; /* Full width of the parent container */
+  background-color: black; /* Optional for contrast */
+  box-sizing: border-box;
+  position: relative;
+  height: 50px; /* Height controls the vertical space */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* The glowing text */
+.glow-text {
+  display: inline-block; /* Keeps text in a single line */
+  white-space: nowrap; /* Prevents text wrapping */
+  color: #ffd700; /* Gold color for the text */
+  text-shadow: 
+    0 0 5px #ffd700, 
+    0 0 10px #ffd700, 
+    0 0 15px #ffd700, 
+    0 0 20px #ffc700, 
+    0 0 30px #ffb700, 
+    0 0 40px #ff9f00; /* Subtle gradient for golden glow */
+  font-size: 24px; /* Adjust size */
+  animation: bounce-scroll 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; /* Bounce animation */
+}
+
+/* Keyframes for true bounce-back scroll */
+@keyframes bounce-scroll {
+  0% {
+    transform: translateX(100%); /* Start off-screen on the right */
+  }
+  50% {
+    transform: translateX(-100%); /* Move off-screen to the left */
+  }
+  100% {
+    transform: translateX(100%); /* Bounce back to the starting position */
+  }
+}

@@ -280,6 +280,13 @@ def join():
         f'{page}.html',
     )
 
+@app.route('/harmony')
+def harmony():
+    page = 'harmony'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
