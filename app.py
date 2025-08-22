@@ -288,7 +288,7 @@ def harmony():
     )
 
 @app.route('/oracle')
-def harmony():
+def oracle():
     page = 'oracle'
     return render_template(
         f'{page}.html',
