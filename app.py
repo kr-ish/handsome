@@ -287,6 +287,13 @@ def harmony():
         f'{page}.html',
     )
 
+@app.route('/oracle')
+def harmony():
+    page = 'oracle'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
