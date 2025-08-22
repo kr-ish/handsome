@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
+
+{% block head %}
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Progression Playground</title>
@@ -34,10 +34,11 @@
     summary{cursor:pointer;color:#c8d1ff}
     .code{white-space:pre-wrap;background:#0b0f1f;border:1px solid #2a3154;border-radius:12px;padding:10px}
   </style>
-</head>
-<body>
+{% endblock %}
+
+{% block body %}
   <header>
-    <h1>🎹 Progression Playground <span class="muted">— spin non‑Western & Western progressions, hear them, export MIDI</span></h1>
+    <h1>Progression Generator</span></h1>
   </header>
 
   <main>
@@ -87,10 +88,10 @@
         </div>
 
         <div class="stack" style="margin-top:12px">
-          <button id="generateBtn">🎲 Spin progression</button>
-          <button id="playBtn" class="secondary" disabled>▶️ Play</button>
-          <button id="stopBtn" class="secondary" disabled>⏹ Stop</button>
-          <button id="exportBtn" disabled>💾 Export MIDI</button>
+          <button id="generateBtn">generate</button>
+          <button id="playBtn" class="secondary" disabled>▶play</button>
+          <button id="stopBtn" class="secondary" disabled>stop</button>
+          <button id="exportBtn" disabled>export MIDI</button>
         </div>
       </div>
 
@@ -450,5 +451,4 @@ exportBtn.addEventListener('click', ()=>{
   URL.revokeObjectURL(a.href);
 });
 </script>
-</body>
-</html>
+{% endblock %}
