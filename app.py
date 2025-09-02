@@ -301,6 +301,13 @@ def generator():
         f'{page}.html',
     )
 
+@app.route('/offline')
+def offline():
+    page = 'offline'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
