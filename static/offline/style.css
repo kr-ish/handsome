@@ -98,3 +98,25 @@ a {
 a:hover {
   border-bottom: 1px dotted #cba6f7;
 }
+
+blockquote {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #dcdcdc;
+  margin: 1.5rem 2rem;
+  padding: 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  font-style: normal;
+  color: #aaa;
+  text-align: right;
+}
