@@ -308,6 +308,13 @@ def offline():
         f'{page}.html',
     )
 
+@app.route('/offline/tushar')
+def offline_tushar():
+    page = 'offline_tushar'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
