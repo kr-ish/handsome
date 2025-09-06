@@ -315,6 +315,13 @@ def offline_tushar():
         f'{page}.html',
     )
 
+@app.route('/offline/amel')
+def offline_amel():
+    page = 'offline_amel'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
