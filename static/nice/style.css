@@ -1,0 +1,143 @@
+#navbar {
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-name: revealdownward;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes revealdownward {
+    0% {
+      transform: translateY(-100%);
+    }
+    10% {
+      transform: translateY(-100%);
+    }
+    20% {
+      transform: translateY(-100%);
+    }
+    30% {
+      transform: translateY(-100%);
+    }
+    40% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(-100%);
+    }
+    60% {
+      transform: translateY(-100%);
+    }
+    70% {
+      transform: translateY(-100%);
+    }
+    80% {
+      transform: translateY(0);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+body {
+  background-color: #000000;
+  color: #e0e0e0;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0; /* don't center nav */
+  padding: 0;
+}
+
+.main-content {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 0 1.2rem;
+}
+
+h1 {
+  font-family: "Prata", serif; /* Elegant, strong, title-like */
+  text-align: center;
+  font-size: 2.4rem;
+  margin: 2rem 0;
+  color: #1c1c1c;
+  letter-spacing: 1.5em;
+  line-height: 1.5;
+}
+
+h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #f5f5f5;
+}
+
+p {
+  /* text-indent: 1.5em; */
+  margin: 1rem 0;
+}
+
+ul {
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+  margin-top: 0.4rem;
+}
+
+a {
+  color: #cba6f7;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px dotted #cba6f7;
+}
+
+.conversation {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.conversation .objection {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  text-align: right;
+  color: #f7d7a6; /* soft highlight for contrast */
+}
+
+.conversation .response {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  text-align: left;
+  color: #e0e0e0;
+}
+
+blockquote {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #dcdcdc;
+  margin: 1.5rem 2rem;
+  padding: 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  font-style: normal;
+  color: #aaa;
+  text-align: right;
+}

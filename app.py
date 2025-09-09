@@ -322,6 +322,14 @@ def offline_amel():
         f'{page}.html',
     )
 
+
+@app.route('/nice')
+def nice():
+    page = 'nice'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
