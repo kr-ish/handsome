@@ -1,0 +1,454 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Progression Playground</title>
+  <style>
+    :root{--bg:#0f1220;--panel:#161a2a;--panel2:#1c2136;--accent:#8bd3dd;--muted:#9aa3b2;--text:#eef2ff}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0b0e1a);color:var(--text)}
+    header{padding:20px 24px;border-bottom:1px solid #1f2540;background:radial-gradient(1200px 400px at 10% -50%,#1d2444 0,#14182a 60%,transparent 100%)}
+    h1{margin:0;font-size:20px;letter-spacing:0.4px}
+    main{max-width:1100px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:340px 1fr;gap:16px}
+    .card{background:var(--panel);border:1px solid #242a46;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+    .card .hd{padding:14px 16px;border-bottom:1px solid #212744;font-weight:600;color:#c6d0f7}
+    .card .bd{padding:14px 16px}
+    label{display:block;font-size:12px;color:var(--muted);margin:10px 0 6px}
+    select,input[type=number],input[type=text],input[type=range]{width:100%;background:var(--panel2);border:1px solid #2a3154;color:var(--text);border-radius:10px;padding:10px;font-size:14px;outline:none}
+    input[type=range]{padding:0}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    button{appearance:none;border:none;background:var(--accent);color:#071318;font-weight:700;padding:10px 14px;border-radius:12px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+    button.secondary{background:#2a3154;color:#dbe4ff}
+    button:disabled{opacity:.6;cursor:not-allowed}
+    .stack{display:flex;gap:8px;flex-wrap:wrap}
+    .muted{color:var(--muted)}
+    .mono{font-family:ui-monospace,Consolas,Menlo,Monaco,monospace}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#232a48;border:1px solid #2a3154;margin:4px 4px 0 0;font-size:12px}
+    .big{font-size:18px}
+    .kbd{background:#0b0f1f;border:1px solid #2a3154;border-radius:6px;padding:2px 6px}
+    .footer{padding:14px 16px;border-top:1px solid #212744;display:flex;gap:8px;flex-wrap:wrap}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .list{display:flex;flex-direction:column;gap:8px}
+    details{background:#12162a;border:1px solid #242a46;border-radius:12px;padding:8px}
+    summary{cursor:pointer;color:#c8d1ff}
+    .code{white-space:pre-wrap;background:#0b0f1f;border:1px solid #2a3154;border-radius:12px;padding:10px}
+  </style>
+{% endblock %}
+
+{% block body %}
+  <header>
+    <h1>Progression Generator</span></h1>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="hd">Setup</div>
+      <div class="bd">
+        <label>Tradition / Mode</label>
+        <select id="modeSel"></select>
+
+        <div class="row">
+          <div>
+            <label>Key / Tonic</label>
+            <select id="keySel"></select>
+          </div>
+          <div>
+            <label>Length (bars)</label>
+            <input id="lenInp" type="number" min="4" max="32" step="1" value="8" />
+          </div>
+        </div>
+
+        <label>Surprise (randomness weight)</label>
+        <input id="surprise" type="range" min="0" max="100" value="40" />
+        <div class="muted">Lower = safer cadences · Higher = wilder color moves</div>
+
+        <div class="row" style="margin-top:12px">
+          <div>
+            <label>Tempo (BPM)</label>
+            <input id="tempo" type="number" value="96" min="40" max="220" />
+          </div>
+          <div>
+            <label>Voicing</label>
+            <select id="voicing">
+              <option value="block">Block chords</option>
+              <option value="arp">Arpeggiate</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:8px">
+          <div>
+            <label><input type="checkbox" id="drone" checked> Drone (tonic & fifth)</label>
+          </div>
+          <div>
+            <label>Master Volume</label>
+            <input id="volume" type="range" min="0" max="1" step="0.01" value="0.6" />
+          </div>
+        </div>
+
+        <div class="stack" style="margin-top:12px">
+          <button id="generateBtn">generate</button>
+          <button id="playBtn" class="secondary" disabled>▶play</button>
+          <button id="stopBtn" class="secondary" disabled>stop</button>
+          <button id="exportBtn" disabled>export MIDI</button>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span class="kbd">Tip:</span>
+        <span class="muted">Use the related variations to reshape a verse/chorus quickly.</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="hd">Result</div>
+      <div class="bd">
+        <div id="result"></div>
+        <div id="vars"></div>
+        <details style="margin-top:10px">
+          <summary>Show raw JSON</summary>
+          <div id="json" class="code mono"></div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+<script>
+// -------------------------- Theory utilities & data --------------------------
+const NOTE_TO_SEMI = {C:0, 'C#':1, Db:1, D:2, 'D#':3, Eb:3, E:4, F:5, 'F#':6, Gb:6, G:7, 'G#':8, Ab:8, A:9, 'A#':10, Bb:10, B:11};
+const SEMI_TO_NOTE = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+const KEYS = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+
+function transposeNoteName(name, semi){
+  const base = NOTE_TO_SEMI[name];
+  const out = (base + semi + 1200) % 12;
+  return SEMI_TO_NOTE[out];
+}
+
+// Modes / grammars (compact, adapted from our earlier prototype)
+const MODES = {
+  'Western Major': {
+    tonic: 'C',
+    chordMap: {T:'I', S:'IV', D:'V'},
+    functions: ['T','S','D'],
+    edges: { T:[['S',0.6],['D',0.4],['T',0.2]], S:[['D',0.8],['T',0.2]], D:[['T',1.0],['S',0.2]] },
+    cadences: [['D','T'], ['S','D','T']],
+    realize: (fn,key)=> degreeToTriad(({T:'I', S:'IV', D:'V'})[fn]||'I', key, 'major')
+  },
+  'Dorian': {
+    tonic:'D',
+    chordMap:{t:'i', P:'IV', X:'bVII'},
+    functions:['t','P','X'],
+    edges:{ t:[['P',0.7],['X',0.5],['t',0.3]], P:[['t',0.7],['X',0.4]], X:[['t',0.8],['P',0.3]] },
+    cadences:[['P','t'],['X','t']],
+    realize:(deg,key)=> modalRealizeDorian(deg,key)
+  },
+  'Hijaz': {
+    tonic:'C',
+    chordMap:{I:'I', bII:'bII', III:'III', bVI:'bVI', bVII:'bVII'},
+    functions:['I','bII','III','bVI','bVII'],
+    edges:{ I:[['bII',0.8],['III',0.6],['I',0.3]], bII:[['III',0.7],['I',0.5],['bVI',0.3]], III:[['I',0.8],['bVI',0.5]], bVI:[['bVII',0.6],['I',0.6]], bVII:[['I',1.0],['bII',0.3]] },
+    cadences:[['bII','III','I'],['bVII','I']],
+    realize:(deg,key)=> hijazRealize(deg,key)
+  },
+  'Bhairav (inspired)': {
+    tonic:'C',
+    chordMap:{Sa:'I5', Re:'bII', Ga:'III', Ma:'IV', Pa:'V', Dha:'bVI', Ni:'VIIo'},
+    functions:['Sa','Re','Ga','Ma','Pa','Dha','Ni'],
+    edges:{ Sa:[['Re',0.6],['Ga',0.5],['Sa',0.3]], Re:[['Ga',0.7],['Ma',0.4],['Sa',0.3]], Ga:[['Sa',0.7],['Ma',0.6]], Ma:[['Pa',0.8],['Ga',0.4]], Pa:[['Dha',0.7],['Ga',0.3],['Sa',0.2]], Dha:[['Ni',0.6],['Pa',0.4]], Ni:[['Sa',1.0]] },
+    cadences:[['Ni','Sa'],['Pa','Ni','Sa']],
+    realize:(deg,key)=> bhairavRealize(deg,key)
+  },
+  'In Sen (JP)': {
+    tonic:'C',
+    chordMap:{C5:'C5', Db:'bII', 'Bb-':'bVII-', F:'IV5'},
+    functions:['C5','Db','Bb-','F'],
+    edges:{ C5:[['Db',0.8],['Bb-',0.5],['C5',0.3]], Db:[['Bb-',0.7],['F',0.4],['C5',0.3]], 'Bb-':[['C5',0.9],['F',0.5]], F:[['C5',1.0]] },
+    cadences:[['F','C5'],['Bb-','C5']],
+    realize:(deg,key)=> inSenRealize(deg,key)
+  },
+  'Mbira Cycle (Zim)': {
+    tonic:'C',
+    chordMap:{A:'I',B:'V',C:'IV',D:'I'},
+    functions:['A','B','C','D'],
+    edges:{ A:[['B',1]], B:[['C',1]], C:[['D',1]], D:[['A',1]] },
+    cadences:[['C','D','A']],
+    realize:(deg,key)=> mbiraRealize(deg,key)
+  }
+};
+
+// Degree → chord realization helpers
+function degreeToTriad(deg, key, type){
+  // Supports I ii iii IV V vi vii° with accidentals bII, bVII, etc.
+  const DEGREE_TO_SEMI = { I:0, i:0, ii:2, 'ii°':2, III:4, iii:4, bIII:3, IV:5, iv:5, V:7, v:7, vi:9, bVI:8, vii:11, 'vii°':11, bVII:10, 'I5':0, 'IV5':5 };
+  const offset = DEGREE_TO_SEMI[deg] ?? 0;
+  const keySemi = NOTE_TO_SEMI[key];
+  const root = (keySemi + offset) % 12;
+  const rootName = SEMI_TO_NOTE[root];
+  if (deg.endsWith('5')) return {name:`${rootName}5`, notes:[root+60, root+67]};
+  if (deg.includes('°')) return {name:`${rootName}dim`, notes:[root+60, root+60+3, root+60+6]};
+  const quality = (['I','IV','V','bII','III','bVI','bVII','bIII'].includes(deg)||type==='major')?'maj':'min';
+  const third = quality==='maj'?4:3;
+  const fifth = 7;
+  return {name:`${rootName}${quality==='maj'?'':'m'}`, notes:[root+60, root+60+third, root+60+fifth]};
+}
+
+function modalRealizeDorian(fn,key){
+  if (fn==='t') return degreeToTriad('i',key,'minor');
+  if (fn==='P') return degreeToTriad('IV',key,'major');
+  if (fn==='X') return degreeToTriad('bVII',key,'major');
+  return degreeToTriad('i',key,'minor');
+}
+
+function hijazRealize(fn,key){
+  // Prefer open 5ths or sus to keep maqam flavor, plus special III major color
+  const map = {
+    'I': () => degreeToTriad('I5',key,'major'),
+    'bII': () => degreeToTriad('bII',key,'major'),
+    'III': () => degreeToTriad('III',key,'major'),
+    'bVI': () => degreeToTriad('bVI',key,'major'),
+    'bVII': () => degreeToTriad('bVII',key,'major')
+  };
+  return (map[fn]||map['I'])();
+}
+
+function bhairavRealize(fn,key){
+  const map = {
+    'Sa': () => degreeToTriad('I5',key,'major'),
+    'Re': () => degreeToTriad('bII',key,'major'),
+    'Ga': () => degreeToTriad('III',key,'major'),
+    'Ma': () => degreeToTriad('IV',key,'major'),
+    'Pa': () => degreeToTriad('V',key,'major'),
+    'Dha': () => degreeToTriad('bVI',key,'major'),
+    'Ni': () => ({name:'leading dim', notes:[NOTE_TO_SEMI[key]+11+60, NOTE_TO_SEMI[key]+11+60+3, NOTE_TO_SEMI[key]+11+60+6]})
+  };
+  return (map[fn]||map['Sa'])();
+}
+
+function inSenRealize(fn,key){
+  if (fn==='C5') return degreeToTriad('I5',key,'major');
+  if (fn==='Db') return degreeToTriad('bII',key,'major');
+  if (fn==='Bb-') return degreeToTriad('bVII',key,'minor');
+  if (fn==='F') return degreeToTriad('IV5',key,'major');
+  return degreeToTriad('I5',key,'major');
+}
+
+function mbiraRealize(fn,key){
+  const map = {A:'I',B:'V',C:'IV',D:'I'};
+  return degreeToTriad(map[fn], key, 'major');
+}
+
+// Weighted choice helper with surprise scaling
+function chooseWeighted(options, surprise){
+  const scaled = options.map(([k,w])=>[k, Math.max(0.0001, w * (0.6 + surprise*0.01))]);
+  const total = scaled.reduce((a,[_k,w])=>a+w,0);
+  let r = Math.random() * total, acc = 0;
+  for (const [k,w] of scaled){acc += w; if (r <= acc) return k;} return scaled[scaled.length-1][0];
+}
+
+function generateFunctions(mode, bars, surprise){
+  const fns = [mode.functions[0]]; // start at home
+  while (fns.length < Math.max(2,bars-2)){
+    const last = fns[fns.length-1];
+    const next = chooseWeighted(mode.edges[last]||[[last,1]], surprise/100);
+    fns.push(next);
+  }
+  const cad = mode.cadences[Math.floor(Math.random()*mode.cadences.length)]||[mode.functions[0]];
+  return [...fns, ...cad].slice(0, bars);
+}
+
+function relatedVariations(funcs, mode){
+  const ring = mode.functions;
+  const subst = {T:'t', t:'T', S:'P', P:'S', D:'X', X:'D', I:'I', IV:'ii', V:'v', ii:'IV', v:'V', A:'B', B:'A'};
+  const cyclic_slice = (funcs.length>=6?funcs.slice(2, Math.min(funcs.length-1, 6)):funcs).concat(funcs.slice(2, Math.min(funcs.length-1, 6)));
+  const borrowed_colors = funcs.map(f=>subst[f]||f);
+  const shift = Math.random()<0.5?-1:1;
+  const sidestep = funcs.map(f=> ring.includes(f) ? ring[(ring.indexOf(f)+shift+ring.length)%ring.length] : f);
+  return {cyclic_slice, borrowed_colors, sidestep};
+}
+
+function realizeProgression(funcs, mode, key){
+  return funcs.map(fn=> mode.realize(fn,key));
+}
+
+// -------------------------- WebAudio playback --------------------------
+let audioCtx; let playing = false; let scheduled = [];
+function ensureAudio(){ if (!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }
+
+function playProgression(chords, bpm, voicing, droneOn, volume){
+  ensureAudio();
+  stopAll();
+  const secPerBeat = 60/bpm, beatsPerBar = 4;
+  const start = audioCtx.currentTime + 0.05;
+  const master = audioCtx.createGain(); master.gain.value = volume; master.connect(audioCtx.destination);
+
+  // optional drone
+  if (droneOn){
+    const root = chords[0].notes[0] % 12; // from first chord root
+    const midiToHz = m=> 440*Math.pow(2, (m-69)/12);
+    const tones = [root+48, root+55];
+    tones.forEach(m=>{
+      const o = audioCtx.createOscillator(); o.type='triangle'; o.frequency.value = midiToHz(m);
+      const g = audioCtx.createGain(); g.gain.value = 0.08; o.connect(g).connect(master); o.start(start); o.stop(start + chords.length*beatsPerBar*secPerBeat + 0.2); scheduled.push(o);
+    });
+  }
+
+  const midiToHz = m=> 440*Math.pow(2, (m-69)/12);
+  let t = start;
+  chords.forEach((ch, i)=>{
+    const dur = beatsPerBar*secPerBeat;
+    const notes = ch.notes;
+    if (voicing==='arp'){
+      notes.forEach((m, k)=>{ scheduleTone(m, t + k*0.12, dur-0.05); });
+    } else {
+      notes.forEach(m=> scheduleTone(m, t, dur-0.05));
+    }
+    t += dur;
+  });
+
+  function scheduleTone(midi, when, dur){
+    const o = audioCtx.createOscillator(); o.type='sawtooth'; o.frequency.value = midiToHz(midi);
+    const g = audioCtx.createGain(); const envA=0.01, envD=0.08; g.gain.setValueAtTime(0, when); g.gain.linearRampToValueAtTime(0.28, when+envA); g.gain.linearRampToValueAtTime(0.16, when+envA+envD); g.gain.setTargetAtTime(0, when+dur-0.05, 0.03);
+    o.connect(g).connect(master); o.start(when); o.stop(when+dur+0.05); scheduled.push(o);
+  }
+
+  playing = true;
+}
+
+function stopAll(){
+  scheduled.forEach(n=>{try{n.stop(0)}catch{}}); scheduled=[]; playing=false;
+}
+
+// -------------------------- MIDI export (Type 0) --------------------------
+function writeVarLen(value){
+  let buffer = value & 0x7F; let bytes = [];
+  while ((value >>= 7)) { buffer <<= 8; buffer |= ((value & 0x7F) | 0x80); }
+  while (true) { bytes.push(buffer & 0xFF); if (buffer & 0x80) buffer >>= 8; else break; }
+  return bytes;
+}
+
+function buildMIDI(chords, bpm){
+  const PPQ = 480; const MICROSPERQN = Math.round(60000000 / bpm);
+  const events = [];
+  // tempo meta
+  events.push(...[0x00, 0xFF, 0x51, 0x03, (MICROSPERQN>>16)&255, (MICROSPERQN>>8)&255, MICROSPERQN&255]);
+  // program change to piano
+  events.push(...[0x00, 0xC0, 0x00]);
+  // notes
+  const beatsPerBar = 4; const ticksPerBeat = PPQ; const barTicks = beatsPerBar * ticksPerBeat;
+  let time = 0;
+  chords.forEach(ch=>{
+    // Note on all at bar start
+    events.push(...writeVarLen(time)); time = 0; // delta since last event
+    ch.notes.forEach(n=> events.push(0x90, n, 96)); // velocity 96
+    // Note off after bar
+    events.push(...writeVarLen(barTicks));
+    ch.notes.forEach(n=> events.push(0x80, n, 64));
+  });
+  // End of track
+  events.push(...[0x00, 0xFF, 0x2F, 0x00]);
+
+  // Wrap into MTrk chunk
+  const trackData = Uint8Array.from(events);
+  const trk = new Uint8Array(8 + trackData.length);
+  trk.set([0x4d,0x54,0x72,0x6b, (trackData.length>>24)&255, (trackData.length>>16)&255, (trackData.length>>8)&255, trackData.length&255]);
+  trk.set(trackData, 8);
+
+  // Header chunk MThd format 0, 1 track, PPQ
+  const hdr = new Uint8Array([0x4d,0x54,0x68,0x64, 0x00,0x00,0x00,0x06, 0x00,0x00, 0x00,0x01, (PPQ>>8)&255, PPQ&255]);
+  const full = new Uint8Array(hdr.length + trk.length);
+  full.set(hdr); full.set(trk, hdr.length);
+  return new Blob([full], {type:'audio/midi'});
+}
+
+// -------------------------- UI wiring --------------------------
+const modeSel = document.getElementById('modeSel');
+const keySel = document.getElementById('keySel');
+const lenInp = document.getElementById('lenInp');
+const surprise = document.getElementById('surprise');
+const tempo = document.getElementById('tempo');
+const voicing = document.getElementById('voicing');
+const drone = document.getElementById('drone');
+const volume = document.getElementById('volume');
+const result = document.getElementById('result');
+const varsDiv = document.getElementById('vars');
+const jsonDiv = document.getElementById('json');
+const genBtn = document.getElementById('generateBtn');
+const playBtn = document.getElementById('playBtn');
+const stopBtn = document.getElementById('stopBtn');
+const exportBtn = document.getElementById('exportBtn');
+
+let current = null; // {mode, key, functions, chords}
+
+function init(){
+  Object.keys(MODES).forEach(k=>{
+    const op = document.createElement('option'); op.value=k; op.textContent=k; modeSel.appendChild(op);
+  });
+  KEYS.forEach(k=>{ const op=document.createElement('option'); op.value=k; op.textContent=k; keySel.appendChild(op); });
+  modeSel.value='Hijaz'; keySel.value='C';
+}
+
+function realizeToKey(chords, key){
+  // transpose from C-relative notes to selected key: we built notes around key already, so nothing special here
+  return chords; // chords already realized in given key
+}
+
+function render(){
+  if (!current) return;
+  const {modeName, key, functions, chords, variations, notes} = current;
+  const fnPills = functions.map(f=>`<span class="pill mono">${f}</span>`).join('');
+  const chPills = chords.map(ch=>`<span class="pill mono">${ch.name}</span>`).join('');
+  result.innerHTML = `
+    <div class="list">
+      <div class="big">${modeName} in <strong>${key}</strong></div>
+      <div>Functions: ${fnPills}</div>
+      <div>Chords: ${chPills}</div>
+      <div class="muted">${Object.values(notes||{}).join(' · ')}</div>
+    </div>`;
+
+  varsDiv.innerHTML = '';
+  for (const [label, fnSeq] of Object.entries(variations)){
+    const chordsV = realizeProgression(fnSeq, MODES[modeName], key);
+    const pillsFns = fnSeq.map(f=>`<span class="pill mono">${f}</span>`).join('');
+    const pillsCh = chordsV.map(ch=>`<span class="pill mono">${ch.name}</span>`).join('');
+    const box = document.createElement('div'); box.className='card'; box.style.marginTop='10px';
+    box.innerHTML = `<div class="hd">Related: ${label}</div><div class="bd">${pillsFns}<div style="margin-top:6px">${pillsCh}</div><div class="footer"><button class="secondary" data-apply="${label}">Use this</button></div></div>`;
+    varsDiv.appendChild(box);
+  }
+  jsonDiv.textContent = JSON.stringify(current, null, 2);
+
+  playBtn.disabled = false; exportBtn.disabled = false; stopBtn.disabled = false;
+}
+
+init();
+
+genBtn.addEventListener('click', ()=>{
+  const modeName = modeSel.value; const mode = MODES[modeName];
+  const key = keySel.value; const bars = parseInt(lenInp.value||'8',10); const s = parseInt(surprise.value,10);
+  const fns = generateFunctions(mode, bars, s);
+  const chords = realizeProgression(fns, mode, key);
+  const variations = relatedVariations(fns, mode);
+  current = {modeName, key, functions:fns, chords, variations, notes:{info:'See mode rules inside code'}};
+  render();
+});
+
+varsDiv.addEventListener('click', (e)=>{
+  const btn = e.target.closest('button[data-apply]'); if (!btn || !current) return;
+  const mode = MODES[current.modeName]; const key = current.key; const variant = btn.getAttribute('data-apply');
+  const fnSeq = current.variations[variant];
+  current.functions = fnSeq; current.chords = realizeProgression(fnSeq, mode, key);
+  render();
+});
+
+playBtn.addEventListener('click', ()=>{ if (!current) return; playProgression(current.chords, parseInt(tempo.value,10), voicing.value, drone.checked, parseFloat(volume.value)); });
+stopBtn.addEventListener('click', ()=> stopAll());
+exportBtn.addEventListener('click', ()=>{
+  if (!current) return;
+  const blob = buildMIDI(current.chords, parseInt(tempo.value,10));
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = `${current.modeName}_${current.key}_${Date.now()}.mid`; a.click();
+  URL.revokeObjectURL(a.href);
+});
+</script>
+{% endblock %}
