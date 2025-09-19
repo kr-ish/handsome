@@ -14,10 +14,20 @@ html {
 } */
 
 #navbar {
+    display: flex;
+    justify-content: space-between;
     animation-duration: 3s;
     animation-iteration-count: 1;
     animation-name: revealdownward;
     animation-timing-function: ease-in-out;
+}
+
+.navbar-left {
+    display: flex;
+}
+
+.navbar-right {
+    display: flex;
 }
 
 @keyframes revealdownward {
@@ -55,6 +65,16 @@ html {
       transform: translateY(0);
     }
   }
+
+/* To add some space between nav emojis */
+nav a {
+    margin-right: 5px;
+}
+
+/* Remove margin from the last item so it doesn't push away from the edge */
+nav a:last-child {
+    margin-right: 0;
+}
 
 nav a:link {
   text-decoration: none;
