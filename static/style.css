@@ -13,6 +13,49 @@ html {
   text-decoration: none;
 } */
 
+#navbar {
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-name: revealdownward;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes revealdownward {
+    0% {
+      transform: translateY(-100%);
+    }
+    10% {
+      transform: translateY(-100%);
+    }
+    20% {
+      transform: translateY(-100%);
+    }
+    30% {
+      transform: translateY(-100%);
+    }
+    40% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(-100%);
+    }
+    60% {
+      transform: translateY(-100%);
+    }
+    70% {
+      transform: translateY(-100%);
+    }
+    80% {
+      transform: translateY(0);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
 nav a:link {
   text-decoration: none;
   color: #ff8800
@@ -52,6 +95,7 @@ body {
     height:100%;
     background: black;
     color: white;
+    margin: 0; /* don't center nav */
 }
 
 #false_login {
