@@ -3,19 +3,25 @@
 
 <nav>
     <div id="navbar">
-        <a href="oracle">🔮</a>
-        <a href="harmony">💍</a>
-        <a href="join">💌</a>
-        <a href="home">🕴🏾</a>
-        <a href="hampster">🐹🕺🏾</a>
-        <a href="shrek2"><img src="{{ url_for('static', filename='shrekemoji.png') }}"></a>
-        <a href="thankgod">🙌🏾</a>
-        <a href="shirt">👕</a>
-        <a href="atl">🍑</a>
-        <a href="shrek">🧅</a> <!--🧌-->
-        <a href="peaceandlove">✌🏾💖</a>
-        <a href="spook">🎃</a>
-        <a href="elsewhere">🍺</a>
+        <div class="navbar-left">
+            <a href="{{ url_for('nice') }}">😇</a>
+            <a href="{{ url_for('offline') }}">📴</a>
+            <a href="{{ url_for('oracle') }}">🔮</a>
+            <a href="{{ url_for('home') }}">🕴🏾</a>
+            <a href="{{ url_for('hampster') }}">🐹🕺🏾</a>
+            <a href="{{ url_for('shrek2') }}"><img src="{{ url_for('static', filename='shrekemoji.png') }}"></a>
+            <a href="{{ url_for('thankgod') }}">🙌🏾</a>
+            <a href="{{ url_for('shirt') }}">👕</a>
+            <a href="{{ url_for('atl') }}">🍑</a>
+            <a href="{{ url_for('shrek') }}">🧅</a>
+            <a href="{{ url_for('peaceandlove') }}">✌🏾💖</a>
+            <a href="{{ url_for('spook') }}">🎃</a>
+            <a href="{{ url_for('elsewhere') }}">🍺</a>
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('harmony') }}">💍</a>
+            <a href="{{ url_for('join') }}">💌</a>
+        </div>
     </div>
 </nav>
 
@@ -30,7 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
-    <link rel="stylesheet" href='/static/style.css' />
+    <link rel="stylesheet" href='/static/style.css?v=2' />
 
     {% block head %}{% endblock %}
 </head>

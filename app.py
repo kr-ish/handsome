@@ -301,6 +301,48 @@ def generator():
         f'{page}.html',
     )
 
+@app.route('/offline')
+def offline():
+    page = 'offline'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/tushar')
+def offline_tushar():
+    page = 'offline_tushar'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/amel')
+def offline_amel():
+    page = 'offline_amel'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/andrew')
+def offline_andrew():
+    page = 'offline_andrew'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/jack')
+def offline_jack():
+    page = 'offline_jack'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/nice')
+def nice():
+    page = 'nice'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():

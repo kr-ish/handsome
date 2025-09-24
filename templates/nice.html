@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Nice November</title>
+    <link rel="stylesheet" href='/static/nice/style.css?v=2' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Prata&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="main-content">
+<h1>Nice November</h1>
+<div class="bodytext">
+
+<h2>Motivation</h2>
+<p>
+Why not?
+</p>
+
+<h2>Parameters</h2>
+<p>
+<ul><li>Perform one act of kindness each day.</li></ul>
+</p>
+<p>
+It may be offered to a stranger, to an acquaintance, to a loved one, or to yourself.
+Vary the gesture: one day outward, another day inward. The chance to be kind will find you daily —
+your task is only to remain open to it.
+</p>
+<p>
+As always, follow your heart.
+</p>
+
+<h2>Possibilities</h2>
+<ul>
+    <li>Buy flowers from a local florist and give them to someone.</li>
+    <ul>
+        <li>If you are in New York City- I really like Verdure Florist in Bedstuy, Stolen Magnolia in
+            Bushwick/Ridgewood, and Sunny's Florist in the East Village.</li>
+    </ul>
+    <li>Recall someone in your life of whom you are deeply proud, and tell them so.</li>
+    <li>Cook for someone.</li>
+    <li>Write someone a card.</li>
+    <li>Forgive someone.</li>
+    <li>And <a href="https://www.randomactsofkindness.org/kindness-ideas">many more</a></li>
+</ul>
+<p>Remember- someone can be you. Just do something nice!</p>
+
+<h2>Join</h2>
+<p>
+    <ul>
+        <!-- <li><a href="nice/tushar">Badde Bhaiyya T</a></li> -->
+    </ul>
+</p>
+<p>
+    If you would like to participate, email me a statement. A picture of you would be nice too.
+    The only hard requirements are your statement, and letting me know if you would like it added to the
+    website.
+</p>
+<p>
+    At the end of the month, I will check in with each participant and request a reflection.
+</p>
+<p>
+    <a href="mailto:krish@[thiswebsite]">krish@[thiswebsite]</a>
+</p>
+<br>
+</div>
+</div>
+<script>
+document.querySelectorAll('h1').forEach(h1 => {
+  const text = h1.textContent;
+  h1.innerHTML = text.split('').map(char =>
+    char === ' ' ? '<span> </span>' : `<span>${char}</span>`
+  ).join('');
+});
+</script>
+{% endblock %}
