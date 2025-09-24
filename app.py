@@ -1,5 +1,5 @@
 import csv
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import os
 import glob
 import random
@@ -342,6 +342,19 @@ def nice():
     return render_template(
         f'{page}.html',
     )
+
+@app.route('/wally')
+def wally():
+    page = 'wally'
+    img_paths = glob.glob(f'./static/{page}/*.png')
+    if img_paths:
+        img_path = random.choice(img_paths)
+        img_url = url_for('static', filename=f'{img_path.split('static/')[1]}')
+    else:
+        img_url = None
+
+    print(img_url)
+    return render_template('wally.html', img_url=img_url)
 
 @app.route('/')
 @app.route('/staytuned')
