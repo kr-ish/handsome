@@ -349,7 +349,7 @@ def wally():
     img_paths = glob.glob(f'./static/{page}/*.png')
     if img_paths:
         img_path = random.choice(img_paths)
-        img_url = url_for('static', filename=f'{img_path.split('static/')[1]}')
+        img_url = url_for('static', filename=f'{img_path.split("static/")[1]}')
     else:
         img_url = None
 
