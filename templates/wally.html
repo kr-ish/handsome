@@ -11,8 +11,8 @@
 {% block body %}
 <div class="random-image-container">
     {% if img_url %}
-        <img src="{{ img_url }}" alt="WALLLUU" class="random-image">
-        <div class="refresh-hint">reload for more Wally</div>
+        <img src="{{ img_url }}" alt="{{ name }}" class="random-image">
+        <div class="refresh-hint">reload for more {{ name }}</div>
     {% else %}
         <div class="error-message">Ruh Roh! Wally is asleep at the moment- check back later.</div>
     {% endif %}

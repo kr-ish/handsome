@@ -346,6 +346,13 @@ def nice():
 @app.route('/wally')
 def wally():
     page = 'wally'
+
+    file_path = f'./static/{page}/nicknames.txt'
+    with open(file_path, 'r') as file:
+        names = file.readlines()
+    names = [name.strip() for name in names]
+    name = random.choice(names)
+
     img_paths = glob.glob(f'./static/{page}/*.png')
     if img_paths:
         img_path = random.choice(img_paths)
@@ -354,7 +361,7 @@ def wally():
         img_url = None
 
     print(img_url)
-    return render_template('wally.html', img_url=img_url)
+    return render_template('wally.html', img_url=img_url, name=name)
 
 @app.route('/')
 @app.route('/staytuned')
