@@ -336,6 +336,13 @@ def offline_jack():
         f'{page}.html',
     )
 
+@app.route('/offline/ammad')
+def offline_ammad():
+    page = 'offline_ammad'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/nice')
 def nice():
     page = 'nice'
