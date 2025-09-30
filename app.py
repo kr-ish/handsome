@@ -343,6 +343,21 @@ def offline_ammad():
         f'{page}.html',
     )
 
+@app.route('/offline/emma')
+def offline_emma():
+    page = 'offline_emma'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/mom')
+def offline_mom():
+    page = 'offline_mom'
+    return render_template(
+        f'{page}.html',
+    )
+
+
 @app.route('/nice')
 def nice():
     page = 'nice'
