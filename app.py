@@ -371,6 +371,13 @@ def offline_sudhir():
         f'{page}.html',
     )
 
+@app.route('/offline/manan')
+def offline_mana():
+    page = 'offline_manan'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/nice')
 def nice():
     page = 'nice'
