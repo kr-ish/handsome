@@ -357,6 +357,12 @@ def offline_mom():
         f'{page}.html',
     )
 
+@app.route('/offline/casey')
+def offline_casey():
+    page = 'offline_casey'
+    return render_template(
+        f'{page}.html',
+    )
 
 @app.route('/nice')
 def nice():
