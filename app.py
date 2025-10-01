@@ -364,6 +364,13 @@ def offline_casey():
         f'{page}.html',
     )
 
+@app.route('/offline/sudhir')
+def offline_sudhir():
+    page = 'offline_sudhir'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/nice')
 def nice():
     page = 'nice'
