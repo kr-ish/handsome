@@ -372,8 +372,15 @@ def offline_sudhir():
     )
 
 @app.route('/offline/manan')
-def offline_mana():
+def offline_manan():
     page = 'offline_manan'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/jessie')
+def offline_jessie():
+    page = 'offline_jessie'
     return render_template(
         f'{page}.html',
     )
