@@ -385,6 +385,14 @@ def offline_jessie():
         f'{page}.html',
     )
 
+
+@app.route('/offline/joyce')
+def offline_joyce():
+    page = 'offline_joyce'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/nice')
 def nice():
     page = 'nice'
