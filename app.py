@@ -1,5 +1,5 @@
 import csv
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import os
 import glob
 import random
@@ -336,12 +336,89 @@ def offline_jack():
         f'{page}.html',
     )
 
+@app.route('/offline/ammad')
+def offline_ammad():
+    page = 'offline_ammad'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/emma')
+def offline_emma():
+    page = 'offline_emma'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/mom')
+def offline_mom():
+    page = 'offline_mom'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/casey')
+def offline_casey():
+    page = 'offline_casey'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/sudhir')
+def offline_sudhir():
+    page = 'offline_sudhir'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/manan')
+def offline_manan():
+    page = 'offline_manan'
+    return render_template(
+        f'{page}.html',
+    )
+
+@app.route('/offline/jessie')
+def offline_jessie():
+    page = 'offline_jessie'
+    return render_template(
+        f'{page}.html',
+    )
+
+
+@app.route('/offline/joyce')
+def offline_joyce():
+    page = 'offline_joyce'
+    return render_template(
+        f'{page}.html',
+    )
+
 @app.route('/nice')
 def nice():
     page = 'nice'
     return render_template(
         f'{page}.html',
     )
+
+@app.route('/wally')
+def wally():
+    page = 'wally'
+
+    file_path = f'./static/{page}/nicknames.txt'
+    with open(file_path, 'r') as file:
+        names = file.readlines()
+    names = [name.strip() for name in names]
+    name = random.choice(names)
+
+    img_paths = glob.glob(f'./static/{page}/*.png')
+    if img_paths:
+        img_path = random.choice(img_paths)
+        img_url = url_for('static', filename=f'{img_path.split("static/")[1]}')
+    else:
+        img_url = None
+
+    print(img_url)
+    return render_template('wally.html', img_url=img_url, name=name)
 
 @app.route('/')
 @app.route('/staytuned')
