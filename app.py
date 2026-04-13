@@ -1,11 +1,24 @@
 import csv
 from flask import Flask, render_template, request, url_for
 import os
-import glob
 import random
 from user_agents import parse
 
 app = Flask(__name__)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+GCS_BASE_URL = os.environ.get('GCS_BASE_URL', '')
+
+
+def asset_url_fn(filename):
+    if GCS_BASE_URL:
+        return f'{GCS_BASE_URL}/{filename}'
+    return url_for('static', filename=filename)
+
+
+@app.context_processor
+def inject_asset_url():
+    return dict(asset_url=asset_url_fn)
 
 FILTERS_MAP = {
     'breakdown': ('Breakdown', 'justinwlaurent'),
@@ -54,10 +67,11 @@ def load_background_and_filters(page):
     """
     Returns page background images/videos and associated filter and credit info.
     """
-    bg_paths = glob.glob(f'./static/{page}/bg-*')
-    bg_path = random.choice(bg_paths)
-    bg_path_in_static = bg_path.split('static/')[1]
-    bg_name = os.path.basename(bg_path)
+    manifest_path = os.path.join(BASE_DIR, 'static', page, 'bg_manifest.txt')
+    with open(manifest_path) as f:
+        bg_filenames = [line.strip() for line in f if line.strip()]
+    bg_name = random.choice(bg_filenames)
+    bg_path_in_static = f'{page}/{bg_name}'
     bg_tags, bg_ext = os.path.splitext(bg_name.lstrip('bg-'))
     bg_is_video = bg_ext == '.mp4'
     bg_tags = bg_tags.split('-')
@@ -69,7 +83,7 @@ def load_background_and_filters(page):
     for filter_key in filter_keys:
         filter = FILTERS_MAP.get(filter_key)
         if not filter:
-            app.logger.warning(f'Filter key {filter_key} not found from background media path {bg_path}, skipping..')
+            app.logger.warning(f'Filter key {filter_key} not found from background {bg_name}, skipping..')
             continue
         filters.append(filter)
 
@@ -84,7 +98,7 @@ def load_trax(page):
     #       + ad hoc- doesn't need to be hit all the time, can be run whenever playlist is updated
     #       + get track metadata SC api in JS but might be easier to do it all in python but would
     #         rather populate all at once.
-    trax_path = f'./static/{page}/trax.csv'
+    trax_path = os.path.join(BASE_DIR, 'static', page, 'trax.csv')
     trax = []
     with open(trax_path, newline='') as f:
         # TODO: would be more readble in the html if DictReader is used here to parse header
@@ -404,18 +418,16 @@ def nice():
 def wally():
     page = 'wally'
 
-    file_path = f'./static/{page}/nicknames.txt'
+    file_path = os.path.join(BASE_DIR, 'static', page, 'nicknames.txt')
     with open(file_path, 'r') as file:
         names = file.readlines()
     names = [name.strip() for name in names]
     name = random.choice(names)
 
-    img_paths = glob.glob(f'./static/{page}/*.png')
-    if img_paths:
-        img_path = random.choice(img_paths)
-        img_url = url_for('static', filename=f'{img_path.split("static/")[1]}')
-    else:
-        img_url = None
+    manifest_path = os.path.join(BASE_DIR, 'static', page, 'bg_manifest.txt')
+    with open(manifest_path) as f:
+        img_filenames = [line.strip() for line in f if line.strip()]
+    img_url = asset_url_fn(f'{page}/{random.choice(img_filenames)}') if img_filenames else None
 
     print(img_url)
     return render_template('wally.html', img_url=img_url, name=name)
