@@ -15,14 +15,14 @@
 
 <div id="hampster-container" onclick="openPlaylist()">
     thank god
-    <img src="{{ url_for('static', filename='please/god.gif') }}" class="hampster">
+    <img src="{{ asset_url('please/god.gif') }}" class="hampster">
 </div>
 
 <div class="confetti"></div>
 
-<audio id="hampster-audio" src="{{ url_for('static', filename='please/music.mp3') }}"></audio>
+<audio id="hampster-audio" src="{{ asset_url('please/music.mp3') }}"></audio>
 
-<script src="{{ url_for('static', filename='please/script.js') }}"></script>
+<script src="{{ asset_url('please/script.js') }}"></script>
 
 </body>
 </html>

@@ -42,21 +42,21 @@
             </div>
             {% endif %} -->
             <video id='background' autoplay muted playsinline loop>
-                <source src="{{url_for('static', filename=background)}}" type="video/mp4">
+                <source src="{{asset_url(background)}}" type="video/mp4">
                 Your machine is not able to load this content, but that's ok.
                 {#         TODO: add a lil surprise just for them- cookie#}
             Come to my dj set.
             </video>
         {% else %}
-            <!-- <img id='background' src="{{ url_for('static', filename=background) }}" width="33%" height="33%" style='position:absolute;top:0;left:0;'> -->
+            <!-- <img id='background' src="{{ asset_url(background) }}" width="33%" height="33%" style='position:absolute;top:0;left:0;'> -->
             <!-- TODO - instead of this hack, just save the big image at the desired resolution, once tuned -->
             {% if show_text %}
-                <img id='bg_img' src="{{ url_for('static', filename=background) }}">
+                <img id='bg_img' src="{{ asset_url(background) }}">
             {% else %}
                 {% if is_computer %}
-                    <img id='bg_img_big_pc' src="{{ url_for('static', filename=background) }}">
+                    <img id='bg_img_big_pc' src="{{ asset_url(background) }}">
                 {% else %}
-                    <img id='bg_img_big_mobile' src="{{ url_for('static', filename=background) }}">
+                    <img id='bg_img_big_mobile' src="{{ asset_url(background) }}">
                 {% endif %}
             {% endif %}
         {% endif %}
@@ -76,14 +76,14 @@
         <div id = "sampler">
             <input id="crossfader" type="range" min="-100" max="100" value="0" defaultvalue="0" class="slider" oninput="crossFade(this.value)">
 
-            <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
-            <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
-            <audio id="sound3" src="{{url_for('static', filename='krishonthemusic-sat-150-norm.mp3')}}" preload="auto"></audio>
-            <audio id="sound4" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
-            <audio id="sound5" src="{{url_for('static', filename='sentry-krishonthemusic.wav')}}" preload="auto"></audio>
-            <audio id="sound6" src="{{url_for('static', filename='punch-with-oof.wav')}}" preload="auto"></audio>
-            <audio id="sound7" src="{{url_for('static', filename='esha-handsome.wav')}}" preload="auto"></audio>
-            <audio id="sound8" src="{{url_for('static', filename='mishti-handsome.wav')}}" preload="auto"></audio>
+            <audio id="sound1" src="{{asset_url('dj-pro-dj.mp3')}}" preload="auto"></audio>
+            <audio id="sound2" src="{{asset_url('dj-pro-uh.mp3')}}" preload="auto"></audio>
+            <audio id="sound3" src="{{asset_url('krishonthemusic-sat-150-norm.mp3')}}" preload="auto"></audio>
+            <audio id="sound4" src="{{asset_url('glados-LFG.mp3')}}" preload="auto"></audio>
+            <audio id="sound5" src="{{asset_url('sentry-krishonthemusic.wav')}}" preload="auto"></audio>
+            <audio id="sound6" src="{{asset_url('punch-with-oof.wav')}}" preload="auto"></audio>
+            <audio id="sound7" src="{{asset_url('esha-handsome.wav')}}" preload="auto"></audio>
+            <audio id="sound8" src="{{asset_url('mishti-handsome.wav')}}" preload="auto"></audio>
             <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
             <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
             <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
@@ -105,7 +105,7 @@
 
     {% if show_text %}
         <div id="respawn">
-            Press <a href="{{ url_for('atl') }}"><img alt="B" src="{{ url_for('static', filename='xbox_x_button.png') }}"></a> to respawn
+            Press <a href="{{ url_for('atl') }}"><img alt="B" src="{{ asset_url('xbox_x_button.png') }}"></a> to respawn
             <!-- <div style="padding-top:100.000%;position:relative;"><iframe src="https://gifer.com/embed/3ONGb" width="100%" height="100%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply' frameBorder="0"></iframe></div> -->
             <!-- <div style="padding-top:100.000%;position:relative;"><img src="{{ url_for('static', filename='shrek-baby.gif') }}" width="100%" height="80%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply'></div> -->
         </div>
