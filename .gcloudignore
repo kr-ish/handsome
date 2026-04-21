@@ -16,6 +16,9 @@ static/**/*.png
 static/**/*.gif
 static/**/*.PNG
 static/**/*.cur
+!static/real_point_cursor.png
+!static/crossfader.jpg
+!static/donkey-cursor.cur
 static/favicon.ico
 static/*.ico
 static/*.webmanifest
