@@ -11,6 +11,6 @@
 
 {% block body %}
 <div id="bodytext">
-    <img id='bg_img' src="{{ url_for('static', filename=background) }}">
+    <img id='bg_img' src="{{ asset_url(background) }}">
 </div>
 {% endblock %}
