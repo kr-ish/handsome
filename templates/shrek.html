@@ -6,11 +6,11 @@
     <link rel="stylesheet" href='/static/shrek/style.css' />
 
     {#    Favicon#}
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <link rel="shortcut icon" href="{{ asset_url('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset_url('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset_url('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset_url('favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset_url('site.webmanifest') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Mea+Culpa&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
         </div>
         {% endif %} -->
         <video id='video' autoplay muted playsinline loop>
-            <source src="{{url_for('static', filename=video)}}" type="video/mp4">
+            <source src="{{asset_url(video)}}" type="video/mp4">
             Your machine is not able to load this content, but that's ok.
     {#         TODO: add a lil surprise just for them- cookie#}
         Come to my dj set.
@@ -69,14 +69,14 @@
         <div id = "sampler">
             <input id="crossfader" type="range" min="-100" max="100" value="0" defaultvalue="0" class="slider" oninput="crossFade(this.value)">
 
-            <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
-            <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
-            <audio id="sound3" src="{{url_for('static', filename='krishonthemusic-sat-150-norm.mp3')}}" preload="auto"></audio>
-            <audio id="sound4" src="{{url_for('static', filename='lfg-donkey.mp3')}}" preload="auto"></audio>
-            <audio id="sound5" src="{{url_for('static', filename='what-are-you-doing-in-my-swamp.mp3')}}" preload="auto"></audio>
-            <audio id="sound6" src="{{url_for('static', filename='Im a real boy.mp3')}}" preload="auto"></audio>
-            <audio id="sound7" src="{{url_for('static', filename='gumdropbuttons.mp3')}}" preload="auto"></audio>
-            <audio id="sound8" src="{{url_for('static', filename='itsallogrenow1.mp3')}}" preload="auto"></audio>
+            <audio id="sound1" src="{{asset_url('dj-pro-dj.mp3')}}" preload="auto"></audio>
+            <audio id="sound2" src="{{asset_url('dj-pro-uh.mp3')}}" preload="auto"></audio>
+            <audio id="sound3" src="{{asset_url('krishonthemusic-sat-150-norm.mp3')}}" preload="auto"></audio>
+            <audio id="sound4" src="{{asset_url('lfg-donkey.mp3')}}" preload="auto"></audio>
+            <audio id="sound5" src="{{asset_url('what-are-you-doing-in-my-swamp.mp3')}}" preload="auto"></audio>
+            <audio id="sound6" src="{{asset_url('Im a real boy.mp3')}}" preload="auto"></audio>
+            <audio id="sound7" src="{{asset_url('gumdropbuttons.mp3')}}" preload="auto"></audio>
+            <audio id="sound8" src="{{asset_url('itsallogrenow1.mp3')}}" preload="auto"></audio>
             <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
             <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
             <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
@@ -90,16 +90,16 @@
     <div id="maingif" style="display:none">
         <!--        <iframe src="https://gifer.com/embed/D0Jc" width=480 height=270.000 frameBorder="0"></iframe>-->
         <!-- <div style="padding-top:56.250%;position:relative"><iframe src="https://gifer.com/embed/D0Jc" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0"></iframe></div> -->
-        <div style="padding-top:56.250%;position:relative"><img src="{{ url_for('static', filename='swamp-rave.gif') }}" width="100%" height="100%" style='position:absolute;top:0;left:0;'></div>
+        <div style="padding-top:56.250%;position:relative"><img src="{{ asset_url('swamp-rave.gif') }}" width="100%" height="100%" style='position:absolute;top:0;left:0;'></div>
     </div>
     <div id="bigbutton">
         <button id="bigbuttonbutton" onclick="toggleBig()"><span>🎉</span></button>
     </div>
 
     <div id="respawn">
-        My potions are too strong for you, traveller <a href="{{ url_for('shrek') }}"><img alt="B" src="{{ url_for('static', filename='potion.png') }}" width="15%" height="15%"></a>
+        My potions are too strong for you, traveller <a href="{{ url_for('shrek') }}"><img alt="B" src="{{ asset_url('potion.png') }}" width="15%" height="15%"></a>
         <!-- <div style="padding-top:100.000%;position:relative;"><iframe src="https://gifer.com/embed/3ONGb" width="100%" height="100%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply' frameBorder="0"></iframe></div> -->
-        <div style="padding-top:100.000%;position:relative;"><img src="{{ url_for('static', filename='shrek-baby.gif') }}" width="100%" height="80%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply'></div>
+        <div style="padding-top:100.000%;position:relative;"><img src="{{ asset_url('shrek-baby.gif') }}" width="100%" height="80%" style='position:absolute;top:0;left:0;mix-blend-mode: multiply'></div>
     </div>
 
     <div id='bottomtext'>

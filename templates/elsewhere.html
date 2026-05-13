@@ -32,7 +32,7 @@
         </div>
         {% endif %} -->
         <video id='video' autoplay muted playsinline loop>
-            <source src="{{url_for('static', filename=video)}}" type="video/mp4">
+            <source src="{{asset_url(video)}}" type="video/mp4">
             Your machine is not able to load this content, but that's ok.
     {#         TODO: add a lil surprise just for them- cookie#}
         Come to my dj set.
@@ -54,14 +54,14 @@
         <div id = "sampler">
             <input id="crossfader" type="range" min="-100" max="100" value="0" defaultvalue="0" class="slider" oninput="crossFade(this.value)">
 
-            <audio id="sound1" src="{{url_for('static', filename='dj-pro-dj.mp3')}}" preload="auto"></audio>
-            <audio id="sound2" src="{{url_for('static', filename='dj-pro-uh.mp3')}}" preload="auto"></audio>
-            <audio id="sound3" src="{{url_for('static', filename='glados-LFG.mp3')}}" preload="auto"></audio>
-            <audio id="sound4" src="{{url_for('static', filename='esha_elsewhere.mp3')}}" preload="auto"></audio>
-            <audio id="sound5" src="{{url_for('static', filename='mishti_elsewhere.mp3')}}" preload="auto"></audio>
-            <audio id="sound6" src="{{url_for('static', filename='jq_elsewhere.mp3')}}" preload="auto"></audio>
-            <audio id="sound7" src="{{url_for('static', filename='krishonthemusic-sat-150.mp3')}}" preload="auto"></audio>
-            <audio id="sound8" src="{{url_for('static', filename='tag-weedpill.mp3')}}" preload="auto"></audio>
+            <audio id="sound1" src="{{asset_url('dj-pro-dj.mp3')}}" preload="auto"></audio>
+            <audio id="sound2" src="{{asset_url('dj-pro-uh.mp3')}}" preload="auto"></audio>
+            <audio id="sound3" src="{{asset_url('glados-LFG.mp3')}}" preload="auto"></audio>
+            <audio id="sound4" src="{{asset_url('esha_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound5" src="{{asset_url('mishti_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound6" src="{{asset_url('jq_elsewhere.mp3')}}" preload="auto"></audio>
+            <audio id="sound7" src="{{asset_url('krishonthemusic-sat-150.mp3')}}" preload="auto"></audio>
+            <audio id="sound8" src="{{asset_url('tag-weedpill.mp3')}}" preload="auto"></audio>
             <button onclick="document.getElementById('sound1').play();"><span>1</span></button>
             <button onclick="document.getElementById('sound2').play();"><span>2</span></button>
             <button onclick="document.getElementById('sound3').play();"><span>3</span></button>
@@ -77,7 +77,7 @@
     </div>
 
     <div id="respawn">
-        Press <a href="{{ url_for('elsewhere') }}"><img alt="B" src="{{ url_for('static', filename='xbox_x_button.png') }}"></a> to respawn
+        Press <a href="{{ url_for('elsewhere') }}"><img alt="B" src="{{ asset_url('xbox_x_button.png') }}"></a> to respawn
     </div>
 
     <div id='bottomtext'>
