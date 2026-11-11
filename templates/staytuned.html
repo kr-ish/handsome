@@ -3,15 +3,45 @@
 {% block head %}
     <title>🫣</title>
     <link rel="stylesheet" href='/static/thankgod/style.css' />
+    <style>
+        .home-video-wrap { position: relative; display: inline-block; max-width: 100%; }
+        .home-video-wrap video { display: block; max-width: 100%; max-height: 85vh; }
+        #sound-toggle {
+            position: absolute; bottom: 12px; right: 12px;
+            padding: 8px 12px; font-size: 16px;
+            border: none; border-radius: 20px;
+            background: rgba(0, 0, 0, 0.6); color: #fff; cursor: pointer;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
         <marquee>next show in bushwick - reach out :) - <a href="join">more soon 💌</a></marquee>
         <small><sup> scroll right ->>></sup></small>
-        <a href="https://www.youtube.com/watch?v=6BFbtAfCFk0">
-            <img src="{{ asset_url('handsome1.jpg') }}" alt="pic by the amazing @smilingeyesmedia_">
-        </a>
-        pic by the amazing @smilingeyesmedia_
+        {% if show_video %}
+            <div class="home-video-wrap">
+                <a href="https://www.youtube.com/watch?v=6BFbtAfCFk0">
+                    <video id="home-video" src="{{ asset_url('home-video.mp4') }}" autoplay muted loop playsinline></video>
+                </a>
+                <button id="sound-toggle" type="button">🔇 tap for sound</button>
+            </div>
+            <script>
+                (function () {
+                    var video = document.getElementById('home-video');
+                    var button = document.getElementById('sound-toggle');
+                    button.addEventListener('click', function () {
+                        video.muted = !video.muted;
+                        if (!video.muted) { video.play(); }
+                        button.textContent = video.muted ? '🔇 tap for sound' : '🔊 sound on';
+                    });
+                })();
+            </script>
+        {% else %}
+            <a href="https://www.youtube.com/watch?v=6BFbtAfCFk0">
+                <img src="{{ asset_url('handsome1.jpg') }}" alt="pic by the amazing @smilingeyesmedia_">
+            </a>
+            pic by the amazing @smilingeyesmedia_
+        {% endif %}
 
         <!-- {% if is_computer %} -->
             <!-- <img id='bg_img_big_pc' src="{{ url_for('static', filename=background) }}"> -->

@@ -438,6 +438,7 @@ def staytuned():
     page = 'staytuned'
     return render_template(
         f'{page}.html',
+        show_video=random.random() < 0.5,
     )
 
 
