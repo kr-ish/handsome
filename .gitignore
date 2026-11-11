@@ -140,3 +140,7 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Markdown (except README)
+*.md
+!README.md
