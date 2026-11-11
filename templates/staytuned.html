@@ -4,8 +4,15 @@
     <title>🫣</title>
     <link rel="stylesheet" href='/static/thankgod/style.css' />
     <style>
-        .home-video-wrap { position: relative; display: inline-block; max-width: 100%; }
-        .home-video-wrap video { display: block; max-width: 100%; max-height: 85vh; }
+        /* Largest size that fits the screen below the navbar + marquee + soundcloud link (~100px),
+           keeping the 1440x924 aspect ratio uncropped */
+        .home-video-wrap {
+            position: relative; margin: 0 auto;
+            width: min(100%, calc((100vh - 100px) * 1440 / 924));
+            width: min(100%, calc((100dvh - 100px) * 1440 / 924));
+        }
+        .home-video-wrap video { display: block; width: 100%; height: auto; aspect-ratio: 1440 / 924; cursor: pointer; }
+        .soundcloud-link { display: block; margin: 10px auto; text-align: center; font-size: 18px; }
         #sound-toggle {
             position: absolute; bottom: 12px; right: 12px;
             padding: 8px 12px; font-size: 16px;
@@ -17,14 +24,12 @@
 
 {% block body %}
         <marquee>next show in bushwick - reach out :) - <a href="join">more soon 💌</a></marquee>
-        <small><sup> scroll right ->>></sup></small>
         {% if show_video %}
             <div class="home-video-wrap">
-                <a href="https://www.youtube.com/watch?v=6BFbtAfCFk0">
-                    <video id="home-video" src="{{ asset_url('home-video.mp4') }}" autoplay muted loop playsinline></video>
-                </a>
+                <video id="home-video" src="{{ asset_url('home-video.mp4') }}" autoplay muted loop playsinline></video>
                 <button id="sound-toggle" type="button">🔇 tap for sound</button>
             </div>
+            <a class="soundcloud-link" href="https://soundcloud.com/kr_sh/handsome-mix-live-the-depths-part-2">soundcloud</a>
             <script>
                 (function () {
                     var video = document.getElementById('home-video');
@@ -34,9 +39,14 @@
                         if (!video.muted) { video.play(); }
                         button.textContent = video.muted ? '🔇 tap for sound' : '🔊 sound on';
                     });
+                    // Tapping the video plays/pauses it (covers phones where autoplay is blocked, e.g. iOS Low Power Mode)
+                    video.addEventListener('click', function () {
+                        if (video.paused) { video.play(); } else { video.pause(); }
+                    });
                 })();
             </script>
         {% else %}
+            <small><sup> scroll right ->>></sup></small>
             <a href="https://www.youtube.com/watch?v=6BFbtAfCFk0">
                 <img src="{{ asset_url('handsome1.jpg') }}" alt="pic by the amazing @smilingeyesmedia_">
             </a>

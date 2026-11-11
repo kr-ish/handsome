@@ -432,13 +432,17 @@ def wally():
     print(img_url)
     return render_template('wally.html', img_url=img_url, name=name)
 
+# Chance the homepage shows the video instead of the image (1.0 = always video, 0.5 = 50/50)
+HOME_VIDEO_CHANCE = 1.0
+
+
 @app.route('/')
 @app.route('/staytuned')
 def staytuned():
     page = 'staytuned'
     return render_template(
         f'{page}.html',
-        show_video=random.random() < 0.5,
+        show_video=random.random() < HOME_VIDEO_CHANCE,
     )
 
 
